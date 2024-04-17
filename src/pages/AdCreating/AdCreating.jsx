@@ -81,7 +81,6 @@ import {
             <CSSTransition state = {localTwo.state} key={localTwo.key} classNames="page" timeout={30000}>
             <Routes>
                 <Route path='/AdCreatingOne' element = {
-                
                 <AdCreatingOne taskInformation={taskInformation} setTaskInformation={setTaskInformation}/>} />
             </Routes>
             </CSSTransition>

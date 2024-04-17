@@ -6,75 +6,61 @@ import FirstDetails from '../../components/First/FirstDetails/FirstDetails'
 import { useFilteredArr } from "../../hooks/useFilteredArr";
 import { Transition , CSSTransition } from 'react-transition-group'
 import BackButton from "../../constants/BackButton";
-const First = ( {setMenuActive , isMenuActive} ) => {
+import { useDispatch, useSelector } from "react-redux";
+import { changeMenuActive } from "../../store/menuSlice";
+const First = () => {
 
-  const [ordersInformation, setOrderInformation] = useState([
-    {
-      taskName: "UX/UI-дизайнер для разработки прототипа интернет-магазина",
-      executionPlace: "Можно выполнить удаленно",
-      photos : '',
-      time : {start: 'Начать 28 февраля, 00:00' , end : 'Воскресенье, 10 марта 2024 23:59'} ,
-      tonValue: 261,
-      rate : '5',
-      customerName : 'YourName',
-      isActive : true,
-      taskDescription : "Необходимо разработать логотип для магазина! Пример стиля, и пример лого, от которого отталкиваться - предоставлю.",
-      creationTime : 'Создано когда-то , ..timing',
-      viewsNumber : '51'
-    },
-    {
-      taskName: "UX/UI-дизайнер для разработки прототипа интернет-магазина",
-      executionPlace: "Можно выполнить удаленно",
-      photos : '',
-      time : {start: 'Начать 28 февраля, 00:00' , end : 'Воскресенье, 10 марта 2024 23:59'} ,
-      tonValue: 261,
-      taskDescription : "Необходимо разработать логотип для магазина! Пример стиля, и пример лого, от которого отталкиваться - предоставлю.",
-      rate : '5',
-      customerName : 'YourName',
-      isActive : true,
-      creationTime : 'Создано когда-то , ..timing',
-      viewsNumber : '51'
-    },
-    {
-      taskName: "UX/UI-дизайнер для разработки прототипа интернет-магазина",
-      executionPlace: "Можно выполнить удаленно",
-      photos : '',
-      time : {start: 'Начать 28 февраля, 00:00' , end : 'Воскресенье, 10 марта 2024 23:59'} ,
-      tonValue: 261,
-      taskDescription : "Необходимо разработать логотип для магазина! Пример стиля, и пример лого, от которого отталкиваться - предоставлю.",
-      rate : '5',
-      customerName : 'YourName',
-      isActive : true,
-      creationTime : 'Создано когда-то , ..timing',
-      viewsNumber : '51'
-    },
-  ]);
-
-
+  const dispatch = useDispatch()
   
+  const ordersInformation = useSelector(state => state.information.orderInformations)
 
+  const isMenuActive = useSelector(state => state.menu.value)
 
-  
   const [filterBy, setFilterBy] = useState("");
   
   const filteredArr = useFilteredArr(ordersInformation , filterBy)
   
   const [isDetailsActive, setDetailsActive] = useState(false);
 
-  
-  function closeDetails(){
-      setDetailsActive(false)    
+  const setMenuActive = (set) => {
+      dispatch(changeMenuActive(set))
   }
 
-  useEffect( () => {
-    BackButton.show()
-    if (isDetailsActive){
-        BackButton.onClick(closeDetails)
-    }
-    return () => {
-      BackButton.offClick(closeDetails)
-    }
-  } , [isDetailsActive, BackButton] )
+
+  useEffect(() => {
+    let startTouchX = 0;
+    let endTouchX = 0;
+    let startTouchY = 0;
+    let endTouchY = 0;
+    document.addEventListener("touchstart", (e) => {
+      startTouchX = e.changedTouches[0].pageX;
+      startTouchY = e.changedTouches[0].pageY;
+    });
+    document.addEventListener("touchend", (e) => {
+      endTouchX = e.changedTouches[0].pageX;
+      endTouchY = e.changedTouches[0].pageY;
+      if (
+        endTouchX - startTouchX > 80 &&
+        Math.abs(startTouchY - endTouchY) < 150
+      )
+        setMenuActive(true);
+      if (isMenuActive) {
+        if (
+          endTouchX - startTouchX < 80 &&
+          Math.abs(startTouchY - endTouchY) < 150
+        ) {
+          setMenuActive(false);
+        }
+      }
+    });
+  }, [isMenuActive]);
+
+
+
+
+  
+
+  
 
 
   return (
@@ -83,7 +69,6 @@ const First = ( {setMenuActive , isMenuActive} ) => {
 
       <FirstMain style={isMenuActive ? {background : 'rgba(0,0,0,0.5)' } : {}} setDetailsActive = {setDetailsActive} ordersInformation = {filteredArr}  />
 
-      {/* <FirstMenu isMenuActive={isMenuActive} setMenuActive={setMenuActive} /> */}
 
       <CSSTransition in = {isDetailsActive}
               timeout = {200}
