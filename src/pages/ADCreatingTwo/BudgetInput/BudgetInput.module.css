@@ -1,0 +1,78 @@
+.BudgetInput{
+    border-radius: calc(30px * 0.32);
+    border-radius: 10px;
+
+    /* Cards */
+    background: rgb(32, 48, 63);
+    position: relative;
+    padding-left: calc(16px);
+    padding-top: 3.33px;
+    padding-right: calc(16px);
+    padding-bottom: calc(22.33px);
+    display:flex;
+    align-items: center;
+}
+.BudgetInput[data-value]{
+    position: relative;
+}
+.BudgetInput[data-value]::after{
+   content: attr(data-value) "%";
+}
+.hidden{
+    position: absolute;
+    top: 250px;
+    visibility: hidden;
+
+}
+.input{
+    min-width: calc(1ch + 10px);
+    color: rgb(255, 255, 255);
+    font-family: "SF Compact Rounded";
+    color: rgb(255, 255, 255);
+    font-family: "SF Compact Rounded";
+    font-size: 59.59px;
+    font-weight: 500;
+    line-height: 71px;
+    letter-spacing: 4%;
+    text-align: left;
+    background-color: transparent;
+}
+.budgetText{
+    color: rgb(218, 245, 254);
+    font-family: "SF Compact Rounded 600";
+    font-size: 42px;
+    font-weight: 600;
+    line-height: 50px;
+    letter-spacing: 1%;
+    text-align: left;
+    margin-left: calc(7px);
+    margin-top: 10px;
+}
+input:focus {outline: none;}
+.bottomTextContainer{
+    display: flex;
+    gap: calc(4px);
+    position: absolute;
+    bottom: calc(9px);
+    left: calc(16.33px);
+    align-items: center;
+}
+.bottomTextContainer p{
+    /* Description */
+    color: rgb(255, 255, 255);
+    font-family: "SF Pro Display 400";
+    font-size: 13.33px;
+    font-weight: 400;
+    line-height: 15.64px;
+    letter-spacing: 2%;
+    text-align: left;
+}
+.bottomTextContainer img{
+/* Vector */
+
+    width: 11.48px;
+    height: 11.48px;
+}
+.text{
+    word-spacing: 2px;
+}
