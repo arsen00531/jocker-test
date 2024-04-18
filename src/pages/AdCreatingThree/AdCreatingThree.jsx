@@ -47,7 +47,7 @@ const AdCreatingThree = () => {
     style={{position : 'absolute',minWidth : document.documentElement.clientWidth.toString() + 'px'}}
     initial={{  x : '100%'  }}
     animate={{   x: 0  }}
-    exit={{opacity : 0.5 , y : 10}}
+    exit={{opacity : 1}}
     transition = {{duration : 0.3}}
 
     >

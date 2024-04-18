@@ -63,9 +63,8 @@ const AdCreatingOne =   ({ MyInformation, className }) => {
   const variants = {
     initial : transform[0],
     animate : transform[1] ,
-    exit : {opacity : 0.5, y : 10 },
-    transition : { duration : 0.3, delay : 1},
-  }
+    exit : { }
+    }
   return (
     <motion.div
       variants={variants}

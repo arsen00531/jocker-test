@@ -40,7 +40,7 @@ const SecondAddCreating = () => {
         opacity : 0.5,
         y:10
       })
-      setForwardTransition ( [ {opacity : 0.5 , y:10} , { opacity : 1 , y : 0 } ])
+      setForwardTransition ( [ {x : '-100%'} , { x : '0'} ])
       navigate('/AdCreatingThree')
       }
     
@@ -68,7 +68,7 @@ const SecondAddCreating = () => {
     const variants = {
       initial :   forwardTransition[0]  ,
       animate :    forwardTransition[1] ,
-      exit : navIt ,
+      exit : {} ,
       transition : { duration : 0.3 }
     }
     return (
