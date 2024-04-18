@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import cl from "./AdCreatingThree.module.css";
 import Cap from "../../components/UI/Cap/Cap";
 import info from '../../images/icons/info.svg'
@@ -24,17 +24,9 @@ const AdCreatingThree = () => {
     alert('отправлено!')
   }
 
-  const [navIt, setNamIt] = useState({
-    x : '-100%',
-    zIndex : 1 
- })
- 
+
 
   function goBack(){
-    setNamIt(   {
-      x : '100%',
-      zIndex : 1 
-   })
     navigate(-1)
   }
 
@@ -55,8 +47,8 @@ const AdCreatingThree = () => {
     style={{position : 'absolute',minWidth : document.documentElement.clientWidth.toString() + 'px'}}
     initial={{  x : '100%'  }}
     animate={{   x: 0  }}
-    exit={navIt}
-      
+    exit={{x : '100%'}}
+    transition = {{duration : 0.3}}
 
     >
       <Cap className={cl.Cap} step={3} >

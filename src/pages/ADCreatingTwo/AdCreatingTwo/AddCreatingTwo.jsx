@@ -9,7 +9,6 @@ import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 
-let forwardX = (1)*document.documentElement.clientWidth
 const SecondAddCreating = () => {
 
 
@@ -26,20 +25,22 @@ const SecondAddCreating = () => {
     const MainButton = window.Telegram.WebApp.MainButton;
 
     const [navIt, setNamIt] = useState({
-       x : document.documentElement.clientWidth * (-1),
-       zIndex : 1 
+       opacity : 0.5,
+       y:10
     })
 
-    
+    const [forwardTransition , setForwardTransition] = useState ( 
+        [ {x : '100%'} , { x : '0' } ]
+    )
 
     const navigate = useNavigate()
 
     function goForward(){
       setNamIt({
-        x : '-100%',
-        zIndex : 1 
+        opacity : 0.5,
+        y:10
       })
-      forwardX = '-100%'
+      setForwardTransition ( [ {opacity : 0.5 , y:10} , { opacity : 1 , y : 0 } ])
       navigate('/AdCreatingThree')
       }
     
@@ -48,7 +49,7 @@ const SecondAddCreating = () => {
         x : '100%',
         zIndex : 1 
      })
-      forwardX = '100%'
+     setForwardTransition ( [ {x : '100%'} , { x : '0' } ])
         navigate(-1)
       }
     
@@ -65,10 +66,10 @@ const SecondAddCreating = () => {
     
     const tonConstant = useSelector(state => state.ton.value)
     const variants = {
-      initial : {   x : forwardX  },
-      animate : {   x: 0  },
+      initial :   forwardTransition[0]  ,
+      animate :    forwardTransition[1] ,
       exit : navIt ,
-      transition : {type : "spring" , duration : 0.5}
+      transition : { duration : 0.3 }
     }
     return (
       <motion.div className = {cl.SecondAddCreating} 
@@ -78,7 +79,7 @@ const SecondAddCreating = () => {
       initial = "initial"
       animate = "animate"
       exit = "exit"
-      
+      transition="transition"
       
       >
           <button onClick={() => goForward()} >Ппродолжить</button>

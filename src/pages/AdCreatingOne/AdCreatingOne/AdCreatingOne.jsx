@@ -34,17 +34,14 @@ const AdCreatingOne =   ({ MyInformation, className }) => {
 
   const [isSubcategoryChoiceOpen, setSubcategoryChoiceOpen] = useState(false);
 
-
-  const [navIt , setNavIt] = useState( [ 
-   '-100%', 0 
-  ] )
-
   const navigate = useNavigate()
 
+  const [transform , setTransform] = useState(
+    [ {opacity : 0} , {opacity : 1}  ]
+  )
+
   function goForward(){
-    setNavIt( [ 
-     '-100%', 0 
-    ])
+    setTransform ( {x:'-100%'} , {x : 0} )
     navigate('/AdCreatingTwo')
   }
 
@@ -64,19 +61,13 @@ const AdCreatingOne =   ({ MyInformation, className }) => {
   })
 
 
-  const variants = {
-    initial : { x : navIt[0]  },
-    animate : {  x: navIt[1]   },
-    exit : {x : '-100%'},
-    transition : {type : "spring" , duration : 0.5}
-  }
   return (
     <motion.div
 
-      variants={variants}
-      initial = "initial"
-      animate = "animate"
-      exit = "exit"
+      initial = {transform[0]}
+      animate = {transform[1]}
+      exit ={{opacity : 0.5 , y : 10}}
+      transition={ { duration : 0.3 }}
 
     style={{position : 'absolute',minWidth : document.documentElement.clientWidth.toString() + 'px' }}
       className={
