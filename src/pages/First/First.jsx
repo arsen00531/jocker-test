@@ -1,7 +1,6 @@
-import React, { useEffect, useMemo, useState } from "react";
-import { Transition, CSSTransition } from "react-transition-group";
+import React, { useCallback, useEffect, useState } from "react";
+import {  CSSTransition } from "react-transition-group";
 import { motion } from "framer-motion";
-import axios from "axios";
 
 import FirstTop from "../../components/First/FirstMain/FirstTop";
 import FirstMain from "../../components/First/FirstMain/FirstMain";
@@ -21,9 +20,10 @@ const First = () => {
 
   const isMenuActive = useSelector((state) => state.menu.value);
 
-  const setMenuActive = (set) => {
+  const setMenuActive = useCallback( (set) => {
     dispatch(changeMenuActive(set));
-  };
+  } , [dispatch])
+  
   const [filterBy, setFilterBy] = useState("");
 
   const filteredArr = useFilteredArr(ordersInformation, filterBy);
@@ -56,7 +56,7 @@ const First = () => {
         }
       }
     });
-  }, [isMenuActive]);
+  }, [isMenuActive, setMenuActive]);
 
   return (
     <motion.div
@@ -68,8 +68,8 @@ const First = () => {
         }
       }}
 
-      initial={{ opacity: 0, y: -50 }}
-      animate={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0, scale : 0.8 ,  y: -50 }}
+      animate={{ opacity: 1, scale :  1,  y: 0 }}
       transition={{ duration: 0.2 }}
     >
       <FirstTop

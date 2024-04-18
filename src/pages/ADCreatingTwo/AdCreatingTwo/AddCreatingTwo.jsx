@@ -7,11 +7,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { changeTaskInformation } from '../../../store/information';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
+
+
+let forwardX = (1)*document.documentElement.clientWidth
 const SecondAddCreating = () => {
 
 
     const taskInformation = useSelector(state => state.information.taskInformation)
-    
+
     const dispatch = useDispatch()
 
     const setTaskInformation = (obj) =>{
@@ -26,27 +29,27 @@ const SecondAddCreating = () => {
        x : document.documentElement.clientWidth * (-1),
        zIndex : 1 
     })
+
     
-      const [navItMy , setNavItMy] = useState( [ 
-   (-1)*document.documentElement.clientWidth.toString() + 'px' , 0 
-  ] )
 
     const navigate = useNavigate()
 
     function goForward(){
-        setNamIt({
-          x : document.documentElement.clientWidth * (-1),
-          zIndex : 1 
-        })
-        navigate('/AdCreatingThree')
+      setNamIt({
+        x : '-100%',
+        zIndex : 1 
+      })
+      forwardX = '-100%'
+      navigate('/AdCreatingThree')
       }
     
     function goBack(){
+      setNamIt(   {
+        x : '100%',
+        zIndex : 1 
+     })
+      forwardX = '100%'
         navigate(-1)
-        setNamIt(   {
-          x : document.documentElement.clientWidth * (1),
-          zIndex : 1 
-       })
       }
     
     useEffect( () => {
@@ -61,16 +64,22 @@ const SecondAddCreating = () => {
       })
     
     const tonConstant = useSelector(state => state.ton.value)
-
+    const variants = {
+      initial : {   x : forwardX  },
+      animate : {   x: 0  },
+      exit : navIt ,
+      transition : {type : "spring" , duration : 0.5}
+    }
     return (
       <motion.div className = {cl.SecondAddCreating} 
-      initial={{ opacity: 1, scale : 0.7 , x : document.documentElement.clientWidth.toString() + 'px' , zIndex : 100, position : 'absolute',minWidth : document.documentElement.clientWidth.toString() + 'px' }}
-      animate={{ opacity: 1, scale :  1,  x: 0 , zIndex : 1 , minWidth : document.documentElement.clientWidth.toString() + 'px'  }}
-      exit={navIt}
+      style={{minWidth : document.documentElement.clientWidth.toString() + 'px' }}
+      
+      variants={variants}
+      initial = "initial"
+      animate = "animate"
+      exit = "exit"
       
       
-      
-    
       >
           <button onClick={() => goForward()} >Ппродолжить</button>
             <Cap className={cl.Cap}  step={2} > <p className = {cl.CapText}> Создайте объявление </p> </Cap>

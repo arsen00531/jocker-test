@@ -1,22 +1,25 @@
-import React, { useEffect, useState } from "react";
-import cl from "./AdCreatingOne.module.css";
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { changeTaskInformation } from "../../../store/information";
+import {  motion } from "framer-motion";
+import React, { memo, useEffect, useState } from "react";
+import { CSSTransition } from "react-transition-group";
+
 import Cap from "../../../components/UI/Cap/Cap";
 import Categories from "../Categories/Categories";
 import TaskName from "../TaskName/TaskName";
 import DescriptionAndPhoto from "../DescriptionAndPhoto/DescriptionAndPhoto";
 import MakePrivate from "../MakePrivate/MakePrivate";
 import ChoiceCategory from "../ChoiceCategory/ChoiceCategory";
-import { CSSTransition } from "react-transition-group";
 import ChoiceSubCategory from "../ChoiceSubCategory";
-import cicle from "../../../images/icons/Circle.svg";
-import BackButton from "../../../constants/BackButton";
-import MainButton from "../../../constants/MainButton";
-import { Link, Routes, Route, useNavigate } from "react-router-dom";
 import StartOn from "../StartOn/StartOn";
-import { useDispatch, useSelector } from "react-redux";
-import { changeTaskInformation } from "../../../store/information";
-import { motion } from "framer-motion";
-const AdCreatingOne = ({ MyInformation, className }) => {
+
+import cl from "./AdCreatingOne.module.css";
+
+const BackButton = window.Telegram.WebApp.BackButton;
+const MainButton = window.Telegram.WebApp.MainButton;
+
+const AdCreatingOne =   ({ MyInformation, className }) => {
 
   const taskInformation = useSelector(
     (state) => state.information.taskInformation
@@ -31,19 +34,16 @@ const AdCreatingOne = ({ MyInformation, className }) => {
 
   const [isSubcategoryChoiceOpen, setSubcategoryChoiceOpen] = useState(false);
 
-  const BackButton = window.Telegram.WebApp.BackButton;
-
-  const MainButton = window.Telegram.WebApp.MainButton;
 
   const [navIt , setNavIt] = useState( [ 
-   (-1)*document.documentElement.clientWidth.toString() + 'px' , 0 
+   '-100%', 0 
   ] )
 
   const navigate = useNavigate()
 
   function goForward(){
     setNavIt( [ 
-      (-1)*document.documentElement.clientWidth.toString() + 'px' , 0 
+     '-100%', 0 
     ])
     navigate('/AdCreatingTwo')
   }
@@ -63,20 +63,27 @@ const AdCreatingOne = ({ MyInformation, className }) => {
     }
   })
 
+
+  const variants = {
+    initial : { x : navIt[0]  },
+    animate : {  x: navIt[1]   },
+    exit : {x : '-100%'},
+    transition : {type : "spring" , duration : 0.5}
+  }
   return (
     <motion.div
 
+      variants={variants}
+      initial = "initial"
+      animate = "animate"
+      exit = "exit"
 
-    initial={{ opacity: 1, scale : 1 , x : navIt[0] , zIndex : 100, position : 'absolute',minWidth : document.documentElement.clientWidth.toString() + 'px' }}
-    animate={{ opacity: 1, scale :  1,  x: navIt[1] , zIndex : 1 , minWidth : document.documentElement.clientWidth.toString() + 'px'  }}
-    exit={{x : document.documentElement.clientWidth * (-1), zIndex : 1 }}
-
-
+    style={{position : 'absolute',minWidth : document.documentElement.clientWidth.toString() + 'px' }}
       className={
         className ? [cl.AdCreating, className].join(" ") : cl.AdCreating
       }
     >
-      {/* <Link to="/AdCreatingTwo"> Ссылка!! </Link> */}
+
 
 
 
@@ -153,4 +160,4 @@ const AdCreatingOne = ({ MyInformation, className }) => {
   );
 };
 
-export default AdCreatingOne;
+export default memo (AdCreatingOne);

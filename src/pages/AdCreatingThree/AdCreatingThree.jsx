@@ -4,11 +4,12 @@ import Cap from "../../components/UI/Cap/Cap";
 import info from '../../images/icons/info.svg'
 import PaymentMethod from "./PaymentMethod/PaymentMethod";
 import Holding from "./Holding/Holding";
-import { useDispatch, useSelector } from "react-redux";
-import { changeTaskInformation } from "../../store/information";
+import { useSelector } from "react-redux";
+
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+
 import { motion } from "framer-motion";
+
 const AdCreatingThree = () => {
 
   const taskInformation = useSelector(state => state.information.taskInformation)
@@ -19,34 +20,19 @@ const AdCreatingThree = () => {
 
   const navigate = useNavigate()
 
-  async function send(){
-    try{
-      await axios({
-        url : 'http://localhost:5000/api/docs#/default/Advertisement',
-        headers : {
-          'Content-Type' : 'application/json'
-        },
-        params : {
-          
-        },
-        method : "POST",
-        data : {'das' : 'dsad'}
-      })
-    }
-    catch {
-      alert ('Ничего не передалось!!')
-    }
+  function send(){
+    alert('отправлено!')
   }
 
   const [navIt, setNamIt] = useState({
-    x : document.documentElement.clientWidth * (-1),
+    x : '-100%',
     zIndex : 1 
  })
  
 
   function goBack(){
     setNamIt(   {
-      x : document.documentElement.clientWidth * (1),
+      x : '100%',
       zIndex : 1 
    })
     navigate(-1)
@@ -66,8 +52,9 @@ const AdCreatingThree = () => {
 
   return (
     <motion.div className= {cl.AdCreatingThree}
-    initial={{ opacity: 1, scale : 1 , x : document.documentElement.clientWidth.toString() + 'px' , zIndex : 100, position : 'absolute',minWidth : document.documentElement.clientWidth.toString() + 'px' }}
-    animate={{ opacity: 1, scale :  1,  x: 0 , zIndex : 1 , minWidth : document.documentElement.clientWidth.toString() + 'px'  }}
+    style={{position : 'absolute',minWidth : document.documentElement.clientWidth.toString() + 'px'}}
+    initial={{  x : '100%'  }}
+    animate={{   x: 0  }}
     exit={navIt}
       
 

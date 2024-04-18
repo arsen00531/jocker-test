@@ -1,17 +1,12 @@
 import React, { useState } from "react";
 import cl from "./DatePicker.module.css";
 import GreyText from "../../../components/UI/GreyText/GreyText";
-import Picker from "../Picker/Picker";
 import CatchDate from "../CatchDate/CatchDate";
 import FullPicker from "../../../components/UI/FullPicker/FullPicker";
 
-import dateIcon from "../../../images/icons/date.svg";
-import rightArrow from "../../../images/icons/ArrowRight.svg";
-import ShowComponents from "../../../components/UI/ShowComponents/ShowComponents";
 
 const DatePicker = ({ className, taskInformation, setTaskInformation }) => {
   const [whichOne, setWhichOne] = useState("startOnly");
-  const values = ["Точная дата", "Период"];
   const keys = ["startOnly", "startAndEnd"];
 
   return (
