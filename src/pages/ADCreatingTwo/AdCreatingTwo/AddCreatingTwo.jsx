@@ -8,6 +8,8 @@ import { changeTaskInformation } from '../../../store/information';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
+let forwardTransition = [{x : '100%'} , { x : '0' } ]
+
 
 const SecondAddCreating = () => {
 
@@ -29,9 +31,7 @@ const SecondAddCreating = () => {
        y:10
     })
 
-    const [forwardTransition , setForwardTransition] = useState ( 
-        [ {x : '100%'} , { x : '0' } ]
-    )
+
 
     const navigate = useNavigate()
 
@@ -40,16 +40,16 @@ const SecondAddCreating = () => {
         opacity : 0.5,
         y:10
       })
-      setForwardTransition ( [ {x : '-100%'} , { x : '0'} ])
+      forwardTransition =  [ {x : '-100%'} , { x : '0'} ]
       navigate('/AdCreatingThree')
-      }
+      } 
     
     function goBack(){
       setNamIt(   {
         x : '100%',
         zIndex : 1 
      })
-     setForwardTransition ( [ {x : '100%'} , { x : '0' } ])
+      forwardTransition = [ {x : '100%'} , { x : '0' } ]
         navigate(-1)
       }
     
@@ -68,7 +68,7 @@ const SecondAddCreating = () => {
     const variants = {
       initial :   forwardTransition[0]  ,
       animate :    forwardTransition[1] ,
-      exit : {} ,
+      exit : {x : '-100%'} ,
       transition : { duration : 0.3 }
     }
     return (

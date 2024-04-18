@@ -63,7 +63,7 @@ const AdCreatingOne =   ({ MyInformation, className }) => {
   const variants = {
     initial : transform[0],
     animate : transform[1] ,
-    exit : { }
+    exit : { x : '-100%' }
     }
   return (
     <motion.div
