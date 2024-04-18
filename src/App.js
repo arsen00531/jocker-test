@@ -7,7 +7,7 @@ import "./css/Values.css";
 import AdCreatingTwo from "./pages/ADCreatingTwo/AdCreatingTwo/AddCreatingTwo";
 import "./css/style.css";
 import PageTransition from "./components/PageTransition";
-import { Outlet, useLocation, useOutlet } from "react-router-dom";
+import { Outlet, Router, useLocation, useOutlet } from "react-router-dom";
 import {
   BrowserRouter,
   createBrowserRouter,
@@ -32,13 +32,47 @@ import { useDispatch, useSelector } from "react-redux";
 import { changeTaskInformation } from "./store/information";
 import { fetchTon } from "./store/ton";
 import { changeMenuActive } from "./store/menuSlice";
-<script src="https://telegram.org/js/telegram-web-app.js"></script>;
+import {AnimatePresence} from 'framer-motion'
+import axios from "axios";
 
 
 
-window.Telegram.WebApp.expand();
+// window.Telegram.WebApp.expand();
 
 
+const AnimatedSwitch = () =>{
+      const location = useLocation()
+
+
+      async function gettingIngormation(){
+        try{
+          const info = await axios.post('http://localhost:5000/advertisement' , {
+            "userId": 1,
+            "title": "Backend-developer",
+            "description": "Подробнее",
+            "deadline": 60,
+            "price": 10000,
+            "startTime": "2024-04-18T09:14:26.910Z"
+          } )
+          console.log(info)
+        }
+        catch(error) {
+          console.error(error);
+        }
+      }
+      gettingIngormation()
+
+      return (
+        <AnimatePresence>
+          <Routes location={location} key={location.pathname}>
+              <Route path="/" element = {<First/>} />
+              <Route path="/AdCreatingOne" element = {<AdCreatingOne/>} />
+              <Route path="/AdCreatingTwo" element = {<AdCreatingTwo />} />
+              <Route path="/AdCreatingThree" element = {<AdCreatingThree />} />
+          </Routes>
+        </AnimatePresence>
+      )
+}
 
 
 
@@ -46,22 +80,24 @@ window.Telegram.WebApp.expand();
 
 function App() {
 
-
-
+  window.Telegram.WebApp.expand();
 
   const dispatch = useDispatch()
+
   useEffect ( () => {
     dispatch( fetchTon() )
   } )
 
 
-
   return (
     <div className="MainContainer">
-      <First />
-        <AdCreatingOne/>
-        <AdCreatingTwo />
-        <AdCreatingThree />
+      <BrowserRouter>
+
+        <FirstMenu/>
+
+        <AnimatedSwitch />
+
+      </BrowserRouter>
     </div>
   );
 }

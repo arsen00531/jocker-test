@@ -1,31 +1,34 @@
 import React, { useEffect, useMemo, useState } from "react";
+import { Transition, CSSTransition } from "react-transition-group";
+import { motion } from "framer-motion";
+import axios from "axios";
+
 import FirstTop from "../../components/First/FirstMain/FirstTop";
 import FirstMain from "../../components/First/FirstMain/FirstMain";
-import axios from "axios";
-import FirstDetails from '../../components/First/FirstDetails/FirstDetails'
+import FirstDetails from "../../components/First/FirstDetails/FirstDetails";
+
 import { useFilteredArr } from "../../hooks/useFilteredArr";
-import { Transition , CSSTransition } from 'react-transition-group'
-import BackButton from "../../constants/BackButton";
 import { useDispatch, useSelector } from "react-redux";
 import { changeMenuActive } from "../../store/menuSlice";
+
 const First = () => {
 
-  const dispatch = useDispatch()
-  
-  const ordersInformation = useSelector(state => state.information.orderInformations)
+  const dispatch = useDispatch();
 
-  const isMenuActive = useSelector(state => state.menu.value)
+  const ordersInformation = useSelector(
+    (state) => state.information.orderInformations
+  );
 
-  const [filterBy, setFilterBy] = useState("");
-  
-  const filteredArr = useFilteredArr(ordersInformation , filterBy)
-  
-  const [isDetailsActive, setDetailsActive] = useState(false);
+  const isMenuActive = useSelector((state) => state.menu.value);
 
   const setMenuActive = (set) => {
-      dispatch(changeMenuActive(set))
-  }
+    dispatch(changeMenuActive(set));
+  };
+  const [filterBy, setFilterBy] = useState("");
 
+  const filteredArr = useFilteredArr(ordersInformation, filterBy);
+
+  const [isDetailsActive, setDetailsActive] = useState(false);
 
   useEffect(() => {
     let startTouchX = 0;
@@ -55,34 +58,49 @@ const First = () => {
     });
   }, [isMenuActive]);
 
-
-
-
-  
-
-  
-
-
   return (
-    <div style={isMenuActive ? {opacity : '0.3' } : {}} className="First" onClick={() => { if(isMenuActive){setMenuActive(false) }   }}>
-       <FirstTop style={isMenuActive ? {opacity : '0.5' } : {}}  setMenuActive={setMenuActive} setFilterBy = {setFilterBy} />
+    <motion.div
+      style={isMenuActive ? { opacity: "0.3" } : {}}
+      className="First"
+      onClick={() => {
+        if (isMenuActive) {
+          setMenuActive(false);
+        }
+      }}
 
-      <FirstMain style={isMenuActive ? {background : 'rgba(0,0,0,0.5)' } : {}} setDetailsActive = {setDetailsActive} ordersInformation = {filteredArr}  />
+      initial={{ opacity: 0, y: -50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.2 }}
+    >
+      <FirstTop
+        style={isMenuActive ? { opacity: "0.5" } : {}}
+        setMenuActive={setMenuActive}
+        setFilterBy={setFilterBy}
+      />
 
+      <FirstMain
+        style={isMenuActive ? { background: "rgba(0,0,0,0.5)" } : {}}
+        setDetailsActive={setDetailsActive}
+        ordersInformation={filteredArr}
+      />
 
-      <CSSTransition in = {isDetailsActive}
-              timeout = {200}
-              mountOnEnter
-              unmountOnExit
-              classNames = 'left-right' >
-          <FirstDetails className = 'FirstDetails' setDetailsActive = {setDetailsActive}  isDetailsActive = {isDetailsActive} orderInformation = {ordersInformation[0]} similarAds = {ordersInformation}  />
-
+      <CSSTransition
+        in={isDetailsActive}
+        timeout={200}
+        mountOnEnter
+        unmountOnExit
+        classNames="left-right"
+      >
+        <FirstDetails
+          className="FirstDetails"
+          setDetailsActive={setDetailsActive}
+          isDetailsActive={isDetailsActive}
+          orderInformation={ordersInformation[0]}
+          similarAds={ordersInformation}
+        />
       </CSSTransition>
-
-    </div>
+    </motion.div>
   );
-
-
 };
 
 export default First;

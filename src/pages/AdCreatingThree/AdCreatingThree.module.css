@@ -1,9 +1,13 @@
 .AdCreatingThree{
     display: flex;
     flex-direction: column;
-    margin-left: 16px;
-    margin-right: 16px;
+    padding-left: 16px;
+    padding-right: 16px;
     margin-top: 23.33px;
+    position: absolute;
+    z-index: 100;
+    background: rgb(24, 34, 45);
+    height: 100vh;
 }
 .upTextContainer{
     display: flex;

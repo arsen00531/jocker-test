@@ -13,11 +13,12 @@ import store from './store';
 window.Telegram.WebApp.expand()
 ReactDOM.render(
 
-    <BrowserRouter >
         <Provider store = {store}>
             <App />
         </Provider>
-    </BrowserRouter>
+
+ 
+
               ,
     document.getElementById('root')
 );

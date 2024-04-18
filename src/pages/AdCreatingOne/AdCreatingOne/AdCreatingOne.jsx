@@ -15,58 +15,72 @@ import { Link, Routes, Route, useNavigate } from "react-router-dom";
 import StartOn from "../StartOn/StartOn";
 import { useDispatch, useSelector } from "react-redux";
 import { changeTaskInformation } from "../../../store/information";
+import { motion } from "framer-motion";
 const AdCreatingOne = ({ MyInformation, className }) => {
+
   const taskInformation = useSelector(
     (state) => state.information.taskInformation
   );
   const dispatch = useDispatch();
+
   const setTaskInformation = (obj) => {
     dispatch(changeTaskInformation(obj));
   };
 
-
-
   const [isCategoryChoiceOpen, setCatagoryChoiceOpen] = useState(false);
+
   const [isSubcategoryChoiceOpen, setSubcategoryChoiceOpen] = useState(false);
 
-  const navigate = useNavigate();
-  function goBack() {
-    navigate(-1);
+  const BackButton = window.Telegram.WebApp.BackButton;
+
+  const MainButton = window.Telegram.WebApp.MainButton;
+
+  const [navIt , setNavIt] = useState( [ 
+   (-1)*document.documentElement.clientWidth.toString() + 'px' , 0 
+  ] )
+
+  const navigate = useNavigate()
+
+  function goForward(){
+    setNavIt( [ 
+      (-1)*document.documentElement.clientWidth.toString() + 'px' , 0 
+    ])
+    navigate('/AdCreatingTwo')
   }
-  function goForward() {
-    navigate("/AdCreatingTwo");
+
+  function goBack(){
+    navigate(-1)
   }
-  useEffect(() => {
-    MainButton.show();
-  });
-  useEffect(() => {
-    BackButton.onClick(goBack);
+
+  useEffect( () => {
+    BackButton.show()
+    MainButton.show()
+    BackButton.onClick(goBack)
+    MainButton.onClick(goForward)
     return () => {
-      BackButton.offClick(goBack);
-    };
-  }, [BackButton, navigate]);
-  useEffect(() => {
-    MainButton.onClick(goForward);
-    return () => {
-      MainButton.offClick(goForward);
-    };
-  });
+      MainButton.offClick(goForward)
+      BackButton.offClick(goBack)
+    }
+  })
 
   return (
-    <div
+    <motion.div
+
+
+    initial={{ opacity: 1, scale : 1 , x : navIt[0] , zIndex : 100, position : 'absolute',minWidth : document.documentElement.clientWidth.toString() + 'px' }}
+    animate={{ opacity: 1, scale :  1,  x: navIt[1] , zIndex : 1 , minWidth : document.documentElement.clientWidth.toString() + 'px'  }}
+    exit={{x : document.documentElement.clientWidth * (-1), zIndex : 1 }}
+
+
       className={
         className ? [cl.AdCreating, className].join(" ") : cl.AdCreating
       }
     >
-      <button
-        onClick={() => {
-          goForward();
-        }}
-      >
-        {" "}
-      </button>
-      <Link to="/AdCreatingTwo"> Ссылка!! </Link>
+      {/* <Link to="/AdCreatingTwo"> Ссылка!! </Link> */}
 
+
+
+      <button onClick={() => goForward()} >Ппродолжить</button> 
       <Cap step={1} className={cl.Cap}>
         {" "}
         <p className={cl.CapText}> Создайте объявление </p>{" "}
@@ -135,7 +149,7 @@ const AdCreatingOne = ({ MyInformation, className }) => {
           taskInformation={taskInformation}
         ></ChoiceSubCategory>
       </CSSTransition>
-    </div>
+    </motion.div>
   );
 };
 

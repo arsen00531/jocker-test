@@ -6,13 +6,25 @@ import SmallDimond from '../../components/UI/SmallDimond/SmallDimond';
 import UpArr from '../../components/UI/UpArr/UpArr';
 import Human from '../../components/UI/Human/Human'
 import Pensel from '../../components/UI/Pencel/Pencel'
+import { useDispatch, useSelector } from 'react-redux';
+import { changeMenuActive } from '../../store/menuSlice';
 
 
-const FirstMenu = ({isMenuActive , setMenuActive , menuRef}) => {
+const FirstMenu = () => {
+
+    const dispatch = useDispatch()
+
+    const isMenuActive = useSelector(state => state.menu.value)
+
+    const setMenuActive = (set) => {
+        dispatch(changeMenuActive(set))
+    }
 
     return (
-        <div ref = {menuRef}  className= {  isMenuActive ? 'FirstMenu'  :  'FirstMenu hidden'  }>
+        <div className= {  isMenuActive ? 'FirstMenu'  :  'FirstMenu hidden'  }>
+
             <Close isMenuActive = {isMenuActive} setMenuActive = {setMenuActive}  />
+
             <div className="FirstMenu__top">
                 <img className='icon' src= {HumanIcon} alt="" />
                 <div className="FirstMenu__top-right">
@@ -24,15 +36,12 @@ const FirstMenu = ({isMenuActive , setMenuActive , menuRef}) => {
                 </div>
             </div>
 
-
             <div className="MenuPrice">
                 <UpArr className= 'upArr' /> 
                 <p className='MenuTextPrice'>1 TON</p>
                  <SmallDimond className= 'dymond' /> 
                 <p className='MenuTextRublePrice'>~   250 RUB</p>
             </div>
-
-
 
             <div className='MenuList'>
                 <Link className='menuLink'  onClick={(e) => {setMenuActive(false)}}  to="/AdCreatingOne" >Создать задание</Link>
@@ -42,6 +51,7 @@ const FirstMenu = ({isMenuActive , setMenuActive , menuRef}) => {
                 <a className='menuLink'  href="">Новости Коннект.биржи</a>
                 <a className='menuLink'  href="" style={{color : 'rgb(42, 207, 88)'}}> Стать исполнителем </a>
             </div>
+
             <div className="Menu__Helps">
                 <a className = 'menuHelp'  href="">Поддержка </a>
                 <Human className='human' />

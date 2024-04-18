@@ -39,7 +39,8 @@ const Budget = ({
         tonValue={taskInformation.tonValue}
         budget={taskInformation.budget}
         setBudget={(e) => {
-          setTaskInformation({ ...taskInformation, budget: e , tonValue :   (Number(e.replaceAll(' ' , '')) / tonConstant ).toFixed(2) + '...'  });
+          setTaskInformation({ ...taskInformation, budget: e , tonValue :   (Number(e.replaceAll(' ' , '')) / tonConstant ).toFixed(2)  });
+
         }}
       />
     </div>
