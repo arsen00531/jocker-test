@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { changeTaskInformation } from "../../../store/information";
-import {  motion } from "framer-motion";
+import {  animate, delay, motion } from "framer-motion";
 import React, { memo, useEffect, useState } from "react";
 import { CSSTransition } from "react-transition-group";
 
@@ -60,14 +60,19 @@ const AdCreatingOne =   ({ MyInformation, className }) => {
     }
   })
 
-
+  const variants = {
+    initial : transform[0],
+    animate : transform[1] ,
+    exit : {opacity : 0.5, y : 10 },
+    transition : { duration : 0.3, delay : 1},
+  }
   return (
     <motion.div
-
-      initial = {transform[0]}
-      animate = {transform[1]}
-      exit ={{opacity : 0.5 , y : 10}}
-      transition={ { duration : 0.3 }}
+      variants={variants}
+      initial = "initial"
+      animate = "animate"
+      exit = "exit"
+      transition= "transition"
 
     style={{position : 'absolute',minWidth : document.documentElement.clientWidth.toString() + 'px' }}
       className={
