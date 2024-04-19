@@ -62,10 +62,10 @@ const AdCreating = () => {
     }
     MainButton.onClick ( goForward )
     BackButton.onClick( goBack )
+    MainButton.show()
+    BackButton.show()
     
     useEffect (  () => {
-        MainButton.show()
-        BackButton.show()
         return () => {
         }
     } , [] )
