@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import FirstTop from "../../components/First/FirstMain/FirstTop";
 import FirstMain from "../../components/First/FirstMain/FirstMain";
 import FirstDetails from "../../components/First/FirstDetails/FirstDetails";
+import BackButton from '../../constants/BackButton'
 
 import { useFilteredArr } from "../../hooks/useFilteredArr";
 import { useDispatch, useSelector } from "react-redux";
@@ -29,6 +30,10 @@ const First = () => {
   const filteredArr = useFilteredArr(ordersInformation, filterBy);
 
   const [isDetailsActive, setDetailsActive] = useState(false);
+
+  useEffect(() => {
+    BackButton.hide()
+  } )
 
   useEffect(() => {
     let startTouchX = 0;

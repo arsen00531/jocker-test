@@ -1,15 +1,20 @@
-import React, { useEffect, useState } from 'react';
-import cl from './SecondAddCreating.module.css'
-import Cap from '../../../components/UI/Cap/Cap';
-import Budget from '../Budget/Budget'
-import DatePicker from '../DatePicker/DatePicker';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeTaskInformation } from '../../../store/information';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import React, { useEffect } from 'react';
+
+import Cap from '../../../components/UI/Cap/Cap';
+import Budget from '../Budget/Budget'
+import DatePicker from '../DatePicker/DatePicker';
+import BackButton from '../../../constants/BackButton';
+import MainButton from '../../../constants/MainButton';
+
+import cl from './SecondAddCreating.module.css'
+
+
 
 let forwardTransition = [{x : '100%'} , { x : '0' } ]
-
 
 const SecondAddCreating = () => {
 
@@ -22,38 +27,20 @@ const SecondAddCreating = () => {
       dispatch(changeTaskInformation(obj))
     }
 
-    const BackButton = window.Telegram.WebApp.BackButton;
-
-    const MainButton = window.Telegram.WebApp.MainButton;
-
-    const [navIt, setNamIt] = useState({
-       opacity : 0.5,
-       y:10
-    })
-
-
-
     const navigate = useNavigate()
 
     function goForward(){
-      setNamIt({
-        opacity : 0.5,
-        y:10
-      })
       forwardTransition =  [ {x : '-100%'} , { x : '0'} ]
       navigate('/AdCreatingThree')
       } 
     
     function goBack(){
-      setNamIt(   {
-        x : '100%',
-        zIndex : 1 
-     })
       forwardTransition = [ {x : '100%'} , { x : '0' } ]
         navigate(-1)
       }
     
     useEffect( () => {
+        MainButton.setText('ДАЛЕЕ')
         BackButton.show()
         MainButton.show()
         BackButton.onClick(goBack)

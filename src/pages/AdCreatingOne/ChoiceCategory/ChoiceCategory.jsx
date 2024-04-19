@@ -2,7 +2,10 @@ import React, { useState } from "react";
 import cl from "./ChoiceCategory.module.css";
 import OneInput from "../../../components/UI/OneInput/OneInput";
 import CategoryItem from "../CategoryItem/CategoryItem";
-import Palitra from "../../../images/icons/Palitra.png";
+
+const categoriesArr = [
+  { name: "Дизайн", icon: "Palitra.png", value: "design1", key: 1 }
+]
 const ChoiceCategory = ({
   setTaskInformation,
   taskInformation,
@@ -10,9 +13,6 @@ const ChoiceCategory = ({
 
 }) => {
   const [inputValue, setInputValue] = useState("");
-  const [categoriesArr, setCategoriesArr] = useState([
-    { name: "Дизайн", icon: "Palitra.png", value: "design1", key: 1 }
-  ]);
   return (
     <div className={cl.ChoiceCategory}>
       <OneInput

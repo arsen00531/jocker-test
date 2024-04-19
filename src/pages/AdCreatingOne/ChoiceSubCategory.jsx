@@ -78,7 +78,7 @@ const ChoiceSubCategory = ({taskInformation , setSubcategoryChoiceOpen , setTask
             } )
             return n
     
-    } , [inputValue, subCategorys  ]    )
+    } , [inputValue, subCategory ]    )
     console.log(sortSubCategory)
     return (
     <div className="subCategory__container">

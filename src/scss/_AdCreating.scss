@@ -180,6 +180,7 @@
 }
 .subCategory__oneInput{
     margin-top: calc(55px * 0.32);
+    flex-grow: 0;
 }
 .subCategory__container{
     display: flex;
@@ -193,6 +194,10 @@
     padding-left: calc(48px* 0.32);
     padding-right: calc(48px* 0.32);
     padding-top: calc(56px* 0.32);
+    .subCategory__oneInput{
+      flex-grow: 0;
+      margin-top: 0;
+    }
 }
 .arrowRight{
     

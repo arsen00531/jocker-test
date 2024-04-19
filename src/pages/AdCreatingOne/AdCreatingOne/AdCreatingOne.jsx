@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { changeTaskInformation } from "../../../store/information";
-import {  animate, delay, motion } from "framer-motion";
+import {   motion } from "framer-motion";
 import React, { memo, useEffect, useState } from "react";
 import { CSSTransition } from "react-transition-group";
 
@@ -13,11 +13,10 @@ import MakePrivate from "../MakePrivate/MakePrivate";
 import ChoiceCategory from "../ChoiceCategory/ChoiceCategory";
 import ChoiceSubCategory from "../ChoiceSubCategory";
 import StartOn from "../StartOn/StartOn";
+import BackButton from "../../../constants/BackButton";
+import MainButton from '../../../constants/MainButton'
 
 import cl from "./AdCreatingOne.module.css";
-
-const BackButton = window.Telegram.WebApp.BackButton;
-const MainButton = window.Telegram.WebApp.MainButton;
 
 const AdCreatingOne =   ({ MyInformation, className }) => {
 
@@ -50,6 +49,7 @@ const AdCreatingOne =   ({ MyInformation, className }) => {
   }
 
   useEffect( () => {
+    MainButton.setText('ДАЛЕЕ')
     BackButton.show()
     MainButton.show()
     BackButton.onClick(goBack)
