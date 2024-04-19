@@ -54,12 +54,16 @@ const AdCreating = () => {
 
 
     
-    
+    if (stationNow === -200){
+        MainButton.setText('ЗАКОЛДИРОВАТЬ')
+    }
+    else{
+        MainButton.setText('ДАЛЕЕ')
+    }
+    MainButton.show()
+    BackButton.show()
     
     useEffect (  () => {
-        MainButton.setText('ДАЛЕЕ')
-        MainButton.show()
-        BackButton.show()
         MainButton.onClick ( goForward )
         BackButton.onClick( goBack )
         return () => {
@@ -68,7 +72,7 @@ const AdCreating = () => {
             BackButton.hide()
             MainButton.hide()
         }
-    }  )
+    } , [] )
 
     return (
         <motion.div
