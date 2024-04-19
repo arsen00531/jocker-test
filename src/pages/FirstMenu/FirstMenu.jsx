@@ -30,7 +30,7 @@ const FirstMenu = () => {
                 <img className='icon' src= {HumanIcon} alt="" />
                 <div className="FirstMenu__top-right">
                     <p className='MenuName'>Nedzelskiy</p>
-                    <Link to={'/Profile'} className='MenuProfile'>
+                    <Link onClick={setMenuActive(false)} to={'/Profile'} className='MenuProfile'>
                         <p className='MenuProfileLink'>Профиль</p>
                         <Pensel className='normail' />
                     </Link>
@@ -45,7 +45,7 @@ const FirstMenu = () => {
             </div>
 
             <div className='MenuList'>
-                <Link className='menuLink'  onClick={(e) => {setMenuActive(false)}}  to="/AdCreatingOne" >Создать задание</Link>
+                <Link className='menuLink'  onClick={() => {setMenuActive(false)}}  to="/AdCreatingOne" >Создать задание</Link>
                 <Link className='menuLink' to = '/'>Найти задания</Link>
                 <p className='menuLink'  href="">Мои задания</p>
                 <p className='menuLink'  href="">Уведомления</p>

@@ -239,8 +239,8 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
   width: 301px;
   padding: 27px 16px;
 }
@@ -1376,7 +1376,7 @@ input {
   letter-spacing: 1%;
   text-align: left;
   outline: none;
-  width: 78px;
+  width: 76px;
 }
 .profile__container .profile__about-me .ur__town .about__u-text:hover, .profile__container .profile__about-me .ur__town .about__u-text:focus {
   outline: none;

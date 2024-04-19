@@ -4,7 +4,7 @@ import rightArrow from '../../images/icons/rightArrow.svg'
 import OneInput from '../../components/UI/OneInput/OneInput';
 import BackButton from '../../constants/BackButton';
 const ChoiceSubCategory = ({taskInformation , setSubcategoryChoiceOpen , setTaskInformation}) => {
-    const subCategorys = {design1    : [
+    const subCategorys = {design1 : [
         'Фирменный стиль, логотипы, визитки',
         'Полиграфический дизайн',
         'Иллюстрации, живопись, граффити',

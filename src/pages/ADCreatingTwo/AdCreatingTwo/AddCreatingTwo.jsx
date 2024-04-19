@@ -16,12 +16,6 @@ import cl from './SecondAddCreating.module.css'
 
 let forwardTransition = [{x : '100%'} , { x : '0' } ]
 let backTransition = { x : '-100%'  }
-const variants = {
-  initial :   forwardTransition[0]  ,
-  animate :    forwardTransition[1] ,
-  exit : backTransition ,
-  transition : { duration : 0.2 }
-}
 
 const SecondAddCreating = () => {
 
@@ -59,7 +53,13 @@ const SecondAddCreating = () => {
           BackButton.offClick(goBack)
         }
       })
-    
+  
+      const variants = {
+        initial :   forwardTransition[0]  ,
+        animate :    forwardTransition[1] ,
+        exit : backTransition ,
+        transition : { duration : 0.2 }
+      }
     const tonConstant = useSelector(state => state.ton.value)
     return (
       <motion.div className = {cl.SecondAddCreating} 

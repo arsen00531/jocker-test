@@ -18,6 +18,9 @@ import MainButton from '../../../constants/MainButton'
 
 import cl from "./AdCreatingOne.module.css";
 
+
+  let transform = [  {opacity : 0} , {opacity : 1} ]
+
 const AdCreatingOne =   ({ MyInformation, className }) => {
 
   const taskInformation = useSelector(
@@ -35,16 +38,13 @@ const AdCreatingOne =   ({ MyInformation, className }) => {
 
   const navigate = useNavigate()
 
-  const [transform , setTransform] = useState(
-    [ {opacity : 0} , {opacity : 1}  ]
-  )
-
   function goForward(){
-    setTransform ( {x:'-100%'} , {x : 0} )
+    transform  =  [ {x:'-100%'} , {x : 0} ]
     navigate('/AdCreatingTwo')
   }
 
   function goBack(){
+    transform =  [  {opacity : 0} , {opacity : 1} ]
     navigate(-1)
   }
 
@@ -66,7 +66,7 @@ const AdCreatingOne =   ({ MyInformation, className }) => {
     exit : { x : '-100%' }, 
     transition : {duration : 0.2}
     }
-    
+
   return (
     <motion.div
       variants={variants}
