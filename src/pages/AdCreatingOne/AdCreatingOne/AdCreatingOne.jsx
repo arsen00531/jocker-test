@@ -64,7 +64,7 @@ const AdCreatingOne =   ({ MyInformation, className }) => {
     initial : transform[0],
     animate : transform[1] ,
     exit : { opacity : 0 }, 
-    transition : {duration : 0.2}
+    transition : {duration : 0.1}
     }
 
   return (

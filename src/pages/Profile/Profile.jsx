@@ -11,6 +11,7 @@ import orangeWallet from "../../images/icons/OrangeWallet.svg";
 import Subtract from "../../images/icons/Subtract.svg";
 import greyArrowRight from "../../images/icons/greyArrowRight.svg";
 import Burger from "../../components/UI/Burger/Burger";
+import { Link } from "react-router-dom";
 
   const variants = {
       initial:{ opacity: 0,    },
@@ -69,7 +70,7 @@ const Profile = () => {
       </label>
 
       <div className="profile__options">
-        <div className="option__balance">
+        <Link to = "/Balance" className="option__balance">
           <div className="option__left">
             <img src={orangeWallet} className="orangeWallet" alt="" />
             <p>Баланс</p>
@@ -84,7 +85,7 @@ const Profile = () => {
             </div>
           </div>
           <img className="arrowRight" src={ArrowRight} alt="" />
-        </div>
+        </Link>
         <div className="option">
           <div className="option__left">
             <img src={orangeWallet} className="orangeWallet" alt="" />

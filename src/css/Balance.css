@@ -417,14 +417,15 @@
   border-radius: 7.31px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  line-height: 0;
   border: 1.57px solid rgba(224, 76, 76, 0.04);
   background: rgba(118, 118, 128, 0.24);
   position: relative;
   margin-top: 14px;
 }
 .transaction .stages .stage {
-  padding-top: 7px;
-  padding-bottom: 6px;
+  padding-top: 8.74px;
+  padding-bottom: 7.96px;
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -442,7 +443,7 @@
   font-family: "SF Pro Text 600";
   font-size: 13.57px;
   font-weight: 600;
-  line-height: 20.87px;
+  line-height: 16.7px;
   letter-spacing: -0.08px;
   text-align: center;
   margin-top: 0px;
@@ -454,10 +455,8 @@
   position: absolute;
   width: 33.3333333333%;
   border-radius: 8px;
-  background: rgba(118, 118, 128, 0.24);
-  border-radius: 8px;
   background: rgb(99, 99, 102);
   left: 0;
-  height: 100%;
-  bottom: 0;
+  height: 29.22px;
+  bottom: 50%;
 }

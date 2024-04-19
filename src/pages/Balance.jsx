@@ -1,17 +1,17 @@
 import React, { useEffect, useRef, useState } from 'react';
+
 import  info  from '../images/icons/info.svg';
 import plus from '../images/icons/Plus.svg'
 import upUp from '../images/icons/UpUp.svg'
-// import wallet from '../images/icons/wallet.svg'
 import wallet from '../images/icons/wallet.svg'
 import upDownArr from '../images/icons/UpDown.svg'
 import white_dymond from '../images/icons/whiteDymond.svg'
 import download from '../images/icons/download.svg'
+
 const Balance = () => {
     const ref1 = useRef(null)
     const ref2 = useRef(null)
     const ref3 = useRef(null)
-    console.log(ref1)
     const [whatShow,  setWhatShow] = useState('all')
     const [widthOfDocument , setWidthOfDocument] = useState(document.documentElement.clientWidth)
     useEffect(() => {
@@ -32,9 +32,11 @@ const Balance = () => {
     
     function setGreyBlock(whatShow){
             switch (whatShow){
-                case 'all' : return 'translateX(0%)'
-                case 'plus' : return 'translateX(100%)'
-                case 'minus' : return 'translateX(200%)'
+                case 'all' : return 'translateX(calc(0% + 2px)) translateY(50%)'
+                case 'plus' : return 'translateX(calc(100% )) translateY(50%)'
+                case 'minus' : return 'translateX(calc(200% - 2px)) translateY(50%)'
+                default :
+                    return ''
             }
     }
     function setTransform(whatShow){
@@ -42,6 +44,8 @@ const Balance = () => {
             case 'all' : return 'translateX(0px)'
             case 'plus' : return "translateX(" + (widthOfDocument*(-1)).toString() + "px)"
             case 'minus' : return "translateX(" + (widthOfDocument*(-2)).toString() + "px)"
+            default :
+                return ''
         } 
     }
     

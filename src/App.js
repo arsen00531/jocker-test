@@ -15,6 +15,7 @@ import AdCreatingTwo from "./pages/ADCreatingTwo/AdCreatingTwo/AddCreatingTwo";
 import AdCreatingOne from "./pages/AdCreatingOne/AdCreatingOne/AdCreatingOne";
 import AdCreatingThree from "./pages/AdCreatingThree/AdCreatingThree";
 import FirstMenu from "./pages/FirstMenu/FirstMenu";
+import Balance from './pages/Balance'
 
 
 import { fetchTon } from "./store/ton";
@@ -30,6 +31,7 @@ const AnimatedSwitch = () =>{
               <Route path="/AdCreatingTwo" element = {<AdCreatingTwo />} />
               <Route path="/AdCreatingThree" element = {<AdCreatingThree />} />
               <Route path="/Profile" element = {<Profile />}  /> 
+              <Route path="/Balance" element = { <Balance /> }  />
           </Routes>
         </AnimatePresence>
       )
