@@ -60,17 +60,22 @@ const AdCreating = () => {
     else{
         MainButton.setText('ДАЛЕЕ')
     }
-    MainButton.show()
-    BackButton.show()
     
+    useEffect ( () => {
+        MainButton.show()
+        BackButton.show()
+        return ( ) => {
+            BackButton.hide()
+            MainButton.hide()
+        }
+    } , [] )
+
     useEffect (  () => {
         MainButton.onClick ( goForward )
         BackButton.onClick( goBack )
         return () => {
             BackButton.offClick(goBack)
             MainButton.offClick(goForward)
-            BackButton.hide()
-            MainButton.hide()
         }
     }  )
 
