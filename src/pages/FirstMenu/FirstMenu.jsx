@@ -46,7 +46,7 @@ const FirstMenu = () => {
 
             <div className='MenuList'>
                 <Link className='menuLink'  onClick={(e) => {setMenuActive(false)}}  to="/AdCreatingOne" >Создать задание</Link>
-                <Link className='menuLink' to = '/First'>Найти задания</Link>
+                <Link className='menuLink' to = '/'>Найти задания</Link>
                 <p className='menuLink'  href="">Мои задания</p>
                 <p className='menuLink'  href="">Уведомления</p>
                 <p className='menuLink'  href="">Новости Коннект.биржи</p>

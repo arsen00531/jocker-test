@@ -24,7 +24,7 @@ const AnimatedSwitch = () =>{
       return (
         <AnimatePresence>
           <Routes location={location} key={location.pathname}>
-              <Route path="/First" element = {<First/>} />
+              <Route path="/" element = {<First/>} />
               <Route path="/AdCreatingOne" element = {<AdCreatingOne/>} />
               <Route path="/AdCreatingTwo" element = {<AdCreatingTwo />} />
               <Route path="/AdCreatingThree" element = {<AdCreatingThree />} />
