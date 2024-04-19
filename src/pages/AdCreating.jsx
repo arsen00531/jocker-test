@@ -76,7 +76,6 @@ const AdCreating = () => {
         transition = "transition"
          className="AdCreating__container"
         style={{transform : 'translateX(' + stationNow.toString() + '%)', transition : '0.3s'}}>
-            <button onClick={() => { goForward() }}>sdasdasd</button>
             <AdCreatingOne setTaskInformation = {setTaskInformation}  taskInformation = {taskInformation} />
             <AdCreatingTwo setTaskInformation = {setTaskInformation} taskInformation = {taskInformation} tonConstant = {tonConstant} />
             <AdCreatingThree taskInformation = {taskInformation} />
