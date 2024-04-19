@@ -40,16 +40,14 @@ const AdCreating = () => {
         }
     }
     function goBack(){
-        if (stationNow !== 0){
-            alert()
+        if (stationNow === 0){
+            navigate(-1)
+        }
+        else{
             setStationNow(stationNow + 100)
             if (stationNow === -100){
 
             }
-        }
-        else{
-            alert()
-            navigate(-1)
         }
     }
 
