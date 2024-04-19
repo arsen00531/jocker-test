@@ -12,7 +12,7 @@ import MainButton from '../constants/MainButton';
 const variants = {
     initial : {opacity : 0},
     animate : {opacity : 1},
-    transition : {duration : 0.3}
+    transition : {duration : 0.35}
     }
 
 const AdCreating = () => {
@@ -31,8 +31,13 @@ const AdCreating = () => {
 
 
     function goForward(){
-        setStationNow(stationNow - 100)
-
+        if (stationNow !== -200){
+            setStationNow(stationNow - 100)
+            MainButton.setText('ДАЛЕЕ')
+        }
+        else{
+            MainButton.setText('ЗАКОЛДИРОВАТЬ')
+        }
     }
 
     useEffect (  () => {
@@ -48,7 +53,7 @@ const AdCreating = () => {
         animate = "animate"
         transition = "transition"
          className="AdCreating__container"
-        style={{transform : 'translateX(' + stationNow.toString() + '%)'}}>
+        style={{transform : 'translateX(' + stationNow.toString() + '%)', transition : '0.3s'}}>
             <AdCreatingOne setTaskInformation = {setTaskInformation}  taskInformation = {taskInformation} />
             <AdCreatingTwo setTaskInformation = {setTaskInformation} taskInformation = {taskInformation} tonConstant = {tonConstant} />
             <AdCreatingThree taskInformation = {taskInformation} />
