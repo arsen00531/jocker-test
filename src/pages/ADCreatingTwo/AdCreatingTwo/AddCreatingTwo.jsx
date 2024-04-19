@@ -33,17 +33,6 @@ const SecondAddCreating = ({taskInformation , setTaskInformation, tonConstant}) 
         navigate(-1)
       }
 
-    useEffect( () => {
-        MainButton.setText('ДАЛЕЕ')
-        BackButton.show()
-        MainButton.show()
-        BackButton.onClick(goBack)
-        MainButton.onClick(goForward)
-        return () => {
-          MainButton.offClick(goForward)
-          BackButton.offClick(goBack)
-        }
-      })
   
       const variants = {
         initial :   forwardTransition[0]  ,

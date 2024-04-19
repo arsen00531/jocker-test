@@ -40,18 +40,6 @@ const AdCreatingOne =   ({ taskInformation , setTaskInformation,  MyInformation,
     navigate(-1)
   }
 
-  useEffect( () => {
-    MainButton.setText('ДАЛЕЕ')
-    BackButton.show()
-    MainButton.show()
-    BackButton.onClick(goBack)
-    MainButton.onClick(goForward)
-    return () => {
-      MainButton.offClick(goForward)
-      BackButton.offClick(goBack)
-    }
-  })
-
 
   return (
     <div

@@ -24,18 +24,6 @@ const AdCreatingThree = ({taskInformation }) => {
     navigate(-1)
   }
 
-  useEffect( () => {
-      BackButton.show()
-      MainButton.show()
-      BackButton.onClick(goBack)
-      MainButton.onClick(send)
-      MainButton.setText('ЗАКОЛДИРОВАТЬ')
-      return () => {
-        MainButton.offClick(send)
-        BackButton.offClick(goBack)
-      }
-    })
-
   return (
     <div className= {cl.AdCreatingThree}
     style={{minWidth : document.documentElement.clientWidth.toString() + 'px'}}

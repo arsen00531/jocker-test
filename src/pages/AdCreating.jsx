@@ -12,7 +12,7 @@ import MainButton from '../constants/MainButton';
 const variants = {
     initial : {opacity : 0},
     animate : {opacity : 1},
-    transition : {duration : 0.2}
+    transition : {duration : 0.3}
     }
 
 const AdCreating = () => {
