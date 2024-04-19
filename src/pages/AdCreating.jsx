@@ -51,7 +51,7 @@ const AdCreating = () => {
         }
     }
 
-    
+
     useEffect( ()=> {
         MainButton.onClick ( goForward )
         BackButton.onClick( goBack )
@@ -59,7 +59,7 @@ const AdCreating = () => {
             MainButton.offClick(goBack)
             BackButton.offClick(goForward)
         }
-    })
+    } , [stationNow ])
     
     useEffect (  () => {
         MainButton.setText('ДАЛЕЕ')
