@@ -40,7 +40,7 @@ const AdCreating = () => {
         }
     }
     function goBack(){
-        if (setStationNow !== 0){
+        if (stationNow !== 0){
             setStationNow(stationNow + 100)
             MainButton.setText('ДАЛЕЕ')
         }
@@ -66,12 +66,14 @@ const AdCreating = () => {
 
     return (
         <motion.div
+        
         variants={variants}
         initial = "initial"
         animate = "animate"
         transition = "transition"
          className="AdCreating__container"
         style={{transform : 'translateX(' + stationNow.toString() + '%)', transition : '0.3s'}}>
+            
             <AdCreatingOne setTaskInformation = {setTaskInformation}  taskInformation = {taskInformation} />
             <AdCreatingTwo setTaskInformation = {setTaskInformation} taskInformation = {taskInformation} tonConstant = {tonConstant} />
             <AdCreatingThree taskInformation = {taskInformation} />
