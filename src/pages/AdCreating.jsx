@@ -32,12 +32,7 @@ const AdCreating = () => {
 
     function goForward(){
         setStationNow(stationNow - 100)
-        if (stationNow === -200) {
-            MainButton.setText('ЗАКОЛДИРОВАТЬ')
-        }
-        else{
-            MainButton.setText('ДАЛЕЕ')
-        }
+
     }
 
     useEffect (  () => {
