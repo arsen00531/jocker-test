@@ -52,22 +52,22 @@ const AdCreating = () => {
     }
 
 
-    useEffect( ()=> {
-        MainButton.onClick ( goForward )
-        BackButton.onClick( goBack )
-    } )
+
+    
     
     useEffect (  () => {
         MainButton.setText('ДАЛЕЕ')
         MainButton.show()
         BackButton.show()
+        MainButton.onClick ( goForward )
+        BackButton.onClick( goBack )
         return () => {
             BackButton.hide()
             MainButton.hide()
 
         }
 
-    }, []  )
+    }  )
 
     return (
         <motion.div
@@ -78,6 +78,8 @@ const AdCreating = () => {
         transition = "transition"
          className="AdCreating__container"
         style={{transform : 'translateX(' + stationNow.toString() + '%)', transition : '0.3s'}}>
+            <button>фывфывфыф</button>
+            <button onClick={ () => {goBack()}} style={ {position : 'absolute' , left : '1000px'} }> ывфвфы</button>
             <AdCreatingOne setTaskInformation = {setTaskInformation}  taskInformation = {taskInformation} />
             <AdCreatingTwo setTaskInformation = {setTaskInformation} taskInformation = {taskInformation} tonConstant = {tonConstant} />
             <AdCreatingThree taskInformation = {taskInformation} />
