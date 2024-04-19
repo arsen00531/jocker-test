@@ -1,5 +1,5 @@
 import React from 'react';
-import icon from '../../../images/icon.png'
+import icon from '../../../images/icons/icon.svg'
 import galks from '../../../images/Subtract.png'
 import Star from '../../../images/Star.png'
 const Customer = ({customerName, rate}) => {

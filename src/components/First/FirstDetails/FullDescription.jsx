@@ -1,5 +1,5 @@
 import React from 'react';
-import imageDescription from '../../../images/desccription.png'
+import imageDescription from '../../../images/icons/fullDescription.svg'
 const FullDescription = ({fullDescription}) => {
     return (
         <div className='FullDescription'>

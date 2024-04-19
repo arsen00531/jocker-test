@@ -56,7 +56,7 @@ const SecondAddCreating = () => {
       initial :   forwardTransition[0]  ,
       animate :    forwardTransition[1] ,
       exit : {x : '-100%'} ,
-      transition : { duration : 0.3 }
+      transition : { duration : 0.5 }
     }
     return (
       <motion.div className = {cl.SecondAddCreating} 
@@ -69,7 +69,6 @@ const SecondAddCreating = () => {
       transition="transition"
       
       >
-          <button onClick={() => goForward()} >Ппродолжить</button>
             <Cap className={cl.Cap}  step={2} > <p className = {cl.CapText}> Создайте объявление </p> </Cap>
             <Budget taskInformation={taskInformation} setTaskInformation={setTaskInformation}  className={cl.Budget} tonConstant = {tonConstant} />
             <DatePicker taskInformation={taskInformation} setTaskInformation={setTaskInformation} className={cl.DatePicker} />

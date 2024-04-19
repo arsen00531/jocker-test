@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
-import HumanIcon from '../../images/icon.png'
-import {Link, Outlet} from 'react-router-dom'
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { changeMenuActive } from '../../store/menuSlice';
+import {Link} from 'react-router-dom'
+
+import HumanIcon from '../../images//icons/icon.svg'
 import Close from './Close';
 import SmallDimond from '../../components/UI/SmallDimond/SmallDimond';
 import UpArr from '../../components/UI/UpArr/UpArr';
 import Human from '../../components/UI/Human/Human'
 import Pensel from '../../components/UI/Pencel/Pencel'
-import { useDispatch, useSelector } from 'react-redux';
-import { changeMenuActive } from '../../store/menuSlice';
 
 
 const FirstMenu = () => {
@@ -45,15 +46,15 @@ const FirstMenu = () => {
 
             <div className='MenuList'>
                 <Link className='menuLink'  onClick={(e) => {setMenuActive(false)}}  to="/AdCreatingOne" >Создать задание</Link>
-                <Link className='menuLink' to = '/'>Найти задания</Link>
-                <a className='menuLink'  href="">Мои задания</a>
-                <a className='menuLink'  href="">Уведомления</a>
-                <a className='menuLink'  href="">Новости Коннект.биржи</a>
-                <a className='menuLink'  href="" style={{color : 'rgb(42, 207, 88)'}}> Стать исполнителем </a>
+                <Link className='menuLink' to = '/First'>Найти задания</Link>
+                <p className='menuLink'  href="">Мои задания</p>
+                <p className='menuLink'  href="">Уведомления</p>
+                <p className='menuLink'  href="">Новости Коннект.биржи</p>
+                <p className='menuLink'  href="" style={{color : 'rgb(42, 207, 88)'}}> Стать исполнителем </p>
             </div>
 
             <div className="Menu__Helps">
-                <a className = 'menuHelp'  href="">Поддержка </a>
+                <p className = 'menuHelp'  href="">Поддержка </p>
                 <Human className='human' />
             </div>
 

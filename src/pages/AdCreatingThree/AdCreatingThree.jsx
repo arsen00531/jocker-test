@@ -22,8 +22,6 @@ const AdCreatingThree = () => {
     alert('отправлено!')
   }
 
-
-
   function goBack(){
     navigate(-1)
   }
@@ -46,7 +44,7 @@ const AdCreatingThree = () => {
     initial={{  x : '100%'  }}
     animate={{   x: 0  }}
     exit={{opacity : 1}}
-    transition = {{duration : 0.3}}
+    transition = {{duration : 0.5}}
 
     >
       <Cap className={cl.Cap} step={3} >

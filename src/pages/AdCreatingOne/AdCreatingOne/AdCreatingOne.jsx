@@ -63,7 +63,8 @@ const AdCreatingOne =   ({ MyInformation, className }) => {
   const variants = {
     initial : transform[0],
     animate : transform[1] ,
-    exit : { x : '-100%' }
+    exit : { x : '-100%' }, 
+    transition : {duration : 0.5}
     }
   return (
     <motion.div
@@ -79,10 +80,6 @@ const AdCreatingOne =   ({ MyInformation, className }) => {
       }
     >
 
-
-
-
-      <button onClick={() => goForward()} >Ппродолжить</button> 
       <Cap step={1} className={cl.Cap}>
         {" "}
         <p className={cl.CapText}> Создайте объявление </p>{" "}
