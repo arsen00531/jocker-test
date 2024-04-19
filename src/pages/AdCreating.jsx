@@ -50,14 +50,12 @@ const AdCreating = () => {
             navigate(-1)
         }
     }
-
+    MainButton.onClick ( goForward )
+    BackButton.onClick(goBack)
     useEffect (  () => {
-        console.log('отработал!!')
         MainButton.setText('ДАЛЕЕ')
         MainButton.show()
         BackButton.show()
-        MainButton.onClick ( goForward )
-        BackButton.onClick(goBack)
         return () => {
             BackButton.hide()
             MainButton.hide()
