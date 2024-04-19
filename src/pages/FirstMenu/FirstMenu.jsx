@@ -27,10 +27,12 @@ const FirstMenu = () => {
             <Close isMenuActive = {isMenuActive} setMenuActive = {setMenuActive}  />
 
             <div className="FirstMenu__top">
-                <img className='icon' src= {HumanIcon} alt="" />
+                <Link onClick={() => {setMenuActive(false)}} to={'/Profile'}>
+                    <img className='icon' src= {HumanIcon} alt="" />
+                </Link>
                 <div className="FirstMenu__top-right">
                     <p className='MenuName'>Nedzelskiy</p>
-                    <Link onClick={setMenuActive(false)} to={'/Profile'} className='MenuProfile'>
+                    <Link onClick={() => {setMenuActive(false)}} to={'/Profile'} className='MenuProfile'>
                         <p className='MenuProfileLink'>Профиль</p>
                         <Pensel className='normail' />
                     </Link>
