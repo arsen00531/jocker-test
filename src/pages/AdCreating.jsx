@@ -52,6 +52,7 @@ const AdCreating = () => {
     useEffect (  () => {
         MainButton.setText('ДАЛЕЕ')
         MainButton.show()
+        BackButton.show()
         MainButton.onClick ( goForward )
         BackButton.onClick(goBack)
         return () => {
