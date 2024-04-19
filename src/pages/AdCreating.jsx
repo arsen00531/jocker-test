@@ -64,13 +64,10 @@ const AdCreating = () => {
     BackButton.show()
     
     useEffect (  () => {
-        MainButton.onClick ( goForward )
-        BackButton.onClick( goBack )
+        window.Telegram.WebApp.onEvent('backButtonClicked' , goBack)
+        window.Telegram.WebApp.onEvent('mainButtonClicked' , goForward)
         return () => {
-            BackButton.offClick(goBack)
-            MainButton.offClick(goForward)
-            BackButton.hide()
-            MainButton.hide()
+            
         }
     } , [] )
 
