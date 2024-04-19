@@ -10,6 +10,7 @@ import "./css/Values.css";
 import "./css/style.css";
 
 import First from "./pages/First/First";
+import Profile from './pages/Profile/Profile'
 import AdCreatingTwo from "./pages/ADCreatingTwo/AdCreatingTwo/AddCreatingTwo";
 import AdCreatingOne from "./pages/AdCreatingOne/AdCreatingOne/AdCreatingOne";
 import AdCreatingThree from "./pages/AdCreatingThree/AdCreatingThree";
@@ -28,7 +29,7 @@ const AnimatedSwitch = () =>{
               <Route path="/AdCreatingOne" element = {<AdCreatingOne/>} />
               <Route path="/AdCreatingTwo" element = {<AdCreatingTwo />} />
               <Route path="/AdCreatingThree" element = {<AdCreatingThree />} />
-              <Route> </Route>
+              <Route path="/Profile" element = {<Profile />}  /> 
           </Routes>
         </AnimatePresence>
       )
@@ -49,6 +50,7 @@ function App() {
   return (
     <div className="MainContainer">
       <BrowserRouter>
+
 
         <FirstMenu/>
 

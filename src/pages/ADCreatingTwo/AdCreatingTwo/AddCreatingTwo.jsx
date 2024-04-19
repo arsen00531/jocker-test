@@ -15,6 +15,13 @@ import cl from './SecondAddCreating.module.css'
 
 
 let forwardTransition = [{x : '100%'} , { x : '0' } ]
+let backTransition = { x : '-100%'  }
+const variants = {
+  initial :   forwardTransition[0]  ,
+  animate :    forwardTransition[1] ,
+  exit : backTransition ,
+  transition : { duration : 0.2 }
+}
 
 const SecondAddCreating = () => {
 
@@ -31,10 +38,12 @@ const SecondAddCreating = () => {
 
     function goForward(){
       forwardTransition =  [ {x : '-100%'} , { x : '0'} ]
+      backTransition = { x : '-100%'  }
       navigate('/AdCreatingThree')
       } 
     
     function goBack(){
+      backTransition = { x : '100%'  }
       forwardTransition = [ {x : '100%'} , { x : '0' } ]
         navigate(-1)
       }
@@ -52,27 +61,18 @@ const SecondAddCreating = () => {
       })
     
     const tonConstant = useSelector(state => state.ton.value)
-    const variants = {
-      initial :   forwardTransition[0]  ,
-      animate :    forwardTransition[1] ,
-      exit : {x : '-100%'} ,
-      transition : { duration : 0.5 }
-    }
     return (
       <motion.div className = {cl.SecondAddCreating} 
       style={{minWidth : document.documentElement.clientWidth.toString() + 'px' }}
-      
       variants={variants}
       initial = "initial"
       animate = "animate"
       exit = "exit"
-      transition="transition"
-      
-      >
+      transition="transition">
             <Cap className={cl.Cap}  step={2} > <p className = {cl.CapText}> Создайте объявление </p> </Cap>
             <Budget taskInformation={taskInformation} setTaskInformation={setTaskInformation}  className={cl.Budget} tonConstant = {tonConstant} />
             <DatePicker taskInformation={taskInformation} setTaskInformation={setTaskInformation} className={cl.DatePicker} />
-        </motion.div>
+      </motion.div>
     );
 };
 

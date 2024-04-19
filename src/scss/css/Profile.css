@@ -235,6 +235,7 @@ input {
   letter-spacing: 1%;
   text-align: left;
   outline: none;
+  width: 76px;
 }
 .profile__container .profile__about-me .ur__town .about__u-text:hover, .profile__container .profile__about-me .ur__town .about__u-text:focus {
   outline: none;
@@ -357,6 +358,7 @@ input {
 }
 .profile__container .orangeWallet {
   width: 30px;
+  height: 30px;
 }
 .profile__container .Okey {
   border-radius: 50%;

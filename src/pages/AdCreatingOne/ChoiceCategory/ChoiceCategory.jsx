@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import cl from "./ChoiceCategory.module.css";
 import OneInput from "../../../components/UI/OneInput/OneInput";
 import CategoryItem from "../CategoryItem/CategoryItem";
+import BackButton from "../../../constants/BackButton";
 
 const categoriesArr = [
   { name: "Дизайн", icon: "Palitra.png", value: "design1", key: 1 }
@@ -12,7 +13,18 @@ const ChoiceCategory = ({
   setCatagoryChoiceOpen,
 
 }) => {
+  
   const [inputValue, setInputValue] = useState("");
+
+  function closeCategory(){
+    setCatagoryChoiceOpen(false)
+  }
+  useEffect( () => {
+    BackButton.onClick( closeCategory )
+    return () => {
+      BackButton.offClick( closeCategory )
+    }
+  }  )
   return (
     <div className={cl.ChoiceCategory}>
       <OneInput

@@ -44,7 +44,7 @@ const AdCreatingThree = () => {
     initial={{  x : '100%'  }}
     animate={{   x: 0  }}
     exit={{opacity : 1}}
-    transition = {{duration : 0.5}}
+    transition = {{duration : 0.2}}
 
     >
       <Cap className={cl.Cap} step={3} >

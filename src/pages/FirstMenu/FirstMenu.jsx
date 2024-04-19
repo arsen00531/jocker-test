@@ -30,10 +30,10 @@ const FirstMenu = () => {
                 <img className='icon' src= {HumanIcon} alt="" />
                 <div className="FirstMenu__top-right">
                     <p className='MenuName'>Nedzelskiy</p>
-                    <div className='MenuProfile'>
-                        <Link className='MenuProfileLink' to='/'>Профиль</Link>
+                    <Link to={'/Profile'} className='MenuProfile'>
+                        <p className='MenuProfileLink'>Профиль</p>
                         <Pensel className='normail' />
-                    </div>
+                    </Link>
                 </div>
             </div>
 

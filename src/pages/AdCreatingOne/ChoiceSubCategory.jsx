@@ -1,6 +1,8 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
+
 import rightArrow from '../../images/icons/rightArrow.svg'
 import OneInput from '../../components/UI/OneInput/OneInput';
+import BackButton from '../../constants/BackButton';
 const ChoiceSubCategory = ({taskInformation , setSubcategoryChoiceOpen , setTaskInformation}) => {
     const subCategorys = {design1    : [
         'Фирменный стиль, логотипы, визитки',
@@ -69,9 +71,13 @@ const ChoiceSubCategory = ({taskInformation , setSubcategoryChoiceOpen , setTask
         'Элемент дизайна 6 '
     ]
     }
+
     let k = taskInformation.category.value
+
     const subCategory = subCategorys[k]
+
     const [inputValue , setInputValue] = useState('')
+
     const sortSubCategory = useMemo(() => {
             let n = subCategory.filter((e) => {
                     return (e.includes(inputValue))
@@ -79,7 +85,18 @@ const ChoiceSubCategory = ({taskInformation , setSubcategoryChoiceOpen , setTask
             return n
     
     } , [inputValue, subCategory ]    )
-    console.log(sortSubCategory)
+
+    function closeSebCategory(){
+        setSubcategoryChoiceOpen(false)
+    }
+
+    useEffect( () => {
+        BackButton.onClick(closeSebCategory)
+        return () => {
+            BackButton.offClick(closeSebCategory)
+        }
+    } )
+
     return (
     <div className="subCategory__container">
       <OneInput
