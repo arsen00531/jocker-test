@@ -3,6 +3,7 @@ import Burger from "../../UI/Burger/Burger";
 import OneInput from "../../UI/OneInput/OneInput";
 
 import icon from "../../../images/icons/icon.svg";
+import { Link } from "react-router-dom";
 
 const FirstTop = ({ setFilterBy, setMenuActive , ...props }) => {
   const [inputValue, setInputValue] = useState("");
@@ -22,7 +23,7 @@ const FirstTop = ({ setFilterBy, setMenuActive , ...props }) => {
         placeholder="Поиск по заданиям..."
       />
       <Link to = '/Profile'>
-      <img src={icon} alt="" />
+        <img src={icon} alt="" />
       </Link>
     </div>
   );
