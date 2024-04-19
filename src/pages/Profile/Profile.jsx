@@ -13,8 +13,9 @@ import greyArrowRight from "../../images/icons/greyArrowRight.svg";
 import Burger from "../../components/UI/Burger/Burger";
 
   const variants = {
-      initial:{ opacity: 0, scale : 0.8 ,  y: -50 },
-      animate:{ opacity: 1, scale :  1,  y: 0 },
+      initial:{ opacity: 0,    },
+      animate:{ opacity: 1, },
+      exit : {opacity : 0},
       transition:{ duration: 0.2 }
   }
 
@@ -38,6 +39,7 @@ const Profile = () => {
         variants={variants}
         initial = "initial"
         animate = "animate"
+        exit = "exit"
         transition = "transition"
     >
 
