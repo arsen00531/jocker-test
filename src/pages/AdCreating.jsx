@@ -42,7 +42,9 @@ const AdCreating = () => {
     function goBack(){
         if (stationNow !== 0){
             setStationNow(stationNow + 100)
-            MainButton.setText('ДАЛЕЕ')
+            if (stationNow === -100){
+                MainButton.setText('ДАЛЕЕ')
+            }
         }
         else{
             navigate(-1)
@@ -50,6 +52,7 @@ const AdCreating = () => {
     }
 
     useEffect (  () => {
+        console.log('отработал!!')
         MainButton.setText('ДАЛЕЕ')
         MainButton.show()
         BackButton.show()
@@ -62,7 +65,7 @@ const AdCreating = () => {
             BackButton.offClick( goBack )
         }
 
-    }  )
+    } , [] )
 
     return (
         <motion.div
@@ -73,7 +76,7 @@ const AdCreating = () => {
         transition = "transition"
          className="AdCreating__container"
         style={{transform : 'translateX(' + stationNow.toString() + '%)', transition : '0.3s'}}>
-            
+            <button onClick={() => { goForward() }}>sdasdasd</button>
             <AdCreatingOne setTaskInformation = {setTaskInformation}  taskInformation = {taskInformation} />
             <AdCreatingTwo setTaskInformation = {setTaskInformation} taskInformation = {taskInformation} tonConstant = {tonConstant} />
             <AdCreatingThree taskInformation = {taskInformation} />
