@@ -60,14 +60,13 @@ const AdCreating = () => {
     else{
         MainButton.setText('ДАЛЕЕ')
     }
-    MainButton.show()
-    BackButton.show()
+    MainButton.onClick ( goForward )
+    BackButton.onClick( goBack )
     
     useEffect (  () => {
-        window.Telegram.WebApp.onEvent('backButtonClicked' , goBack)
-        window.Telegram.WebApp.onEvent('mainButtonClicked' , goForward)
+        MainButton.show()
+        BackButton.show()
         return () => {
-            
         }
     } , [] )
 
