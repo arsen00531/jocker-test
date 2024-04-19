@@ -50,9 +50,14 @@ const AdCreating = () => {
             navigate(-1)
         }
     }
-    
-    MainButton.onClick ( goForward )
-    BackButton.onClick( goBack )
+    useEffect( ()=> {
+        MainButton.onClick ( goForward )
+        BackButton.onClick( goBack )
+        return () => {
+            MainButton.offClick(goBack)
+            BackButton.offClick(goForward)
+        }
+    }, [MainButton , BackButton] )
     
     useEffect (  () => {
         MainButton.setText('ДАЛЕЕ')
