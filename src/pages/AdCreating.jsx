@@ -55,11 +55,7 @@ const AdCreating = () => {
     useEffect( ()=> {
         MainButton.onClick ( goForward )
         BackButton.onClick( goBack )
-        return () => {
-            MainButton.offClick(goBack)
-            BackButton.offClick(goForward)
-        }
-    } , [stationNow ])
+    } )
     
     useEffect (  () => {
         MainButton.setText('ДАЛЕЕ')
