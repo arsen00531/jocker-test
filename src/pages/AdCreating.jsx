@@ -44,7 +44,7 @@ const AdCreating = () => {
             alert()
             setStationNow(stationNow + 100)
             if (stationNow === -100){
-                MainButton.setText('ДАЛЕЕ')
+
             }
         }
         else{
@@ -79,7 +79,6 @@ const AdCreating = () => {
         transition = "transition"
          className="AdCreating__container"
         style={{transform : 'translateX(' + stationNow.toString() + '%)', transition : '0.3s'}}>
-            <button onClick={ () => {goBack()}} style={ {position : 'absolute' , left : '1000px'} }> ывфвфы</button>
             <AdCreatingOne setTaskInformation = {setTaskInformation}  taskInformation = {taskInformation} />
             <AdCreatingTwo setTaskInformation = {setTaskInformation} taskInformation = {taskInformation} tonConstant = {tonConstant} />
             <AdCreatingThree taskInformation = {taskInformation} />
