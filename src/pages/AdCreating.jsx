@@ -8,11 +8,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { changeTaskInformation } from '../store/information';
 import BackButton from '../constants/BackButton';
 import MainButton from '../constants/MainButton';
+import { useNavigate } from 'react-router-dom';
 
 const variants = {
     initial : {opacity : 0},
     animate : {opacity : 1},
-    transition : {duration : 0.35}
+    transition : {duration : 0.4}
     }
 
 const AdCreating = () => {
@@ -28,21 +29,37 @@ const AdCreating = () => {
 
     const [stationNow , setStationNow] = useState(0)
 
-
+    const navigate = useNavigate()
 
     function goForward(){
         if (stationNow !== -200){
             setStationNow(stationNow - 100)
+            if (stationNow === -200){
+                MainButton.setText('ЗАКОЛДИРОВАТЬ')
+            }
+        }
+    }
+    function goBack(){
+        if (setStationNow !== 0){
+            setStationNow(stationNow + 100)
             MainButton.setText('ДАЛЕЕ')
         }
         else{
-            MainButton.setText('ЗАКОЛДИРОВАТЬ')
+            navigate(-1)
         }
     }
 
     useEffect (  () => {
+        MainButton.setText('ДАЛЕЕ')
         MainButton.show()
         MainButton.onClick ( goForward )
+        BackButton.inClick(goBack)
+        return () => {
+            BackButton.hide()
+            MainButton.hide()
+            MainButton.offClick( goForward )
+            BackButton.offClick( goBack )
+        }
 
     }  )
 
