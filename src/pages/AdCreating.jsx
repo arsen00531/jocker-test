@@ -53,7 +53,7 @@ const AdCreating = () => {
         MainButton.setText('ДАЛЕЕ')
         MainButton.show()
         MainButton.onClick ( goForward )
-        BackButton.inClick(goBack)
+        BackButton.onClick(goBack)
         return () => {
             BackButton.hide()
             MainButton.hide()
