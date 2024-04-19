@@ -21,16 +21,8 @@ import cl from "./AdCreatingOne.module.css";
 
   let transform = [  {opacity : 0} , {opacity : 1} ]
 
-const AdCreatingOne =   ({ MyInformation, className }) => {
+const AdCreatingOne =   ({ taskInformation , setTaskInformation,  MyInformation, className }) => {
 
-  const taskInformation = useSelector(
-    (state) => state.information.taskInformation
-  );
-  const dispatch = useDispatch();
-
-  const setTaskInformation = (obj) => {
-    dispatch(changeTaskInformation(obj));
-  };
 
   const [isCategoryChoiceOpen, setCatagoryChoiceOpen] = useState(false);
 
@@ -60,22 +52,10 @@ const AdCreatingOne =   ({ MyInformation, className }) => {
     }
   })
 
-  const variants = {
-    initial : transform[0],
-    animate : transform[1] ,
-    exit : { opacity : 0 }, 
-    transition : {duration : 0.1}
-    }
 
   return (
-    <motion.div
-      variants={variants}
-      initial = "initial"
-      animate = "animate"
-      exit = "exit"
-      transition= "transition"
-
-    style={{position : 'absolute',minWidth : document.documentElement.clientWidth.toString() + 'px' }}
+    <div
+    style={{minWidth : document.documentElement.clientWidth.toString() + 'px' }}
       className={
         className ? [cl.AdCreating, className].join(" ") : cl.AdCreating
       }
@@ -149,7 +129,7 @@ const AdCreatingOne =   ({ MyInformation, className }) => {
           taskInformation={taskInformation}
         ></ChoiceSubCategory>
       </CSSTransition>
-    </motion.div>
+    </div>
   );
 };
 

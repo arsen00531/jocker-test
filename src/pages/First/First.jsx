@@ -10,6 +10,7 @@ import BackButton from '../../constants/BackButton'
 import { useFilteredArr } from "../../hooks/useFilteredArr";
 import { useDispatch, useSelector } from "react-redux";
 import { changeMenuActive } from "../../store/menuSlice";
+import MainButton from "../../constants/MainButton";
 
 const First = () => {
 
@@ -33,6 +34,7 @@ const First = () => {
 
   useEffect(() => {
     BackButton.hide()
+    MainButton.hide()
   } )
 
   useEffect(() => {
@@ -75,8 +77,7 @@ const First = () => {
 
       initial={{ opacity: 0,  }}
       animate={{ opacity: 1 }}
-      exit={ { opacity : 0}}
-      transition={{ duration: 0.1 }}
+      transition={{ duration: 0.2 }}
     >
       <FirstTop
         style={isMenuActive ? { opacity: "0.5" } : {}}

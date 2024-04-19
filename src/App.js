@@ -16,9 +16,12 @@ import AdCreatingOne from "./pages/AdCreatingOne/AdCreatingOne/AdCreatingOne";
 import AdCreatingThree from "./pages/AdCreatingThree/AdCreatingThree";
 import FirstMenu from "./pages/FirstMenu/FirstMenu";
 import Balance from './pages/Balance'
+import MyAds from './pages/MyAds/MyAds'
+
 
 
 import { fetchTon } from "./store/ton";
+import AdCreating from "./pages/AdCreating";
 
 
 const AnimatedSwitch = () =>{
@@ -27,11 +30,10 @@ const AnimatedSwitch = () =>{
         <AnimatePresence>
           <Routes location={location} key={location.pathname}>
               <Route path="/" element = {<First/>} />
-              <Route path="/AdCreatingOne" element = {<AdCreatingOne/>} />
-              <Route path="/AdCreatingTwo" element = {<AdCreatingTwo />} />
-              <Route path="/AdCreatingThree" element = {<AdCreatingThree />} />
+              <Route path="/AdCreating" element = {<AdCreating/>} />
               <Route path="/Profile" element = {<Profile />}  /> 
               <Route path="/Balance" element = { <Balance /> }  />
+              <Route path="/MyAds" element = { <MyAds/> } />
           </Routes>
         </AnimatePresence>
       )

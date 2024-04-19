@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { motion } from 'framer-motion';
 
 import  info  from '../images/icons/info.svg';
 import plus from '../images/icons/Plus.svg'
@@ -50,7 +51,12 @@ const Balance = () => {
     }
     
     return (
-        <div className="all__balance" >
+        <motion.div className="all__balance" 
+        initial = { {opacity : 0 }}
+        animate = { { opacity : 1}}
+        transition={ { duration : 0.2}}
+         >
+
 
         <div className='balance__container'>
             <div className="ur__schet">
@@ -186,7 +192,7 @@ const Balance = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </motion.div>
     );
 };
 

@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from 'react';
+import {CSSTransition} from 'react-transition-group';
+
 import Burger from '../../components/UI/Burger/Burger';
 import FirstBlock from '../../components/First/FirstMain/FirstBlock';
 import FullPicker from '../../components/UI/FullPicker/FullPicker';
 import upDown from '../../images/icons/UpDown.svg'
 import plus from '../../images/icons/plus-circle.svg'
-import myImage from '../../images/desccription.png'
-import { Await } from 'react-router-dom';
+// import myImage from '../../images/desccription.png'
 import AdCreatingOne from '../AdCreatingOne/AdCreatingOne/AdCreatingOne';
 import tonConstant from '../../constants/tonConstant';
-import {CSSTransition} from 'react-transition-group';
+
 const MyAds =  ( ) => {
 
 
@@ -62,15 +63,14 @@ const MyAds =  ( ) => {
             isPrivate : false
           },
       ]);
-    //   const myArr = [...myAdsArray].map( (e) => {e , e.ruble = (e.budget * tonConstant).toLocaleString('ru-RU')  }  )
-      
-    console.log(tonConstant)
+
+
     const [changeIndex , setChangeIndex] = useState(0)
+
     function setMyArray(par){
         console.log(par)
         setMyAdsArray( [...myAdsArray].map( (e, i) => {
             if (i === changeIndex){
-                console.log('Хай')
                 return par
             }
             return e

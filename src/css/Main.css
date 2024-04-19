@@ -1139,6 +1139,12 @@
   height: 10.56px;
 }
 
+.AdCreating__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 input {
   background: none;
   padding: 0;

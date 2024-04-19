@@ -12,9 +12,7 @@ import MainButton from "../../constants/MainButton";
 
 import cl from "./AdCreatingThree.module.css";
 
-const AdCreatingThree = () => {
-
-  const taskInformation = useSelector(state => state.information.taskInformation)
+const AdCreatingThree = ({taskInformation }) => {
 
   const navigate = useNavigate()
 
@@ -39,12 +37,8 @@ const AdCreatingThree = () => {
     })
 
   return (
-    <motion.div className= {cl.AdCreatingThree}
-    style={{position : 'absolute',minWidth : document.documentElement.clientWidth.toString() + 'px'}}
-    initial={{  x : '100%'  }}
-    animate={{   x: 0  }}
-    exit={{x : '100%'}}
-    transition = {{duration : 0.2}}
+    <div className= {cl.AdCreatingThree}
+    style={{minWidth : document.documentElement.clientWidth.toString() + 'px'}}
 
     >
       <Cap className={cl.Cap} step={3} >
@@ -55,7 +49,7 @@ const AdCreatingThree = () => {
       </Cap>
       <PaymentMethod className={cl.PaymentMethod} />
       <Holding taskInformation={taskInformation}  className={cl.Holding} />
-    </motion.div>
+    </div>
   );
 };
 

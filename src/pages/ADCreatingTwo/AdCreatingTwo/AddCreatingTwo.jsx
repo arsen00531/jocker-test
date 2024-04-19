@@ -17,16 +17,7 @@ import cl from './SecondAddCreating.module.css'
 let forwardTransition = [{x : '100%'} , { x : '0' } ]
 let backTransition = { x : '-100%'  }
 
-const SecondAddCreating = () => {
-
-
-    const taskInformation = useSelector(state => state.information.taskInformation)
-
-    const dispatch = useDispatch()
-
-    const setTaskInformation = (obj) =>{
-      dispatch(changeTaskInformation(obj))
-    }
+const SecondAddCreating = ({taskInformation , setTaskInformation, tonConstant}) => {
 
     const navigate = useNavigate()
 
@@ -41,7 +32,7 @@ const SecondAddCreating = () => {
       forwardTransition = [ {x : '100%'} , { x : '0' } ]
         navigate(-1)
       }
-    
+
     useEffect( () => {
         MainButton.setText('ДАЛЕЕ')
         BackButton.show()
@@ -60,19 +51,14 @@ const SecondAddCreating = () => {
         exit : backTransition ,
         transition : { duration : 0.2 }
       }
-    const tonConstant = useSelector(state => state.ton.value)
     return (
-      <motion.div className = {cl.SecondAddCreating} 
+      <div className = {cl.SecondAddCreating} 
       style={{minWidth : document.documentElement.clientWidth.toString() + 'px' }}
-      variants={variants}
-      initial = "initial"
-      animate = "animate"
-      exit = "exit"
-      transition="transition">
+      >
             <Cap className={cl.Cap}  step={2} > <p className = {cl.CapText}> Создайте объявление </p> </Cap>
             <Budget taskInformation={taskInformation} setTaskInformation={setTaskInformation}  className={cl.Budget} tonConstant = {tonConstant} />
             <DatePicker taskInformation={taskInformation} setTaskInformation={setTaskInformation} className={cl.DatePicker} />
-      </motion.div>
+      </div>
     );
 };
 
