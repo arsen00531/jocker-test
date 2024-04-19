@@ -21,7 +21,9 @@ const FirstTop = ({ setFilterBy, setMenuActive , ...props }) => {
         }}
         placeholder="Поиск по заданиям..."
       />
+      <Link to = '/Profile'>
       <img src={icon} alt="" />
+      </Link>
     </div>
   );
 };
