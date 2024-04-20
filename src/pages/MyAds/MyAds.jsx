@@ -135,8 +135,6 @@ const MyAds =  ( ) => {
                 classNames = 'details'
                 in = {isDetailsActive}
                 timeout={0}
-                unmountOnExit
-                mountOnEnter
              >
 
                 <AdCreatingOne className = 'AdCreatingMy' taskInformation={myAdsArray[index]} setTaskInformation={setMyArray} MyInformation={true} />      
