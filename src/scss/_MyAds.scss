@@ -30,10 +30,11 @@
     }
 
     .details-exit{
-        transform: translateX(0%);
+        transform: translateX(100%);
         transition: 0.35s;
     }
     .details-exit-active{
+        transform: translateX(0%);
         transition: 0.35s;
         transition: 0.35s;
     }

@@ -2043,13 +2043,16 @@ input {
   transition: 0.35s;
 }
 .MyAdsContainer .details-exit {
-  -webkit-transform: translateX(0%);
-      -ms-transform: translateX(0%);
-          transform: translateX(0%);
+  -webkit-transform: translateX(100%);
+      -ms-transform: translateX(100%);
+          transform: translateX(100%);
   -webkit-transition: 0.35s;
   transition: 0.35s;
 }
 .MyAdsContainer .details-exit-active {
+  -webkit-transform: translateX(0%);
+      -ms-transform: translateX(0%);
+          transform: translateX(0%);
   -webkit-transition: 0.35s;
   transition: 0.35s;
   transition: 0.35s;
