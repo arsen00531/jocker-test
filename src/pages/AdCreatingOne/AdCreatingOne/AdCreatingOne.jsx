@@ -43,6 +43,7 @@ const AdCreatingOne =   ({ taskInformation , setTaskInformation,  MyInformation,
 
   return (
     <div
+  
     style={{minWidth : document.documentElement.clientWidth.toString() + 'px' }}
       className={
         className ? [cl.AdCreating, className].join(" ") : cl.AdCreating

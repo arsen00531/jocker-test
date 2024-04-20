@@ -31,7 +31,7 @@ const First = () => {
   const filteredArr = useFilteredArr(ordersInformation, filterBy);
 
   const [isDetailsActive, setDetailsActive] = useState(false);
-
+  console.log(isDetailsActive)
   useEffect(() => {
     BackButton.hide()
     MainButton.hide()
@@ -42,11 +42,11 @@ const First = () => {
     let endTouchX = 0;
     let startTouchY = 0;
     let endTouchY = 0;
-    document.addEventListener("touchstart", (e) => {
+    function listnerFunctionOne(e) {
       startTouchX = e.changedTouches[0].pageX;
       startTouchY = e.changedTouches[0].pageY;
-    });
-    document.addEventListener("touchend", (e) => {
+    }
+    function listnerFunctionTwo(e) {
       endTouchX = e.changedTouches[0].pageX;
       endTouchY = e.changedTouches[0].pageY;
       if (
@@ -62,7 +62,15 @@ const First = () => {
           setMenuActive(false);
         }
       }
-    });
+    }
+
+    document.addEventListener("touchstart", listnerFunctionOne);
+    document.addEventListener("touchend", listnerFunctionTwo);
+
+    return () => {
+      document.removeEventListener('touchstart' , listnerFunctionOne)
+      document.removeEventListener('touchend' , listnerFunctionTwo)
+    }
   }, [isMenuActive, setMenuActive]);
 
   return (

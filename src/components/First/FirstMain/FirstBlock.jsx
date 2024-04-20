@@ -7,7 +7,6 @@ import FalseTie from '../../UI/FalseTie/FalseTie'
 import tonConstant from '../../../constants/tonConstant';
 
 const FirstBlock = ({taskName, executionPlace, time, tonValue , setDetailsActive , isButton , photos}) => {
-    
     return (
              <div className="First__block">
                 {photos ? (<div className='first__photos'> 

@@ -1,5 +1,5 @@
 import {  useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {  useLocation } from "react-router-dom";
 import {BrowserRouter, Route, Routes } from "react-router-dom";
 import {AnimatePresence} from 'framer-motion'
@@ -26,16 +26,20 @@ import AdCreating from "./pages/AdCreating";
 
 const AnimatedSwitch = () =>{
       const location = useLocation()
+      const isMenuActive = useSelector(state => state.menu.value)
       return (
-        <AnimatePresence>
-          <Routes location={location} key={location.pathname}>
-              <Route path="/" element = {<First/>} />
-              <Route path="/AdCreating" element = {<AdCreating/>} />
-              <Route path="/Profile" element = {<Profile />}  /> 
-              <Route path="/Balance" element = { <Balance /> }  />
-              <Route path="/MyAds" element = { <MyAds/> } />
-          </Routes>
-        </AnimatePresence>
+        <div className="container">
+          <div style={ isMenuActive ? {opacity : '0.6'}  : {} } className="black" ></div>
+          <AnimatePresence>
+            <Routes location={location} key={location.pathname}>
+                <Route path="/" element = {<First/>} />
+                <Route path="/AdCreating" element = {<AdCreating/>} />
+                <Route path="/Profile" element = {<Profile />}  /> 
+                <Route path="/Balance" element = { <Balance /> }  />
+                <Route path="/MyAds" element = { <MyAds/> } />
+            </Routes>
+          </AnimatePresence>
+        </div>
       )
 }
 
@@ -52,7 +56,7 @@ function App() {
 
 
   return (
-    <div className="MainContainer">
+    <div className="MainContainer" >
       <BrowserRouter>
 
 
