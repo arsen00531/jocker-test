@@ -8,6 +8,8 @@ import wallet from '../images/icons/wallet.svg'
 import upDownArr from '../images/icons/UpDown.svg'
 import white_dymond from '../images/icons/whiteDymond.svg'
 import download from '../images/icons/download.svg'
+import BackButton from '../constants/BackButton';
+import { useNavigate } from 'react-router-dom';
 
 const Balance = () => {
     const ref1 = useRef(null)
@@ -15,6 +17,18 @@ const Balance = () => {
     const ref3 = useRef(null)
     const [whatShow,  setWhatShow] = useState('all')
     const [widthOfDocument , setWidthOfDocument] = useState(document.documentElement.clientWidth)
+    const navigate = useNavigate()
+    function goBack(){
+        navigate(-1)
+    }
+
+    useEffect( () => {
+        BackButton.onClick( goBack )
+        return () => {
+            BackButton.offClick( goBack )
+        }
+    } ,[] )
+
     useEffect(() => {
         ref1.current.style.minWidth = (document.documentElement.clientWidth - 32).toString() + 'px' 
         ref2.current.style.minWidth = (document.documentElement.clientWidth - 32).toString() + 'px' 
@@ -54,7 +68,7 @@ const Balance = () => {
         <motion.div className="all__balance" 
         initial = { {opacity : 0 }}
         animate = { { opacity : 1}}
-        transition={ { duration : 0.2}}
+        transition={ { duration : 0.4}}
          >
 
 

@@ -16,7 +16,7 @@ import { Link } from "react-router-dom";
   const variants = {
       initial:{ opacity: 0,    },
       animate:{ opacity: 1, },
-      transition:{ duration: 0.2 }
+      transition:{ duration: 0.4 }
   }
 
 const Profile = () => {

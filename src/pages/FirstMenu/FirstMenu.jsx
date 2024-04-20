@@ -26,10 +26,10 @@ const FirstMenu = () => {
 
             <Close isMenuActive = {isMenuActive} setMenuActive = {setMenuActive}  />
 
-            <div className="FirstMenu__top">
-                <Link onClick={() => {setMenuActive(false)}} to={'/Profile'}>
+            <Link onClick={() => {setMenuActive(false)}} to={'/Profile'} className="FirstMenu__top">
+                <div>
                     <img className='icon' src= {HumanIcon} alt="" />
-                </Link>
+                </div>
                 <div className="FirstMenu__top-right">
                     <p className='MenuName'>Nedzelskiy</p>
                     <Link onClick={() => {setMenuActive(false)}} to={'/Profile'} className='MenuProfile'>
@@ -37,18 +37,18 @@ const FirstMenu = () => {
                         <Pensel className='normail' />
                     </Link>
                 </div>
-            </div>
+            </Link>
 
-            <div className="MenuPrice">
+            <Link to = "/Balance" onClick={() => {setMenuActive(false)}} className="MenuPrice">
                 <UpArr className= 'upArr' /> 
                 <p className='MenuTextPrice'>1 TON</p>
                  <SmallDimond className= 'dymond' /> 
                 <p className='MenuTextRublePrice'>~   250 RUB</p>
-            </div>
+            </Link>
 
             <div className='MenuList'>
                 <Link className='menuLink'  onClick={() => {setMenuActive(false)}}  to="/AdCreating" >Создать задание</Link>
-                <Link className='menuLink' to = '/'>Найти задания</Link>
+                <Link onClick={ () => {setMenuActive(false)}} className='menuLink' to = '/'>Найти задания</Link>
                 <Link className='menuLink'  to={'/MyAds'}>Мои задания</Link>
                 <p className='menuLink'  href="">Уведомления</p>
                 <p className='menuLink'  href="">Новости Коннект.биржи</p>
