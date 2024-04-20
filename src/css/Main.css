@@ -111,8 +111,8 @@
   min-width: 183.33px;
   height: 133.67px;
   border-radius: 6.67px;
-  -o-object-fit: contain;
-     object-fit: contain;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .First__block .FirstMain__top {
   margin-top: 19.33px;
