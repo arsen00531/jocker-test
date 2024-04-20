@@ -4,9 +4,10 @@ import Pallete from '../../UI/Pallete/Pallete';
 import ShareIcon from '../../UI/ShareIcon/ShareIcon'
 import SmallDimond from '../../UI/SmallDimond/SmallDimond'
 import FalseTie from '../../UI/FalseTie/FalseTie'
-import tonConstant from '../../../constants/tonConstant';
+import { useSelector } from 'react-redux';
 
-const FirstBlock = ({taskName, executionPlace, time, tonValue , setDetailsActive , isButton , photos}) => {
+const FirstBlock = ({taskName, executionPlace, time, tonValue , setDetailsActive , isButton , photos }) => {
+    const tonConstant = useSelector(state => state.ton.value)
     return (
              <div className="First__block">
                 {photos ? (<div className='first__photos'> 
@@ -26,10 +27,10 @@ const FirstBlock = ({taskName, executionPlace, time, tonValue , setDetailsActive
                 <div className="FirstMain__bottom">
                     <div className="FirstMain__bottom-left">
                         <div className="FirstMain__price-up">
-                            <h3>{tonValue}</h3>
+                            <h3>{tonValue} TON</h3>
                             <SmallDimond />
                         </div>
-                        <p>~ { (tonValue * tonConstant.value).toLocaleString('ru-RU') }</p>
+                        <p>~ { Number ((tonValue * tonConstant).toFixed(0)).toLocaleString('ru-RU') } RUB</p>
                     </div>
                     <div className="FirstMain__bottom-right">
                         <FalseTie className = {'tie'} />
