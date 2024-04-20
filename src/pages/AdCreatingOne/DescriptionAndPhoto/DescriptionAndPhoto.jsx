@@ -31,8 +31,9 @@ const DescriptionAndPhoto = ({
         ></TextArea>
       </div>
       {MyInformation ? <MakePrivate className={cl.anotherPrivate} taskInformation={taskInformation} setTaskInformation={setTaskInformation} isPrivate={taskInformation.isPrivate} text = 'Добавить приватную информацию' enabledText='Её увидит только пользователь' notEnabledText='то же самое'   /> : ''}
+      
+      {MyInformation ? (<GreyText className={cl.SecondGreyText}>ИЗОБРАЖЕНИЯ</GreyText>) : ''}
       <FileInput setFiles = { (e)  => {  
-        console.log(e)
         setTaskInformation( {...taskInformation , photos : e }  )  
 
         }  } files = {taskInformation.photos}  className={MyInformation ? [cl.FileInput , cl.marginTop].join(' ') :  cl.FileInput} />

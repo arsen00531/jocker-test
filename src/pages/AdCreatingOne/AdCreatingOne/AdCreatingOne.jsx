@@ -48,11 +48,11 @@ const AdCreatingOne =   ({ taskInformation , setTaskInformation,  MyInformation,
         className ? [cl.AdCreating, className].join(" ") : cl.AdCreating
       }
     >
-
-      <Cap step={1} className={cl.Cap}>
-        {" "}
-        <p className={cl.CapText}> Создайте объявление </p>{" "}
-      </Cap>
+      {MyInformation ? '' : 
+            <Cap step={1} className={cl.Cap}>
+            {" "}
+            <p className={cl.CapText}> Создайте объявление </p>{" "}
+          </Cap>}
       {MyInformation ? (
         ""
       ) : (

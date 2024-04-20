@@ -10,6 +10,11 @@ const FirstBlock = ({taskName, executionPlace, time, tonValue , setDetailsActive
     
     return (
              <div className="First__block">
+                {photos ? (<div className='first__photos'> 
+                    {photos.map( (e) => {
+                        return <img src={URL.createObjectURL(e)} className='' alt="" />
+                    } )}
+                 </div>) : ''  }
                 <div className="FirstMain__top">
                     <Pallete  />
                     <p>{taskName}</p>
