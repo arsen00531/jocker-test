@@ -20,6 +20,9 @@
 .page{
     transition: 0.5s;
 }
+.container{
+    height: 100vh;
+}
 @keyframes appearTransform{
     0%{
         transform: translateY(25%);

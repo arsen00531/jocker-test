@@ -2020,7 +2020,7 @@ input {
 .MyAdsContainer {
   margin-left: 16px;
   margin-right: 16px;
-  margin-top: 24px;
+  padding-top: 24px;
   margin-bottom: 18.33px;
 }
 .MyAdsContainer .AdCreatingMy {
@@ -2248,9 +2248,10 @@ body {
 .MainContainer {
   background: rgb(24, 34, 45);
   max-width: 430px;
-  height: 700px;
   -webkit-transition: 0.5s;
   transition: 0.5s;
+  height: 100vh;
+  overflow-y: scroll;
   position: relative;
   overflow-x: hidden;
 }

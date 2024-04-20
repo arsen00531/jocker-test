@@ -19,8 +19,9 @@
 .MainContainer{
     background: rgb(24, 34, 45);
     max-width: 430px;
-    height: 700px;
     transition: 0.5s;
+    height: 100vh;
+    overflow-y: scroll;
     position: relative;
     overflow-x: hidden;
 
