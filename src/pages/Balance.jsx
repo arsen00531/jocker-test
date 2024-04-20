@@ -23,6 +23,7 @@ const Balance = () => {
     }
 
     useEffect( () => {
+        BackButton.show()
         BackButton.onClick( goBack )
         return () => {
             BackButton.offClick( goBack )
