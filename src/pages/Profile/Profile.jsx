@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { changeMenuActive } from "../../store/menuSlice";
 import { motion } from "framer-motion";
@@ -11,7 +11,8 @@ import orangeWallet from "../../images/icons/OrangeWallet.svg";
 import Subtract from "../../images/icons/Subtract.svg";
 import greyArrowRight from "../../images/icons/greyArrowRight.svg";
 import Burger from "../../components/UI/Burger/Burger";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import BackButton from "../../constants/BackButton";
 
   const variants = {
       initial:{ opacity: 0,    },
@@ -33,6 +34,18 @@ const Profile = () => {
   const [aboutU, setAboutU] = useState("18,Москва");
 
   const hiddenP = useRef(null);
+
+  const navigate = useNavigate()
+
+  useEffect( () => {
+    function goBack(){
+      navigate(-1)
+    }
+    BackButton.onClick(goBack)
+    return ( ) => {
+      BackButton.offClick(goBack)
+    }
+  } )
 
   return (
     <motion.div className="profile__container"

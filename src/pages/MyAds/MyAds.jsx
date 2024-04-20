@@ -68,9 +68,6 @@ const MyAds =  ( ) => {
 
     useEffect( () => {
         BackButton.show()
-        return ( ) => {
-            BackButton.hide()
-        }
     }, [] )
 
     function goBack(){
