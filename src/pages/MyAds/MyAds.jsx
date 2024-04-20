@@ -11,7 +11,7 @@ import AdCreatingOne from '../AdCreatingOne/AdCreatingOne/AdCreatingOne';
 import tonConstant from '../../constants/tonConstant';
 import { useDispatch, useSelector } from 'react-redux';
 import BackButton from '../../constants/BackButton';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { changeMyAds } from '../../store/information';
 
 const MyAds =  ( ) => {
@@ -109,10 +109,10 @@ const MyAds =  ( ) => {
                 <div className="PickerContent">
                     <div className="picler__block">
                         
-                        <div className="AdCreactingFunction">
+                        <Link to = "/AdCreating" className="AdCreactingFunction">
                             <img src={plus} alt="" />
                             <p>Создать объявление</p>
-                        </div>
+                        </Link>
                         <div className="AdsContainer">
                             {myAdsArray.map( (e, i) => {
                                 return <FirstBlock key = {i} isButton={true} setDetailsActive = {() => {
