@@ -29,7 +29,7 @@ const AnimatedSwitch = () =>{
       const isMenuActive = useSelector(state => state.menu.value)
       return (
         <div className="container">
-          <div style={ isMenuActive ? {opacity : '0.6'}  : {} } className="black" ></div>
+          <div style={ isMenuActive ? {   opacity : '0.6' }  : { maxWidth : '0px' } } className="black" ></div>
           <AnimatePresence>
             <Routes location={location} key={location.pathname}>
                 <Route path="/" element = {<First/>} />
