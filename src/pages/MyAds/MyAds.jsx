@@ -9,6 +9,10 @@ import plus from '../../images/icons/plus-circle.svg'
 // import myImage from '../../images/desccription.png'
 import AdCreatingOne from '../AdCreatingOne/AdCreatingOne/AdCreatingOne';
 import tonConstant from '../../constants/tonConstant';
+import { useDispatch, useSelector } from 'react-redux';
+import BackButton from '../../constants/BackButton';
+import { useNavigate } from 'react-router-dom';
+import { changeMyAds } from '../../store/information';
 
 const MyAds =  ( ) => {
 
@@ -30,53 +34,54 @@ const MyAds =  ( ) => {
         tonValue: 0,
         taskDate: { start: "", end: "" },
       });
-    
-    const [myAdsArray, setMyAdsArray] = useState([
-        {
-          taskName: "UX/UI-дизайнер для разработки прототипа интернет-магазина",
-          executionPlace: "Можно выполнить удаленно", // ????
-          photos : '' , // !!!
-          time : {start: 'Начать 28 февраля, 00:00' , end : ''} ,
-          tonValue: 261,
-          taskDescription : "Необходимо разработать логотип для магазина! Пример стиля, и пример лого, от которого отталкиваться - предоставлю.",
-          viewsNumber : '51',
-          isPrivate : false
-        },
-        {
-            taskName: "UX/UI-дизайнер для разработки прототипа интернет-магазина",
-            executionPlace: "Можно выполнить удаленно", // ????
-            photos : '' , // !!!
-            time : {start: 'Начать 28 февраля, 00:00' , end : ''} ,
-            tonValue: 261,
-            taskDescription : "Необходимо разработать логотип для магазина! Пример стиля, и пример лого, от которого отталкиваться - предоставлю.",
-            viewsNumber : '51',
-            isPrivate : false
-          },
-          {
-            taskName: "UX/UI-дизайнер для разработки прототипа интернет-магазина",
-            executionPlace: "Можно выполнить удаленно", // ????
-            photos : '' , // !!!
-            time : {start: 'Начать 28 февраля, 00:00' , end : ''} ,
-            tonValue: 261,
-            taskDescription : "Необходимо разработать логотип для магазина! Пример стиля, и пример лого, от которого отталкиваться - предоставлю.",
-            viewsNumber : '51',
-            isPrivate : false
-          },
-      ]);
 
 
-    const [changeIndex , setChangeIndex] = useState(0)
+    const [myAdsArray, setMyAdsArray] = useState( useSelector( state => state.information.myAdsArray ))
+
+    const [index , setIndex] = useState(0)
 
     function setMyArray(par){
         console.log(par)
         setMyAdsArray( [...myAdsArray].map( (e, i) => {
-            if (i === changeIndex){
+            if (i === index){
                 return par
             }
             return e
         } )  )
         console.log(myAdsArray)
     }
+
+    const navigate = useNavigate()
+
+    const dispatch = useDispatch()
+
+    function goBack(){
+        navigate (-1)
+    }
+
+    useEffect( () => {
+        BackButton.show()
+        return ( ) => {
+            BackButton.hide()
+        }
+    }, [] )
+
+    function goBack(){
+        if (isDetailsActive) {
+            setDetailsActive(false)
+            dispatch(changeMyAds(myAdsArray) )
+        }
+        else{
+            navigate(-1)
+        }
+    }
+    
+    useEffect ( () => {
+        BackButton.onClick(goBack)
+        return () => {
+            BackButton.offClick(goBack)
+        }
+    } , [isDetailsActive])
     return (
         <div className='MyAdsContainer'>
                 <Burger />
@@ -110,7 +115,10 @@ const MyAds =  ( ) => {
                         </div>
                         <div className="AdsContainer">
                             {myAdsArray.map( (e, i) => {
-                                return <FirstBlock isButton={true} setDetailsActive = {setDetailsActive}  {...e} />
+                                return <FirstBlock key = {i} isButton={true} setDetailsActive = {() => {
+                                    setDetailsActive(true)
+                                    setIndex(i)
+                                }}  {...e} />
                             })}
                         </div>
                     </div>
@@ -124,7 +132,7 @@ const MyAds =  ( ) => {
                 mountOnEnter
              >
 
-                <AdCreatingOne className = 'AdCreatingMy' taskInformation={myAdsArray[0]} setTaskInformation={setMyArray} MyInformation={true} />      
+                <AdCreatingOne className = 'AdCreatingMy' taskInformation={myAdsArray[index]} setTaskInformation={setMyArray} MyInformation={true} />      
             </CSSTransition>
         </div>
     );

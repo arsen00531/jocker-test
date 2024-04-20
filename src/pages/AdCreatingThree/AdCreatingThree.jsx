@@ -1,4 +1,4 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import React, { useEffect } from "react";
@@ -11,18 +11,14 @@ import BackButton from "../../constants/BackButton";
 import MainButton from "../../constants/MainButton";
 
 import cl from "./AdCreatingThree.module.css";
+import { changeTaskInformation } from "../../store/information";
 
 const AdCreatingThree = ({taskInformation }) => {
 
+  const dispatch = useDispatch()
+
   const navigate = useNavigate()
 
-  function send(){
-    alert('отправлено!')
-  }
-
-  function goBack(){
-    navigate(-1)
-  }
 
   return (
     <div className= {cl.AdCreatingThree}

@@ -14,15 +14,15 @@ const variants = {
     initial : {opacity : 0},
     animate : {opacity : 1},
     transition : {duration : 0.4}
-    }
+}
+
 
 const AdCreating = () => {
-    const taskInformation = useSelector(state => state.information.taskInformation)
 
-    const dispatch = useDispatch()
-
+    let taskInformation = useSelector(state => state.information.taskInformation)
+    
     function setTaskInformation(arg) {
-        dispatch( changeTaskInformation(arg) )
+        taskInformation = arg
     }
 
     const tonConstant = useSelector(state => state.ton.value)
@@ -30,6 +30,8 @@ const AdCreating = () => {
     const [stationNow , setStationNow] = useState(0)
 
     const navigate = useNavigate()
+    
+    const dispatch = useDispatch()
 
     function goForward(){
         if (stationNow !== -200){
@@ -37,6 +39,11 @@ const AdCreating = () => {
             if ( (stationNow - 100) === -200){
                 MainButton.setText('ЗАКОЛДИРОВАТЬ')
             }
+        }
+        else{
+            dispatch(changeTaskInformation (taskInformation) )
+            navigate('/MyAds')
+            alert('отправлено!')
         }
     }
     function goBack(){
