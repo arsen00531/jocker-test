@@ -5,7 +5,7 @@ import AdCreatingTwo from './ADCreatingTwo/AdCreatingTwo/AddCreatingTwo'
 
 import { motion, transform } from 'framer-motion';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeTaskInformation } from '../store/information';
+import { addMyAds, changeTaskInformation } from '../store/information';
 import BackButton from '../constants/BackButton';
 import MainButton from '../constants/MainButton';
 import { useNavigate } from 'react-router-dom';
@@ -39,6 +39,7 @@ const AdCreating = () => {
         }
         else{
             dispatch(changeTaskInformation (taskInformation) )
+            dispatch(addMyAds(taskInformation) )
             navigate('/MyAds')
             alert('отправлено!')
         }

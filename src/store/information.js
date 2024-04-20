@@ -106,8 +106,11 @@ const information = createSlice( {
         },
         changeMyAds(state, action) {
           state.myAdsArray = action.payload
+        },
+        addMyAds(state, action) {
+          state.myAdsArray.push(action.payload)
         }
     }
 })
-export const {changeTaskInformation , changeMyAds} = information.actions;
+export const {changeTaskInformation , changeMyAds, addMyAds} = information.actions;
 export default information.reducer;
