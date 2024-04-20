@@ -59,10 +59,25 @@
 .First__block {
   display: flex;
   flex-direction: column;
-  padding: 19px 19px 12px 17px;
+//   padding: 19px 19px 12px 17px;
   border-radius: 10px;
   background: rgb(32, 48, 63);
+    .first__photos{
+        margin-top: 3.67px;
+        display: flex;
+        gap: 4.30px;
+        margin-left: 3.67px;
+        overflow-x: hidden;
+        .first__photo{
+            min-width: 183.33px;
+            height: 133.67px;
+            border-radius: 6.67px;
+        }
+    }
     .FirstMain__top {
+        margin-top: 19.33px;
+        padding-left: 17px;
+        padding-right: 19px;
         .share__icon{
             margin-left: auto;
         }
@@ -101,6 +116,8 @@
     }
   }
   .FirstMain__middle{
+    padding-left: 17px;
+    padding-right: 19px;
     margin-top: 7px;
     display: flex;
     flex-direction: column;
@@ -120,6 +137,9 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        padding-left: 17px;
+        padding-right: 19px;
+        margin-bottom: 13px;
     }
     .FirstMain__bottom-left{
         display: flex;

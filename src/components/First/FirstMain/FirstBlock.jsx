@@ -12,7 +12,7 @@ const FirstBlock = ({taskName, executionPlace, time, tonValue , setDetailsActive
              <div className="First__block">
                 {photos ? (<div className='first__photos'> 
                     {photos.map( (e) => {
-                        return <img src={URL.createObjectURL(e)} className='' alt="" />
+                        return <img src={URL.createObjectURL(e)} className='first__photos' alt="" />
                     } )}
                  </div>) : ''  }
                 <div className="FirstMain__top">
