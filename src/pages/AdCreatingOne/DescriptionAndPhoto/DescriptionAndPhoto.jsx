@@ -11,6 +11,7 @@ const DescriptionAndPhoto = ({
   setTaskInformation,
   MyInformation,
 }) => {
+  console.log(taskInformation)
   return (
     <div
       className={
@@ -26,11 +27,15 @@ const DescriptionAndPhoto = ({
           value={taskInformation.taskDescription}
           className={cl.DescriptionInput}
           placeholder="Дайте подробное тз..."
-          setValue = {   (e) =>   { setTaskInformation( { ...taskInformation ,taskDescription : e} ) } } 
+          setValue = {   (e) => setTaskInformation( { ...taskInformation ,taskDescription : e} )  } 
         ></TextArea>
       </div>
       {MyInformation ? <MakePrivate className={cl.anotherPrivate} taskInformation={taskInformation} setTaskInformation={setTaskInformation} isPrivate={taskInformation.isPrivate} text = 'Добавить приватную информацию' enabledText='Её увидит только пользователь' notEnabledText='то же самое'   /> : ''}
-      <FileInput  className={MyInformation ? [cl.FileInput , cl.marginTop].join(' ') :  cl.FileInput} />
+      <FileInput setFiles = { (e)  => {  
+        console.log(e)
+        setTaskInformation( {...taskInformation , photos : e }  )  
+
+        }  } files = {taskInformation.photos}  className={MyInformation ? [cl.FileInput , cl.marginTop].join(' ') :  cl.FileInput} />
     </div>
   );
 };

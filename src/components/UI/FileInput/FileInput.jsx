@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import cl from './FileInput.module.css'
 import file  from '../../../images/icons/file.svg'
 import trash from '../../../images/icons/trash.svg'
-const FileInput = ({className}) => {
+const FileInput = ({className , files , setFiles}) => {
     const [images , setImages] = useState([])
-    const [counter , setCounter] = useState(0)
-    const [files , setFiles] = useState([])
-    const [haveImages , setHaveImages] = useState(false)
+    useEffect ( () => {
+        setImages ( files.map( (event) =>  URL.createObjectURL(event)  ) )
+        console.log(files)
+    } , [files] )
     return (
 
 
@@ -31,7 +32,6 @@ const FileInput = ({className}) => {
                     <input onChange={(event) => {
                             if (event.target.files && event.target.files[0]) {
                                 setFiles([...files , event.target.files[0]])
-                                setImages([...images , URL.createObjectURL(event.target.files[0])]);
         }
 
                         }} type="file"  id="file"  accept="image/*" class= {cl.none}/>

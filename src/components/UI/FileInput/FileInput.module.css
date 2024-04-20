@@ -64,7 +64,9 @@
 .imageFeet{
     width: 100%;
     object-fit: cover;
+    height:  100%;
     aspect-ratio: 1/1;
+
     border-radius: 10px;
 
 }

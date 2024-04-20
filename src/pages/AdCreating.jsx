@@ -19,11 +19,8 @@ const variants = {
 
 const AdCreating = () => {
 
-    let taskInformation = useSelector(state => state.information.taskInformation)
+    const [taskInformation , setTaskInformation]  =  useState (useSelector(state => state.information.taskInformation) )
     
-    function setTaskInformation(arg) {
-        taskInformation = arg
-    }
 
     const tonConstant = useSelector(state => state.ton.value)
     
