@@ -81,7 +81,7 @@ const MyAds =  ( ) => {
         return () => {
             BackButton.offClick(goBack)
         }
-    } , [isDetailsActive])
+    } )
     return (
         <div className='MyAdsContainer'>
                 <Burger />
