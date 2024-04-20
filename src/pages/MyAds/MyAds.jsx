@@ -13,6 +13,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import BackButton from '../../constants/BackButton';
 import { Link, useNavigate } from 'react-router-dom';
 import { changeMyAds } from '../../store/information';
+import { changeMenuActive } from '../../store/menuSlice';
 
 const MyAds =  ( ) => {
 
@@ -23,6 +24,8 @@ const MyAds =  ( ) => {
     const keys = ['freelancer' ,  'customer']
     const [nowValue , setNowKey] = useState('freelancer')
     const [isDetailsActive , setDetailsActive] = useState(false)
+
+
 
     const [taskInformation, setTaskInformation] = useState({
         category: { name: "Дизайн", value: "design1" },
@@ -55,6 +58,10 @@ const MyAds =  ( ) => {
 
     const dispatch = useDispatch()
 
+    function setMenuActive(arg) {
+        dispatch( changeMenuActive(arg) )
+    }
+
     function goBack(){
         navigate (-1)
     }
@@ -84,7 +91,7 @@ const MyAds =  ( ) => {
     } )
     return (
         <div className='MyAdsContainer'>
-                <Burger />
+                <Burger onClick = {(e) => { setMenuActive(true) }} />
                 <p className='MyAds'>
                     Мои задания
                 </p>

@@ -31,7 +31,6 @@ const First = () => {
   const filteredArr = useFilteredArr(ordersInformation, filterBy);
 
   const [isDetailsActive, setDetailsActive] = useState(false);
-  console.log(isDetailsActive)
   useEffect(() => {
     BackButton.hide()
     MainButton.hide()
