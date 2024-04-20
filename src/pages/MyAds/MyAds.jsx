@@ -127,7 +127,7 @@ const MyAds =  ( ) => {
             <CSSTransition
                 classNames = 'details'
                 in = {isDetailsActive}
-                timeout={1000}
+                timeout={0}
                 unmountOnExit
                 mountOnEnter
              >
