@@ -28,7 +28,7 @@ const Balance = () => {
         return () => {
             BackButton.offClick( goBack )
         }
-    } ,[] )
+    }  )
 
     useEffect(() => {
         ref1.current.style.minWidth = (document.documentElement.clientWidth - 32).toString() + 'px' 
