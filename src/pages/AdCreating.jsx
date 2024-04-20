@@ -39,7 +39,6 @@ const AdCreating = () => {
         }
         else{
             dispatch(changeTaskInformation (taskInformation) )
-            dispatch(addMyAds(taskInformation) )
             navigate('/MyAds')
             alert('отправлено!')
         }
