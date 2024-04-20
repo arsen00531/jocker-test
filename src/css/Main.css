@@ -104,12 +104,15 @@
   display: flex;
   gap: 4.3px;
   margin-left: 3.67px;
-  overflow-x: hidden;
+  overflow-x: scroll;
+  border-radius: 6.67px;
 }
 .First__block .first__photos .first__photo {
   min-width: 183.33px;
   height: 133.67px;
   border-radius: 6.67px;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 .First__block .FirstMain__top {
   margin-top: 19.33px;

@@ -49,7 +49,7 @@ const FirstMenu = () => {
             <div className='MenuList'>
                 <Link className='menuLink'  onClick={() => {setMenuActive(false)}}  to="/AdCreating" >Создать задание</Link>
                 <Link onClick={ () => {setMenuActive(false)}} className='menuLink' to = '/'>Найти задания</Link>
-                <Link className='menuLink'  to='/MyAds'>Мои задания</Link>
+                <Link onClick={ () => {setMenuActive(false)}} className='menuLink'  to='/MyAds'>Мои задания</Link>
                 <p className='menuLink'  href="">Уведомления</p>
                 <p className='menuLink'  href="">Новости Коннект.биржи</p>
                 <p className='menuLink'  href="" style={{color : 'rgb(42, 207, 88)'}}> Стать исполнителем </p>
