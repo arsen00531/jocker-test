@@ -75,6 +75,7 @@ const AdCreating = () => {
         MainButton.onClick ( goForward )
         BackButton.onClick( goBack )
         return () => {
+            MainButton.hide()
             BackButton.offClick(goBack)
             MainButton.offClick(goForward)
         }
