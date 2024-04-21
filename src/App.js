@@ -22,6 +22,7 @@ import MyAds from './pages/MyAds/MyAds'
 
 import { fetchTon } from "./store/ton";
 import AdCreating from "./pages/AdCreating";
+import tonConstant from "./constants/tonConstant";
 
 
 const AnimatedSwitch = () =>{
@@ -44,14 +45,16 @@ const AnimatedSwitch = () =>{
 }
 function App() {
 
+  
   window.Telegram.WebApp.expand();
-
+  
   const dispatch = useDispatch()
-
+  
   useEffect ( () => {
     dispatch( fetchTon() )
   } )
-
+  
+  console.log(tonConstant)
 
   return (
     <div className="MainContainer" >

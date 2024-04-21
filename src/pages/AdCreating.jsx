@@ -41,6 +41,7 @@ const AdCreating = () => {
             dispatch(changeTaskInformation (taskInformation) )
             navigate('/MyAds')
             alert('отправлено!')
+            MainButton.hide()
         }
     }
     function goBack(){
