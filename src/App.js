@@ -42,8 +42,6 @@ const AnimatedSwitch = () =>{
         </div>
       )
 }
-
-
 function App() {
 
   window.Telegram.WebApp.expand();
