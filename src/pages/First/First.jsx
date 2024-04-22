@@ -11,6 +11,7 @@ import { useFilteredArr } from "../../hooks/useFilteredArr";
 import { useDispatch, useSelector } from "react-redux";
 import { changeMenuActive } from "../../store/menuSlice";
 import MainButton from "../../constants/MainButton";
+import useListner from "../../hooks/useListner";
 
 const First = () => {
 
@@ -36,41 +37,8 @@ const First = () => {
     MainButton.hide()
   } )
 
-  useEffect(() => {
-    let startTouchX = 0;
-    let endTouchX = 0;
-    let startTouchY = 0;
-    let endTouchY = 0;
-    function listnerFunctionOne(e) {
-      startTouchX = e.changedTouches[0].pageX;
-      startTouchY = e.changedTouches[0].pageY;
-    }
-    function listnerFunctionTwo(e) {
-      endTouchX = e.changedTouches[0].pageX;
-      endTouchY = e.changedTouches[0].pageY;
-      if (
-        endTouchX - startTouchX > 80 &&
-        Math.abs(startTouchY - endTouchY) < 150
-      )
-        setMenuActive(true);
-      if (isMenuActive) {
-        if (
-          endTouchX - startTouchX < 80 &&
-          Math.abs(startTouchY - endTouchY) < 150
-        ) {
-          setMenuActive(false);
-        }
-      }
-    }
-
-    document.addEventListener("touchstart", listnerFunctionOne);
-    document.addEventListener("touchend", listnerFunctionTwo);
-
-    return () => {
-      document.removeEventListener('touchstart' , listnerFunctionOne)
-      document.removeEventListener('touchend' , listnerFunctionTwo)
-    }
-  }, [isMenuActive, setMenuActive]);
+    
+ useListner({isMenuActive, setMenuActive , setDetailsActive, isDetailsActive  }    )
 
   return (
     <motion.div
