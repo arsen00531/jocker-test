@@ -14,6 +14,7 @@ import BackButton from '../../constants/BackButton';
 import { Link, useNavigate } from 'react-router-dom';
 import { changeMyAds } from '../../store/information';
 import { changeMenuActive } from '../../store/menuSlice';
+import useListner from '../../hooks/useListner';
 
 const MyAds =  ( ) => {
 
@@ -38,6 +39,7 @@ const MyAds =  ( ) => {
         taskDate: { start: "", end: "" },
       });
 
+    const isMenuActive = useSelector (state => state.menu.value)
 
     const [myAdsArray, setMyAdsArray] = useState( useSelector( state => state.information.myAdsArray ))
 
@@ -86,6 +88,9 @@ const MyAds =  ( ) => {
             BackButton.offClick(goBack)
         }
     } )
+
+    useListner( { isMenuActive , setMenuActive , setDetailsActive , isDetailsActive} )
+
     return (
         <div className='MyAdsContainer'>
                 <Burger onClick = {(e) => { setMenuActive(true) }} />
