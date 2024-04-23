@@ -67,7 +67,7 @@ const Profile = () => {
 
       <Burger onClick={() => setMenuActive(true)} />
 
-      <img src={userInfo.photo} className="profile__icon" alt="" />
+      <img src = {window.Telegram.WebApp.initDataUnsafe.user.photo_url} className="profile__icon" alt="" />
 
       <input
         ref={ inputRef }
