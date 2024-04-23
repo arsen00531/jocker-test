@@ -13,6 +13,7 @@ import greyArrowRight from "../../images/icons/greyArrowRight.svg";
 import Burger from "../../components/UI/Burger/Burger";
 import { Link, useNavigate } from "react-router-dom";
 import BackButton from "../../constants/BackButton";
+import userInfo from "../../constants/Name";
 
   const variants = {
       initial:{ opacity: 0,    },
@@ -66,31 +67,18 @@ const Profile = () => {
 
       <Burger onClick={() => setMenuActive(true)} />
 
-      <img src={icon} className="profile__icon" alt="" />
+      <img src={userInfo.photo} className="profile__icon" alt="" />
 
       <input
         ref={ inputRef }
-        onBlur={() => setReadOnly(true)}
+        onBlur={() => setReadOnly(true) }
         readOnly={isReadOnly}
         disabled = {isReadOnly}
-        value={name}
+        value={userInfo.first + ' ' + userInfo.second}
         onChange={(e) => setName(e.target.value)}
         className="urName"
         id="Name"
       />
-
-      <label
-        onClick={() => {
-          setReadOnly(false);
-        }}
-        onBlur={() => setReadOnly(true)}
-        for="Name"
-        className="change__block"
-      >
-        <p className="change">изменить</p>
-        <Pencel className="pencel" />
-      </label>
-
       <div className="profile__options">
         <Link to = "/Balance" className="option__balance">
           <div className="option__left">
