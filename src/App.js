@@ -84,7 +84,7 @@ function App() {
     <div className="MainContainer" >
       <BrowserRouter>
 
-
+        <p> {window.Telegram.WebApp.initDataUnsafe.user} </p>
         <FirstMenu/>
 
         <AnimatedSwitch />
