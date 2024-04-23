@@ -53,8 +53,7 @@ function App() {
   window.Telegram.WebApp.expand();
   
   const dispatch = useDispatch()
-  alert(window.Telegram.WebApp.initData)
-  alert(window.Telegram.WebApp.initDataUnsafe)
+  alert(window.Telegram.WebApp.initDataUnsafe.user)
   const orderInformations = useSelector(state => state.information.orderInformations)
   const status = useSelector(state => state.information.status)
   
