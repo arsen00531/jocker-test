@@ -53,7 +53,9 @@ function App() {
   window.Telegram.WebApp.expand();
   
   const dispatch = useDispatch()
-  alert(window.Telegram.WebApp.initDataUnsafe.user)
+  alert(window.Telegram.WebApp.initDataUnsafe.user.first_name)
+  alert(window.Telegram.WebApp.initDataUnsafe.user.last_name)
+  alert(window.Telegram.WebApp.initDataUnsafe.user.username)
   const orderInformations = useSelector(state => state.information.orderInformations)
   const status = useSelector(state => state.information.status)
   
@@ -84,7 +86,6 @@ function App() {
     <div className="MainContainer" >
       <BrowserRouter>
 
-        <p> {window.Telegram.WebApp.initDataUnsafe.user} </p>
         <FirstMenu/>
 
         <AnimatedSwitch />
