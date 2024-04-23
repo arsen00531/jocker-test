@@ -54,7 +54,7 @@ function App() {
   window.Telegram.WebApp.expand();
   
   const dispatch = useDispatch()
-  alert(userInfo.photo)
+  alert(window.Telegram.WebApp.initDataUnsafe.user.photo_url)
   const orderInformations = useSelector(state => state.information.orderInformations)
   const status = useSelector(state => state.information.status)
   
