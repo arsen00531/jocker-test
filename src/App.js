@@ -26,6 +26,7 @@ import tonConstant from "./constants/tonConstant";
 import { fetchTasksInformation } from "./store/information";
 import { TaskAbortError } from "@reduxjs/toolkit";
 import axios from "axios";
+import userInfo from "./constants/Name";
 
 
 
@@ -53,9 +54,7 @@ function App() {
   window.Telegram.WebApp.expand();
   
   const dispatch = useDispatch()
-  alert(window.Telegram.WebApp.initDataUnsafe.user.first_name)
-  alert(window.Telegram.WebApp.initDataUnsafe.user.last_name)
-  alert(window.Telegram.WebApp.initDataUnsafe.user.username)
+  alert(userInfo.photo)
   const orderInformations = useSelector(state => state.information.orderInformations)
   const status = useSelector(state => state.information.status)
   
