@@ -1,7 +1,17 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import axios from 'axios'
+export const fetchTasksInformation = createAsyncThunk( 
+  'information/fetchTasksInformation' , 
+  async function (){
+      console.log('Идет ftch')
+      let task = await axios.get('http://localhost:5000/advertisement/findAll')
+      return task.data
+  }
+ )
 const information = createSlice( {
     name : 'taskInformation',
     initialState : {
+        status  : null ,
         taskInformation :  {
             category: { name: "Дизайн", value: "design1" },
             subCategory: "Выбрать",
@@ -110,6 +120,12 @@ const information = createSlice( {
         addMyAds(state, action) {
           state.myAdsArray.push(action.payload)
         }
+    },
+    extraReducers : builder => {
+      builder.addCase( fetchTasksInformation.pending, (state => {state.status = 'loading'} )  )
+      builder.addCase( fetchTasksInformation.fulfilled, ((state , action) => {state.status = 'loading'  
+      state.orderInformations = action.payload }  ) )
+      builder.addCase( fetchTasksInformation.rejected , ( (state , action) => {state.status = 'error'} )  )
     }
 })
 export const {changeTaskInformation , changeMyAds, addMyAds} = information.actions;

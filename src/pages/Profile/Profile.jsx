@@ -37,6 +37,14 @@ const Profile = () => {
 
   const navigate = useNavigate()
 
+  const inputRef = useRef(null)
+
+  useEffect(  () => {
+    if (inputRef.current){
+      inputRef.current.setSelectionRange(inputRef.current.value.length, inputRef.current.value.length);
+    }
+  }, [isReadOnly]  )
+
   useEffect( () => {
     function goBack(){
       navigate(-1)
@@ -61,8 +69,10 @@ const Profile = () => {
       <img src={icon} className="profile__icon" alt="" />
 
       <input
+        ref={ inputRef }
         onBlur={() => setReadOnly(true)}
         readOnly={isReadOnly}
+        disabled = {isReadOnly}
         value={name}
         onChange={(e) => setName(e.target.value)}
         className="urName"

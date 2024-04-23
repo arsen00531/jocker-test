@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import {  CSSTransition } from "react-transition-group";
 import { motion } from "framer-motion";
 
@@ -13,6 +13,7 @@ import { changeMenuActive } from "../../store/menuSlice";
 import MainButton from "../../constants/MainButton";
 import useListner from "../../hooks/useListner";
 
+
 const First = () => {
 
   const dispatch = useDispatch();
@@ -20,6 +21,7 @@ const First = () => {
   const ordersInformation = useSelector(
     (state) => state.information.orderInformations
   );
+
 
   const isMenuActive = useSelector((state) => state.menu.value);
 
@@ -31,14 +33,14 @@ const First = () => {
 
   const filteredArr = useFilteredArr(ordersInformation, filterBy);
 
-  const [isDetailsActive, setDetailsActive] = useState(false);
+  const [isDetailsActive, setDetailsActive ] = useState(false);
   useEffect(() => {
     BackButton.hide()
     MainButton.hide()
   } )
 
     
- useListner({isMenuActive, setMenuActive , setDetailsActive, isDetailsActive  }    )
+   useListner({isMenuActive, setMenuActive , setDetailsActive, isDetailsActive  }    )
 
   return (
     <motion.div

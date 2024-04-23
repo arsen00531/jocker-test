@@ -239,8 +239,6 @@
   display: -ms-flexbox;
   display: flex;
   gap: 13px;
-  -ms-flex-item-align: end;
-      align-self: flex-end;
   margin-right: 4px;
 }
 .First__block .FirstMain__bottom-right .tie {
@@ -1217,9 +1215,9 @@ input {
           align-items: center;
 }
 .profile__container .pencel {
-  -webkit-transform: translateY(1.5px);
-      -ms-transform: translateY(1.5px);
-          transform: translateY(1.5px);
+  -webkit-transform: translateY(1px);
+      -ms-transform: translateY(1px);
+          transform: translateY(1px);
   width: 12.8px;
 }
 .profile__container .change {

@@ -34,7 +34,7 @@ const FirstMenu = () => {
                     <p className='MenuName'>Nedzelskiy</p>
                     <Link onClick={() => {setMenuActive(false)}} to={'/Profile'} className='MenuProfile'>
                         <p className='MenuProfileLink'>Профиль</p>
-                        <Pensel className='normail' />
+
                     </Link>
                 </div>
             </Link>

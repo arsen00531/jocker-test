@@ -23,6 +23,10 @@ import MyAds from './pages/MyAds/MyAds'
 import { fetchTon } from "./store/ton";
 import AdCreating from "./pages/AdCreating";
 import tonConstant from "./constants/tonConstant";
+import { fetchTasksInformation } from "./store/information";
+import { TaskAbortError } from "@reduxjs/toolkit";
+import axios from "axios";
+
 
 
 const AnimatedSwitch = () =>{
@@ -49,12 +53,33 @@ function App() {
   window.Telegram.WebApp.expand();
   
   const dispatch = useDispatch()
+  alert(window.Telegram.WebApp.initData)
+  alert(window.Telegram.WebApp.initDataUnsafe)
+  const orderInformations = useSelector(state => state.information.orderInformations)
+  const status = useSelector(state => state.information.status)
   
-  useEffect ( () => {
-    dispatch( fetchTon() )
-  } )
-  
-  console.log(tonConstant)
+  // useEffect ( () => {
+  //   dispatch ( fetchTasksInformation() )
+  // },[] )
+  console.log(status)
+  console.log(orderInformations)
+
+
+
+
+
+  // async function addOne(){
+  //     await axios.post('http://localhost:5000/category/category' , сategoryName: 'lox')
+  // }
+  // addOne()
+
+//   async  function getIt (){
+//     let task = await axios.get('http://localhost:5000/advertisement/findAll')
+//     console.log(task)
+//     return task
+// }
+//   getIt()
+//   console.log(tonConstant)
 
   return (
     <div className="MainContainer" >
