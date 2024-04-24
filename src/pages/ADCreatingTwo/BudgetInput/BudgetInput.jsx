@@ -50,7 +50,7 @@ const BudgetInput = ({
     >
 
       <p className={[cl.input, cl.hidden].join(" ")} ref={ref1}></p>
-
+      <p style={ budget ? {display : 'none'} : {}  }  className = { [cl.input , cl.absolute].join(' ') }> 0 </p>
       <input
         value={budget}
         onChange={(e) => {
@@ -72,6 +72,7 @@ const BudgetInput = ({
         }}
         className={cl.input}
         style={{ width: budgetWidth(budget) }}
+        pattern="0"
       />
 
       <p className={cl.budgetText}>RUB</p>

@@ -11,7 +11,7 @@
     padding-bottom: calc(26.33px);
     display:flex;
     align-items: center;
-}чё
+}
 .BudgetInput[data-value]{
     position: relative;
 }
@@ -25,7 +25,7 @@
 
 }
 .input{
-    min-width: calc(1ch + 10px);
+    min-width: 34.16px;
     color: rgb(255, 255, 255);
     font-family: "SF Compact Rounded";
     color: rgb(255, 255, 255);
@@ -81,4 +81,10 @@ input:focus {outline: none;}
 }
 .text span{
     color:  rgb(218, 245, 254);
+}
+.absolute{
+    position: absolute;
+    top: -2px;
+    left: 16px;
+    opacity: 0.5;
 }
