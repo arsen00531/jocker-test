@@ -27,6 +27,7 @@ import { fetchTasksInformation } from "./store/information";
 import { TaskAbortError } from "@reduxjs/toolkit";
 import axios from "axios";
 import userInfo from "./constants/Name";
+import { fetchUserInfo } from "./store/telegramUserInfo";
 
 
 
@@ -60,12 +61,29 @@ function App() {
   
   useEffect ( () => {
     dispatch( fetchTon() )
+    dispatch (fetchUserInfo())
   },[] )
   console.log(status)
   console.log(orderInformations)
 
 
 
+  const userInfo = useSelector (state => state.telegramUserInfo.id)
+  console.log(userInfo)
+
+
+  // async function catchMe(){
+  //   let io = await axios.get( 'http://localhost:5000/user/findOne' ,  {
+  //     params : {
+  //       id : 858931156
+  //     }
+  //   })
+  //   console.log(io)
+  //   return io
+  // }
+  // useEffect (  () => {
+  //   catchMe()
+  // }  )
 
 
   // async function addOne(){
