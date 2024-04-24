@@ -65,19 +65,24 @@ const AdCreating = () => {
     else{
         MainButton.setText('ДАЛЕЕ')
     }
+    useEffect( () => {
+        MainButton.onClick ( goForward )
+        BackButton.onClick( goBack )
+        return () => {
+            BackButton.offClick(goBack)
+            MainButton.offClick(goForward)        
+        }
+
+    } )
     
     
     useEffect (  () => {
         MainButton.show()
         BackButton.show()
-        MainButton.onClick ( goForward )
-        BackButton.onClick( goBack )
         return () => {
             MainButton.hide()
-            BackButton.offClick(goBack)
-            MainButton.offClick(goForward)
         }
-    }  )
+    } , [] )
 
     return (
         <motion.div
