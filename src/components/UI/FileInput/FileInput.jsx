@@ -10,7 +10,7 @@ const FileInput = ({className , files , setFiles}) => {
     const myRef = useRef(null)
     useEffect( () => {
         if (myRef){
-            alert(myRef.files)
+            // alert(myRef.files)
         }
 
     } , [myRef.files]  )

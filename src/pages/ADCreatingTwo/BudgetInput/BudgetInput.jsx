@@ -71,7 +71,7 @@ const BudgetInput = ({
           setBudget(e.target.value.length > 0 ? e.target.value : "0");
         }}
         className={cl.input}
-        style={{ width: budgetWidth(budget) }}
+        // style={{ width: budgetWidth(budget) }}
         pattern="0"
       />
 
