@@ -32,8 +32,8 @@ const FileInput = ({className , files , setFiles}) => {
 
                 }
                 )}
-            <label ref = {myRef} style={images.length === 5 ? {display : 'none'} : {}} className={images.length !== 0 ? cl.ActiveMainLabel : cl.MainLabel} htmlFor="file">
-                    <input onChange={(event) => {
+            <label  style={images.length === 5 ? {display : 'none'} : {}} className={images.length !== 0 ? cl.ActiveMainLabel : cl.MainLabel} htmlFor="file">
+                    <input ref = {myRef} onChange={(event) => {
                             alert(...newFiles)
                             if (event.target.files && event.target.files[0]) {
                                 let newFiles = []
