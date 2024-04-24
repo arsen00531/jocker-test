@@ -70,11 +70,8 @@ const Profile = () => {
 
       <img src = {icon} className="profile__icon" alt="" />
 
-      <input
+      <p
         ref={ inputRef }
-        onBlur={() => setReadOnly(true) }
-        readOnly={isReadOnly}
-        disabled = {isReadOnly}
         value = {userInfo.second ? (userInfo.first + ' ' + userInfo.second) : (userInfo.first) }
         onChange={(e) => setName(e.target.value)}
         className="urName"
