@@ -1239,7 +1239,7 @@ input {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin-top: 28px;
+  margin-top: 25px;
   border-radius: 10px;
   padding-left: 16px;
   /* Cards */
@@ -2190,8 +2190,8 @@ input {
 .AdCreactingFunction {
   border-radius: 10px;
   background: rgb(32, 48, 63);
-  padding-top: 9.67px;
-  padding-bottom: 8.67px;
+  padding-top: 9px;
+  padding-bottom: 9px;
   padding-left: 18px;
   padding-right: 18px;
   width: 100%;
