@@ -74,7 +74,7 @@ const Profile = () => {
         onBlur={() => setReadOnly(true) }
         readOnly={isReadOnly}
         disabled = {isReadOnly}
-        value = {userInfo.second ? userInfo.first + ' ' + userInfo.second : userInfo.first }
+        value = {userInfo.second ? (userInfo.first + ' ' + userInfo.second) : (userInfo.first) }
         onChange={(e) => setName(e.target.value)}
         className="urName"
         id="Name"
