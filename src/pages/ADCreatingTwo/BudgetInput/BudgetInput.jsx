@@ -62,6 +62,7 @@ const BudgetInput = ({
         }}
         inputmode="numeric"
         id="budget"
+        name="budget"
         type="text"
         onFocus={(e) => {
           setBudget(e.target.value === "0" ? "" : e.target.value);
