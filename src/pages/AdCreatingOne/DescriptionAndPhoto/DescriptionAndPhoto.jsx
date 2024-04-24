@@ -34,7 +34,12 @@ const DescriptionAndPhoto = ({
       
       {MyInformation ? (<GreyText className={cl.SecondGreyText}>ИЗОБРАЖЕНИЯ</GreyText>) : ''}
       <FileInput setFiles = { (e)  => {  
-        setTaskInformation( {...taskInformation , photos : e }  )  
+        if (!e) {
+          alert('ошибка фото!!')
+        }
+        else{
+          setTaskInformation(  {...taskInformation , photos : e }  )  
+        }
 
         }  } files = {taskInformation.photos}  className={MyInformation ? [cl.FileInput , cl.marginTop].join(' ') :  cl.FileInput} />
     </div>
