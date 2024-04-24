@@ -66,8 +66,6 @@ const AdCreating = () => {
         MainButton.setText('ДАЛЕЕ')
     }
     
-    MainButton.show()
-    BackButton.show()
     
     useEffect (  () => {
         MainButton.show()
@@ -90,6 +88,7 @@ const AdCreating = () => {
         transition = "transition"
          className="AdCreating__container"
         style={{transform : 'translateX(' + stationNow.toString() + '%)', transition : '0.3s'}}>
+            <button style={{position : 'absolute'}} onClick={() => {goForward()}} >Выфвфывфы</button>
             <AdCreatingOne setTaskInformation = {setTaskInformation}  taskInformation = {taskInformation} />
             <AdCreatingTwo setTaskInformation = {setTaskInformation} taskInformation = {taskInformation} tonConstant = {tonConstant} />
             <AdCreatingThree taskInformation = {taskInformation} />
