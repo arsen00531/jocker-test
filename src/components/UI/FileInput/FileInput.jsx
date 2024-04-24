@@ -9,9 +9,12 @@ const FileInput = ({className , files , setFiles}) => {
         console.log(files)
     }  )
     const myRef = useRef(null)
-    // if (myRef){
-    //     alert(myRef.files)
-    // }
+    useEffect( () => {
+        if (myRef){
+            alert(myRef.files)
+        }
+
+    } , [myRef.files]  )
     return (
 
 
