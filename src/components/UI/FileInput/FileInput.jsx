@@ -7,7 +7,7 @@ const FileInput = ({className , files , setFiles}) => {
     useEffect ( () => {
         setImages ( files.map( (event) =>  URL.createObjectURL(event)  ) )
         console.log(files)
-    } , [files] )
+    }  )
     return (
 
 
@@ -31,10 +31,14 @@ const FileInput = ({className , files , setFiles}) => {
             <label style={images.length === 5 ? {display : 'none'} : {}} className={images.length !== 0 ? cl.ActiveMainLabel : cl.MainLabel} htmlFor="file">
                     <input onChange={(event) => {
                             if (event.target.files && event.target.files[0]) {
-                                setFiles([...files , event.target.files[0]])
+                                let newFiles = []
+                                for (let photo of event.target.files){
+                                    newFiles.push(photo)
+                                }
+                                setFiles([...files , ...newFiles])
         }
 
-                        }} type="file"  id="file"  accept="image/*" class= {cl.none}/>
+                        }} type="file" multiple = {5}   id="file"  accept="image/*" class= {cl.none}/>
 
 
 

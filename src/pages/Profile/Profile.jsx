@@ -67,14 +67,14 @@ const Profile = () => {
 
       <Burger onClick={() => setMenuActive(true)} />
 
-      <img src = {window.Telegram.WebApp.initDataUnsafe.user.photo_url} className="profile__icon" alt="" />
+      <img src = {userInfo.photo} className="profile__icon" alt="" />
 
       <input
         ref={ inputRef }
         onBlur={() => setReadOnly(true) }
         readOnly={isReadOnly}
         disabled = {isReadOnly}
-        value={userInfo.first + ' ' + userInfo.second}
+        value = {userInfo.second ? userInfo.first + ' ' + userInfo.second : userInfo.first }
         onChange={(e) => setName(e.target.value)}
         className="urName"
         id="Name"
@@ -140,10 +140,10 @@ const Profile = () => {
             {aboutU}
           </p>
           <input
-            onChange={(e) => setAboutU(e.target.value)}
-            style={
-              hiddenP.current ? { width: hiddenP.current.offsetWidth } : {}
-            }
+            // onChange={(e) => setAboutU(e.target.value)}
+            // style={
+            //   hiddenP.current ? { width: hiddenP.current.offsetWidth } : {}
+            // }
             onBlur={(e) => {}}
             className="about__u-text"
             value={aboutU}

@@ -122,4 +122,4 @@ const AdCreatingOne =   ({ taskInformation , setTaskInformation,  MyInformation,
   );
 };
 
-export default memo (AdCreatingOne);
+export default  AdCreatingOne;

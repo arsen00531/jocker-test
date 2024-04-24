@@ -1215,9 +1215,9 @@ input {
           align-items: center;
 }
 .profile__container .pencel {
-  -webkit-transform: translateY(1px);
-      -ms-transform: translateY(1px);
-          transform: translateY(1px);
+  -webkit-transform: translateY(2.4px);
+      -ms-transform: translateY(2.4px);
+          transform: translateY(2.4px);
   width: 12.8px;
 }
 .profile__container .change {
@@ -1404,7 +1404,7 @@ input {
   letter-spacing: 1%;
   text-align: left;
   outline: none;
-  width: 76px;
+  width: 77px;
 }
 .profile__container .profile__about-me .ur__town .about__u-text:hover, .profile__container .profile__about-me .ur__town .about__u-text:focus {
   outline: none;
