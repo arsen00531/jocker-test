@@ -77,7 +77,7 @@ const BudgetInput = ({
       <p className={cl.budgetText}>RUB</p>
 
       <div className={cl.bottomTextContainer}>
-          <p className={cl.text}> К оплате {tonValue} TON </p>
+          <p className={cl.text}> К оплате <span> {tonValue} TON </span>  </p>
           <img src={Info} alt="" />
       </div>
       
