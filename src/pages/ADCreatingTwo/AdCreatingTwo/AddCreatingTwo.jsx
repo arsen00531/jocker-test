@@ -19,27 +19,9 @@ let backTransition = { x : '-100%'  }
 
 const SecondAddCreating = ({taskInformation , setTaskInformation, tonConstant}) => {
 
-    const navigate = useNavigate()
 
-    function goForward(){
-      forwardTransition =  [ {x : '-100%'} , { x : '0'} ]
-      backTransition = { x : '-100%'  }
-      navigate('/AdCreatingThree')
-      } 
-    
-    function goBack(){
-      backTransition = { x : '100%'  }
-      forwardTransition = [ {x : '100%'} , { x : '0' } ]
-        navigate(-1)
-      }
 
-  
-      const variants = {
-        initial :   forwardTransition[0]  ,
-        animate :    forwardTransition[1] ,
-        exit : backTransition ,
-        transition : { duration : 0.2 }
-      }
+
     return (
       <div className = {cl.SecondAddCreating} 
       style={{minWidth : document.documentElement.clientWidth.toString() + 'px' }}

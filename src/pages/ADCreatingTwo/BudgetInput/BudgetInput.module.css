@@ -39,9 +39,9 @@
 }
 .budgetText{
     color: rgb(218, 245, 254);
-    font-family: "SF Compact Rounded 600";
+    font-family: "SF Compact Rounded";
     font-size: 42px;
-    font-weight: 600;
+    font-weight: 500;
     line-height: 50px;
     letter-spacing: 1%;
     text-align: left;
@@ -60,9 +60,9 @@ input:focus {outline: none;}
 .bottomTextContainer p{
     /* Description */
     color: rgb(255, 255, 255);
-    font-family: "SF Pro Display 400";
+    font-family: "SF Pro Display";
     font-size: 13.33px;
-    font-weight: 400;
+    font-weight: 500;
     line-height: 15.64px;
     letter-spacing: 2%;
     text-align: left;

@@ -43,7 +43,7 @@ const BudgetInput = ({
   const ref1 = useRef(null);
 
   return (
-    <div
+    <label htmlFor="budget"
       className={
         className ? [className, cl.BudgetInput].join(" ") : cl.BudgetInput
       }
@@ -61,6 +61,7 @@ const BudgetInput = ({
           );
         }}
         inputmode="numeric"
+        id="budget"
         type="text"
         onFocus={(e) => {
           setBudget(e.target.value === "0" ? "" : e.target.value);
@@ -79,7 +80,7 @@ const BudgetInput = ({
           <img src={Info} alt="" />
       </div>
       
-    </div>
+    </label>
   );
 };
 
