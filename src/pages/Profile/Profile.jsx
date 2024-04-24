@@ -55,7 +55,8 @@ const Profile = () => {
       BackButton.offClick(goBack)
     }
   } )
-
+  alert(userInfo.second)
+  alert(userInfo.first)
   return (
     <motion.div className="profile__container"
         variants={variants}
