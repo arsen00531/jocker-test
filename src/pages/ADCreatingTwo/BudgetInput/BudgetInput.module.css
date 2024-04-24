@@ -33,7 +33,7 @@
     font-size: 59.59px;
     font-weight: 500;
     line-height: 71px;
-    letter-spacing: 4%;
+    letter-spacing: 1px;
     text-align: left;
     background-color: transparent;
     caret-color: rgb(46, 165, 255);
@@ -43,7 +43,7 @@
     color: rgb(218, 245, 254);
     font-family: "SF Compact Rounded";
     font-size: 42px;
-    font-weight: 500;
+    font-weight: 600;
     line-height: 50px;
     letter-spacing: 1px;
     text-align: left;
