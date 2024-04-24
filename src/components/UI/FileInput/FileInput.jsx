@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import cl from './FileInput.module.css'
 import file  from '../../../images/icons/file.svg'
 import trash from '../../../images/icons/trash.svg'
@@ -8,6 +8,10 @@ const FileInput = ({className , files , setFiles}) => {
         setImages ( files.map( (event) =>  URL.createObjectURL(event)  ) )
         console.log(files)
     }  )
+    const myRef = useRef(null)
+    if (myRef){
+        alert(myRef.files)
+    }
     return (
 
 
@@ -28,7 +32,7 @@ const FileInput = ({className , files , setFiles}) => {
 
                 }
                 )}
-            <label style={images.length === 5 ? {display : 'none'} : {}} className={images.length !== 0 ? cl.ActiveMainLabel : cl.MainLabel} htmlFor="file">
+            <label ref = {myRef} style={images.length === 5 ? {display : 'none'} : {}} className={images.length !== 0 ? cl.ActiveMainLabel : cl.MainLabel} htmlFor="file">
                     <input onChange={(event) => {
                             alert(...newFiles)
                             if (event.target.files && event.target.files[0]) {
