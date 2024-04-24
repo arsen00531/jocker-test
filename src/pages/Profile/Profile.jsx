@@ -40,11 +40,11 @@ const Profile = () => {
 
   const inputRef = useRef(null)
 
-  useEffect(  () => {
-    if (inputRef.current){
-      inputRef.current.setSelectionRange(inputRef.current.value.length, inputRef.current.value.length);
-    }
-  }, [isReadOnly]  )
+  // useEffect(  () => {
+  //   if (inputRef.current){
+  //     inputRef.current.setSelectionRange(inputRef.current.value.length, inputRef.current.value.length);
+  //   }
+  // }, [isReadOnly]  )
 
   useEffect( () => {
     function goBack(){
@@ -55,8 +55,7 @@ const Profile = () => {
       BackButton.offClick(goBack)
     }
   } )
-  alert(userInfo.second)
-  alert(userInfo.first)
+
   return (
     <motion.div className="profile__container"
         variants={variants}
@@ -72,7 +71,7 @@ const Profile = () => {
 
       <p
         ref={ inputRef }
-        value = {userInfo.second ? (userInfo.first + ' ' + userInfo.second) : (userInfo.first) }
+        value = {'dsada'}
         onChange={(e) => setName(e.target.value)}
         className="urName"
         id="Name"
