@@ -35,7 +35,7 @@ const FileInput = ({className , files , setFiles}) => {
                 )}
             <label  style={images.length === 5 ? {display : 'none'} : {}} className={images.length !== 0 ? cl.ActiveMainLabel : cl.MainLabel} htmlFor="file">
                     <input ref = {myRef} onChange={(event) => {
-                            alert(...newFiles)
+                            alert(event.target.files)
                             if (event.target.files && event.target.files[0]) {
                                 let newFiles = []
                                 for (let photo of event.target.files){
