@@ -6,8 +6,7 @@ const FileInput = ({className , files , setFiles}) => {
     const [images , setImages] = useState([])
     useEffect ( () => {
         setImages ( files.map( (event) =>  URL.createObjectURL(event)  ) )
-        console.log(files)
-    }  )
+    }, [files]  )
     const myRef = useRef(null)
     useEffect( () => {
         if (myRef){
@@ -15,7 +14,7 @@ const FileInput = ({className , files , setFiles}) => {
         }
 
     } , [myRef.files]  )
-    return (
+    return (    
 
 
             <div style={images.length === 0 ? {display:'flex'} : {} } className={className ? [  cl.FileInput, className].join(' ') : cl.FileInput }>
@@ -46,7 +45,7 @@ const FileInput = ({className , files , setFiles}) => {
                                 setFiles([...files , ...newFiles])
         }
 
-                        }} type="file" multiple name='file[]'  id="file"  accept="image/*" class= {cl.none}/>
+                        }} type="file" multiple = {true} name='file'  id="file"  accept="image/*" class= {cl.none}/>
 
 
 
