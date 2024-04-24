@@ -9,10 +9,9 @@ const FileInput = ({className , files , setFiles}) => {
         console.log(files)
     }  )
     const myRef = useRef(null)
-    alert('dsad')
-    if (myRef){
-        alert(myRef.files)
-    }
+    // if (myRef){
+    //     alert(myRef.files)
+    // }
     return (
 
 
