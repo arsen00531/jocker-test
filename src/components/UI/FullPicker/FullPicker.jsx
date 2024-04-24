@@ -41,7 +41,18 @@ const FullPicker = ({values , keys , nowKey , setNowKey, className}) => {
     return (
         <div   ref={trackRef} className={className ? [cl.track , className].join(' ') : cl.track}>
             <div style={{width : GreyWidth, transform : myTransform}} className={cl.greyBlock}></div>
-            {MyValues}
+            <p  className={cl.value} onClick={(e) => {
+                            setNowKey(keys[0]) 
+                        } 
+                        } >
+                        Как
+                </p>
+            <p  className={cl.value} onClick={(e) => {
+                        setNowKey(keys[1]) 
+                    } 
+                    } >
+                    Дела
+            </p>
         </div>
     );
 };
