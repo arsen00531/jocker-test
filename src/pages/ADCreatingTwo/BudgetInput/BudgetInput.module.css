@@ -31,7 +31,7 @@
     color: rgb(255, 255, 255);
     font-family: "SF Compact Rounded";
     font-size: 59.59px;
-    font-weight: 500;
+    font-weight: 600;
     line-height: 71px;
     letter-spacing: 4%;
     text-align: left;
@@ -41,7 +41,7 @@
     color: rgb(218, 245, 254);
     font-family: "SF Compact Rounded";
     font-size: 42px;
-    font-weight: 700;
+    font-weight: 600;
     line-height: 50px;
     letter-spacing: 1%;
     text-align: left;
@@ -60,9 +60,9 @@ input:focus {outline: none;}
 .bottomTextContainer p{
     /* Description */
     color: rgb(255, 255, 255);
-    font-family: "SF Pro Display";
+    font-family: "SF Pro Display 600";
     font-size: 13.33px;
-    font-weight: 500;
+    font-weight: 600;
     line-height: 15.64px;
     letter-spacing: 2%;
     text-align: left;
