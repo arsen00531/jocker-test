@@ -75,7 +75,7 @@ const Profile = () => {
         onChange={(e) => setName(e.target.value)}
         className="urName"
         id="Name"
-      />
+      >  {userInfo.second ? userInfo.first + ' ' +  userInfo.second : userInfo.first}  </p>
       <div className="profile__options">
         <Link to = "/Balance" className="option__balance">
           <div className="option__left">
