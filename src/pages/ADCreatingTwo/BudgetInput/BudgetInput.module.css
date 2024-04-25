@@ -6,7 +6,7 @@
     background: rgb(32, 48, 63);
     position: relative;
     padding-left: calc(16px);
-    padding-top: 3.33px;
+    padding-top: 8px;
     padding-right: calc(16px);
     padding-bottom: calc(26.33px);
     display:flex;
@@ -85,7 +85,7 @@ input:focus {outline: none;}
 }
 .absolute{
     position: absolute;
-    top: -7px;
+    top: -2px;
     left: 16px;
     opacity: 0.5;
 }
