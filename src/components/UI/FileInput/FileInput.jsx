@@ -15,7 +15,7 @@ const FileInput = ({className , files , setFiles}) => {
 
     } , [myRef.files]  )
     return (    
-        <input type="file" multiple accept="image/*"  />
+        <input type="file"  accept="image/*"  />
 
         //     <div style={images.length === 0 ? {display:'flex'} : {} } className={className ? [  cl.FileInput, className].join(' ') : cl.FileInput }>
         //                         {images.map( (e) => {
