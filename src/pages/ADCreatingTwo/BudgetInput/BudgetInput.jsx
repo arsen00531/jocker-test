@@ -17,7 +17,7 @@ const BudgetInput = ({
   function budgetWidth() {
     if (ref1.current) {
       ref1.current.innerText = budget;
-      return "calc(" + ref1.current.offsetWidth + "px)";
+      return "calc(" + (ref1.current.offsetWidth + 15) + "px)";
     } else {
       return "0px";
     }
@@ -75,7 +75,7 @@ const BudgetInput = ({
         pattern="0"
       />
 
-      <p className={cl.budgetText}>RUB</p>
+      <p style={ {left : budgetWidth()  }} className={cl.budgetText}>RUB</p>
 
       <div className={cl.bottomTextContainer}>
           <p className={cl.text}> К оплате <span> {tonValue} TON </span>  </p>
