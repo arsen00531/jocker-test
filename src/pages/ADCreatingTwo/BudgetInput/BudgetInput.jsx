@@ -61,6 +61,7 @@ const BudgetInput = ({
           );
         }}
         inputmode="numeric"
+        
         id="budget"
         name="budget"
         type="text"
@@ -73,7 +74,10 @@ const BudgetInput = ({
         className={cl.input}
         // style={{ width: budgetWidth(budget) }}
         pattern="0"
+        // style={{position: 'absolute'  , background: 'rgb(32, 48, 63)' , width : '80%' , color : 'rgb(32, 48, 63)' , fontFamily : 'regular'}}
       />
+
+        {/* <p  className={cl.input}>{budget}</p> */}
 
       <p style={ {left : budgetWidth()  }} className={cl.budgetText}>RUB</p>
 
