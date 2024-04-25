@@ -8,7 +8,7 @@
     padding-left: calc(16px);
     padding-top: 11px;
     padding-right: calc(16px);
-    padding-bottom: calc(28.33px);
+    padding-bottom: calc(35px);
     display:flex;
     align-items: center;
 }
@@ -32,12 +32,12 @@
     font-family: "SF Compact Rounded";
     font-size: 59.59px;
     font-weight: 550;
-    line-height: 50px;
+    line-height: 44px;
     letter-spacing: 2px;
     text-align: left;
     background-color: transparent;
     caret-color: rgb(46, 165, 255);
-    height: 50px;
+    height: 44px;
 }
 .budgetText{
     color: rgb(218, 245, 254);
@@ -56,7 +56,7 @@ input:focus {outline: none;}
     display: flex;
     gap: calc(4px);
     position: absolute;
-    bottom: calc(6px);
+    bottom: calc(9px);
     left: calc(16.33px);
     align-items: center;
 }
