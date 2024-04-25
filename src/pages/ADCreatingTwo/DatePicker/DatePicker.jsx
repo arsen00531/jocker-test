@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { memo, useState } from "react";
 import cl from "./DatePicker.module.css";
 import GreyText from "../../../components/UI/GreyText/GreyText";
 import CatchDate from "../CatchDate/CatchDate";
@@ -38,4 +38,4 @@ const DatePicker = ({ className, taskInformation, setTaskInformation }) => {
   );
 };
 
-export default DatePicker;
+export default memo(DatePicker);

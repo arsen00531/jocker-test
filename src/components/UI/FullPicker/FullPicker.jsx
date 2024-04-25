@@ -22,11 +22,11 @@ const FullPicker = ({values , keys , nowKey , setNowKey, className}) => {
             setGreyWidth(GreyIntWidth.toString() + 'px')
         }
     }
-    useEffect( ()=> {   
-        change()
-        window.addEventListener('resize' , change)
-        return ()=> {window.removeEventListener('resize' , change)}
-    } , [GreyIntWidth ,  GreyWidth] )
+    // useEffect( ()=> {   
+    //     change()
+    //     window.addEventListener('resize' , change)
+    //     return ()=> {window.removeEventListener('resize' , change)}
+    // } , [GreyIntWidth ,  GreyWidth] )
 
     const myTransform = useMemo( () => {
         for (let i = 0; i < keys.length ; i++ ){
