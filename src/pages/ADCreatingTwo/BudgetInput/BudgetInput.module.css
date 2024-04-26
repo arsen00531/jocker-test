@@ -8,7 +8,7 @@
     padding-left: calc(16px);
     padding-top: 11px;
     padding-right: calc(16px);
-    padding-bottom: calc(37px);
+    padding-bottom: calc(41px);
     display:flex;
     align-items: center;
 }
@@ -57,7 +57,7 @@ input:focus {outline: none;}
     display: flex;
     gap: calc(4px);
     position: absolute;
-    bottom: calc(9px);
+    bottom: calc(13px);
     left: calc(16.33px);
     align-items: center;
 }
@@ -66,7 +66,7 @@ input:focus {outline: none;}
     color: rgb(255, 255, 255);
     font-family: "SF Compact Rounded";
     font-size: 13.33px;
-    font-weight: 400;
+    font-weight: 500;
     line-height: 15.64px;
     letter-spacing: 2%;
     text-align: left;
