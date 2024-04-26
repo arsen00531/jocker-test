@@ -14,7 +14,7 @@ const PaymentMethod = ({className}) => {
             <a className={cl.link} href="">
                 <p>Wallet Pay</p>
                 <div className="block" style={{display : 'block', lineHeight : 0}}>
-                    <img src={upDown} style={ {width : 'auto' , height : '13px', transform : 'translateY(1px)'  }} alt="" />
+                    <img src={upDown} style={ {width : 'auto' , height : '13px'  }} alt="" />
                 </div>
             </a>
         </div>
