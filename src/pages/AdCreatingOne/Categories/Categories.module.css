@@ -45,8 +45,8 @@
     display: block;
     object-fit: cover;
     background-size: cover;
-    width: calc(28px * 0.39);
-    height: calc(33px * 0.39);
+    width: calc(11px);
+    height: calc(13px);
     margin-top: 1px;
 }
 
