@@ -8,7 +8,7 @@
     padding-left: calc(16px);
     padding-top: 11px;
     padding-right: calc(16px);
-    padding-bottom: calc(41px);
+    padding-bottom: calc(40px);
     display:flex;
     align-items: center;
 }
@@ -57,7 +57,7 @@ input:focus {outline: none;}
     display: flex;
     gap: calc(4px);
     position: absolute;
-    bottom: calc(13px);
+    bottom: calc(12px);
     left: calc(16.33px);
     align-items: center;
 }
