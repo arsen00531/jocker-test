@@ -82,7 +82,7 @@ const BudgetInput = ({
       <p style={ {left : budgetWidth()  }} className={cl.budgetText}>RUB</p>
 
       <div className={cl.bottomTextContainer}>
-          <p className={cl.text}> К оплате <span> {tonValue} TON </span>  </p>
+          <p className={cl.text}> К холду <span> {tonValue} TON </span>  </p>
           <img src={Info} alt="" />
       </div>
       
