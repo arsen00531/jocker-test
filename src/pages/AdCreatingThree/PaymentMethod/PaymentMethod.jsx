@@ -1,12 +1,14 @@
 import React from 'react';
 import cl from './MethodPayment.module.css'
-import valletIcon from '../../../images/icons/vallet.svg'
+import valletIcon from '../../../images/icons/wallet.svg'
 import upDown from '../../../images/icons/UpDown.svg'
 const PaymentMethod = ({className}) => {
     return (
         <div className={className ? [cl.PaymentMethod , className].join(' ') : cl.PaymentMethod}>
             <div className={cl.left}>
-                <img src={valletIcon} alt="" />
+                <div className="block" style={{display : 'block'}}>
+                    <img src={valletIcon} alt="" />
+                </div>
                 <p>Способ оплаты</p>
             </div>
             <a className={cl.link} href="">
