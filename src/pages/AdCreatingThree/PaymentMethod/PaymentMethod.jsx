@@ -6,14 +6,16 @@ const PaymentMethod = ({className}) => {
     return (
         <div className={className ? [cl.PaymentMethod , className].join(' ') : cl.PaymentMethod}>
             <div className={cl.left}>
-                <div className="block" style={{display : 'block'}}>
-                    <img src={valletIcon} alt="" />
+                <div className="block" style={{display : 'block' , lineHeight : 0}}>
+                    <img style={ {margin : 0}}  src={valletIcon} alt="" />
                 </div>
                 <p>Способ оплаты</p>
             </div>
             <a className={cl.link} href="">
                 <p>Wallet Pay</p>
-                <img src={upDown} alt="" />
+                <div className="block" style={{display : 'block', lineHeight : 0}}>
+                    <img src={upDown} style={ {width : 'auto' , height : '13px', transform : 'translateY(1px)'  }} alt="" />
+                </div>
             </a>
         </div>
     );
