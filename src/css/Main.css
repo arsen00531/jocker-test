@@ -239,9 +239,9 @@
   display: -ms-flexbox;
   display: flex;
   gap: 13px;
-  -webkit-transform: translateY(3px);
-      -ms-transform: translateY(3px);
-          transform: translateY(3px);
+  -webkit-transform: translateY(2.5px);
+      -ms-transform: translateY(2.5px);
+          transform: translateY(2.5px);
   margin-right: 4px;
 }
 .First__block .FirstMain__bottom-right .tie {
