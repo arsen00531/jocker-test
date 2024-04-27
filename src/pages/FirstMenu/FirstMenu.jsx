@@ -8,7 +8,6 @@ import Close from './Close';
 import SmallDimond from '../../components/UI/SmallDimond/SmallDimond';
 import UpArr from '../../components/UI/UpArr/UpArr';
 import Human from '../../components/UI/Human/Human'
-import Pensel from '../../components/UI/Pencel/Pencel'
 
 
 const FirstMenu = () => {

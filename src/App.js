@@ -22,11 +22,6 @@ import MyAds from './pages/MyAds/MyAds'
 
 import { fetchTon } from "./store/ton";
 import AdCreating from "./pages/AdCreating";
-import tonConstant from "./constants/tonConstant";
-import { fetchTasksInformation } from "./store/information";
-import { TaskAbortError } from "@reduxjs/toolkit";
-import axios from "axios";
-import userInfo from "./constants/Name";
 import { fetchUserInfo } from "./store/telegramUserInfo";
 
 

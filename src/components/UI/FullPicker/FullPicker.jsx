@@ -22,11 +22,11 @@ const FullPicker = ({values , keys , nowKey , setNowKey, className}) => {
             setGreyWidth(GreyIntWidth.toString() + 'px')
         }
     }
-    // useEffect( ()=> {   
-    //     change()
-    //     window.addEventListener('resize' , change)
-    //     return ()=> {window.removeEventListener('resize' , change)}
-    // } , [GreyIntWidth ,  GreyWidth] )
+    useEffect( ()=> {   
+        change()
+        window.addEventListener('resize' , change)
+        return ()=> {window.removeEventListener('resize' , change)}
+    } , [GreyIntWidth ,  GreyWidth] )
 
     const myTransform = useMemo( () => {
         for (let i = 0; i < keys.length ; i++ ){
@@ -41,13 +41,13 @@ const FullPicker = ({values , keys , nowKey , setNowKey, className}) => {
     return (
         <div   ref={trackRef} className={className ? [cl.track , className].join(' ') : cl.track}>
             <div style={{width : GreyWidth, transform : myTransform}} className={cl.greyBlock}></div>
-                <p style={{zIndex : 100}}  className={cl.value} onClick={(e) => {
+                <p   className={cl.value} onClick={(e) => {
                                 setNowKey(keys[0]) 
                             } 
                             } >
                             Как
                     </p>
-                <p style={{zIndex : 100}}  className={cl.value} onClick={(e) => {
+                <p   className={cl.value} onClick={(e) => {
                             setNowKey(keys[1]) 
                         } 
                         } >
