@@ -33,7 +33,7 @@ const AdCreating = () => {
     const [isAnimation , setAnimation] = useState(false)
 
     function goForward(){
-        while (setAnimation === true){
+        while (isAnimation === true){
              
         }
 
