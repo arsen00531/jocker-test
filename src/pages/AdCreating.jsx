@@ -32,6 +32,16 @@ const AdCreating = () => {
 
     const [isAnimation , setAnimation] = useState(false)
 
+    function goAnimatin(){
+        setAnimation(true)
+        setStationNow(stationNow - 105)
+        setTimeout( () => {
+            
+            setStationNow(stationNow - 100)
+            setAnimation(false)
+        } , 310 )
+    }
+
     function goForward(){
         while (isAnimation === true){
              
@@ -41,13 +51,7 @@ const AdCreating = () => {
             if ( (stationNow - 100) === -200){
                 MainButton.setText('ЗАКОЛДИРОВАТЬ')
             }
-            setAnimation(true)
-            setStationNow(stationNow - 105)
-            setTimeout( () => {
-                
-                setStationNow(stationNow - 100)
-                setAnimation(false)
-            } , 310 )
+            goAnimatin()
         }
         else{
             dispatch(changeTaskInformation (taskInformation) )
