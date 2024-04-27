@@ -36,6 +36,9 @@ const AdCreating = () => {
             if ( (stationNow - 100) === -200){
                 MainButton.setText('ЗАКОЛДИРОВАТЬ')
             }
+            setTimeout( () => {
+                setStationNow(stationNow - 100)
+            } , 310 )
         }
         else{
             dispatch(changeTaskInformation (taskInformation) )
