@@ -32,7 +32,7 @@ const AdCreating = () => {
 
     function goForward(){
         if (stationNow !== -200){
-            setStationNow(stationNow - 100)
+            setStationNow(stationNow - 105)
             if ( (stationNow - 100) === -200){
                 MainButton.setText('ЗАКОЛДИРОВАТЬ')
             }
@@ -49,7 +49,10 @@ const AdCreating = () => {
             navigate(-1)
         }
         else{
-            setStationNow(stationNow + 100)
+            setStationNow(stationNow + 105)
+            setTimeout( () => {
+                setStationNow(stationNow + 100)
+            } , 310 )
             if (stationNow === -100){
 
             }
@@ -86,11 +89,9 @@ const AdCreating = () => {
 
     return (
         <motion.div
-        animate = {{x : stationNow.toString() + '%'} }
-        transition = { {duration : 0.5 , type : 'spring' , damping : 36 ,  stiffness : 650}  }
          className="AdCreating__container"
          
-        // style={{transform : 'translateX(' + stationNow.toString() + '%)', transition : '0.3s'}}
+        style={{transform : 'translateX(' + stationNow.toString() + '%)', transition : '0.3s'}}
         >
             <button style={{position : 'absolute'}} onClick={() => {goForward()}} >Выфвфывфы</button>
             <AdCreatingOne setTaskInformation = {setTaskInformation}  taskInformation = {taskInformation} />
