@@ -87,7 +87,9 @@ const AdCreating = () => {
     return (
         <motion.div
         animate = {{x : stationNow.toString() + '%'} }
+        transition = { {duration : 0.4 , type : 'spring' , damping : 5 ,  stiffness : 500}  }
          className="AdCreating__container"
+         
         // style={{transform : 'translateX(' + stationNow.toString() + '%)', transition : '0.3s'}}
         >
             <button style={{position : 'absolute'}} onClick={() => {goForward()}} >Выфвфывфы</button>
