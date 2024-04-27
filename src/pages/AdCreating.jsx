@@ -86,13 +86,10 @@ const AdCreating = () => {
 
     return (
         <motion.div
-        
-        variants={variants}
-        initial = "initial"
-        animate = "animate"
-        transition = "transition"
+        animate = {{x : stationNow.toString() + '%'} }
          className="AdCreating__container"
-        style={{transform : 'translateX(' + stationNow.toString() + '%)', transition : '0.3s'}}>
+        // style={{transform : 'translateX(' + stationNow.toString() + '%)', transition : '0.3s'}}
+        >
             <button style={{position : 'absolute'}} onClick={() => {goForward()}} >Выфвфывфы</button>
             <AdCreatingOne setTaskInformation = {setTaskInformation}  taskInformation = {taskInformation} />
             <AdCreatingTwo setTaskInformation = {setTaskInformation} taskInformation = {taskInformation} tonConstant = {tonConstant} />

@@ -15,6 +15,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { changeMyAds } from '../../store/information';
 import { changeMenuActive } from '../../store/menuSlice';
 import useListner from '../../hooks/useListner';
+import { transform } from 'framer-motion';
+import './MyAds.css'
 
 const MyAds =  ( ) => {
 
@@ -91,8 +93,23 @@ const MyAds =  ( ) => {
 
     useListner( { isMenuActive , setMenuActive , setDetailsActive , isDetailsActive} )
 
+    
+    
+    const [isThis , setThis] = useState({ ind : -1 , top : undefined })
+    
+    function animation( i ){
+        if (isThis.ind === i){
+            return { transform : 'translateY(' + (-1*isThis.top + 16).toString() + 'px)'}
+        }
+        if (isThis.ind !== -1){
+            return {opacity : '0'}
+        }
+        return {}
+    }
+    
     return (
         <div className='MyAdsContainer'>
+            <div style={isThis.ind !== -1 ? {opacity : 0} : {}} className="MyAdsBlock">
                 <Burger onClick = {(e) => { setMenuActive(true) }} />
                 <p className='MyAds'>
                     Мои задания
@@ -115,19 +132,31 @@ const MyAds =  ( ) => {
                     </div>
                 </div>
                 <FullPicker className={'MyAds__FullPicker'} values = {values} nowKey = {nowValue} setNowKey = {setNowKey} keys = {keys}/>
+            </div>
                 <div className="PickerContent">
                     <div className="picler__block">
                         
-                        <Link to = "/AdCreating" className="AdCreactingFunction">
+                        <Link to = "/AdCreating" style={isThis.ind !== -1 ? {opacity : 0} : {}} className="AdCreactingFunction">
                             <img src={plus} alt="" />
                             <p>Создать объявление</p>
                         </Link>
                         <div className="AdsContainer">
                             {myAdsArray.map( (e, i) => {
-                                return <FirstBlock key = {i} isButton={true} setDetailsActive = {() => {
-                                    setDetailsActive(true)
-                                    setIndex(i)
-                                }}  {...e} />
+                                return (  
+
+                                <div  className='block' onClick={  (e) => {
+                                    setThis({ind : i , top : e.target.closest('.block').getBoundingClientRect().top })
+                                    // console.log(e.target.closest('.block').getBoundingClientRect())
+                                }} 
+                                style={  animation(i) }    > 
+                                    <FirstBlock 
+                                        key = {i} isButton={true} setDetailsActive = {() => {
+                                        setDetailsActive(true)
+                                        setIndex(i)
+
+                                    }}  {...e} />
+                                </div>
+                                )
                             })}
                         </div>
                     </div>
