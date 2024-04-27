@@ -33,16 +33,20 @@ const AdCreating = () => {
     const [isAnimation , setAnimation] = useState(false)
 
     function goForward(){
-        if (stationNow % 100 !== 0){
-            setStationNow( Number(stationNow.toString().slice(0 , stationNow.toString().length - 1 ) + '0')  )
+        while (setAnimation === true){
+             
         }
+
         if (stationNow !== -200){
             if ( (stationNow - 100) === -200){
                 MainButton.setText('ЗАКОЛДИРОВАТЬ')
             }
+            setAnimation(true)
             setStationNow(stationNow - 105)
             setTimeout( () => {
+                
                 setStationNow(stationNow - 100)
+                setAnimation(false)
             } , 310 )
         }
         else{
