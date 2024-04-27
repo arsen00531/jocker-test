@@ -32,16 +32,16 @@ const AdCreating = () => {
 
     function goForward(){
         if (stationNow !== -200){
-            if (stationNow % 100 !== 0){
-                setStationNow=( Number(stationNow.toString().slice(0 , stationNow.toString().length - 1 ) + '0')  )
-            }
-            setStationNow(stationNow - 105)
+
+            setStationNow=( Number(stationNow.toString().slice(0 , stationNow.toString().length - 1 ) + '0')  )
+
             if ( (stationNow - 100) === -200){
                 MainButton.setText('ЗАКОЛДИРОВАТЬ')
             }
+            setStationNow(stationNow - 105)
             setTimeout( () => {
-                setStationNow(stationNow - 100)
             } , 310 )
+                setStationNow(stationNow - 100)
         }
         else{
             dispatch(changeTaskInformation (taskInformation) )
@@ -55,9 +55,8 @@ const AdCreating = () => {
             navigate(-1)
         }
         else{
-            if (stationNow % 100 !== 0){
-                setStationNow=( Number(stationNow.toString().slice(0 , stationNow.toString().length - 1 ) + '0')  )
-            }
+
+            setStationNow=( Number(stationNow.toString().slice(0 , stationNow.toString().length - 1 ) + '0')  )
             setStationNow(stationNow + 105)
             setTimeout( () => {
                 setStationNow(stationNow + 100)
