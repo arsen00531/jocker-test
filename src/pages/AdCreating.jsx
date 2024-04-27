@@ -87,7 +87,7 @@ const AdCreating = () => {
     return (
         <motion.div
         animate = {{x : stationNow.toString() + '%'} }
-        transition = { {duration : 0.4 , type : 'spring' , damping : 5 ,  stiffness : 500}  }
+        transition = { {duration : 0.5 , type : 'spring' , damping : 20 ,  stiffness : 300}  }
          className="AdCreating__container"
          
         // style={{transform : 'translateX(' + stationNow.toString() + '%)', transition : '0.3s'}}
