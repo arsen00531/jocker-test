@@ -55,6 +55,9 @@ const AdCreating = () => {
             navigate(-1)
         }
         else{
+            if (stationNow % 100 !== 0){
+                setStationNow=( Number(stationNow.toString().slice(0 , stationNow.toString().length - 1 ) + '0')  )
+            }
             setStationNow(stationNow + 105)
             setTimeout( () => {
                 setStationNow(stationNow + 100)
