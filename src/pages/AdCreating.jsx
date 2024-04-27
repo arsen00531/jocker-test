@@ -30,6 +30,8 @@ const AdCreating = () => {
     
     const dispatch = useDispatch()
 
+    const [isAnimation , setAnimation] = useState(false)
+
     function goForward(){
         if (stationNow % 100 !== 0){
             setStationNow( Number(stationNow.toString().slice(0 , stationNow.toString().length - 1 ) + '0')  )
@@ -40,8 +42,8 @@ const AdCreating = () => {
             }
             setStationNow(stationNow - 105)
             setTimeout( () => {
-            } , 310 )
                 setStationNow(stationNow - 100)
+            } , 310 )
         }
         else{
             dispatch(changeTaskInformation (taskInformation) )
