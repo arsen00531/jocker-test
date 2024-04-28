@@ -55,7 +55,7 @@ const AdCreating = () => {
                         setStationNow(localStep * (-100))
                         setAnimation(false)
                     } , 310 )
-                } , 150 )
+                } , 50 )
             }
             else{
                 setAnimation(true)
@@ -91,7 +91,7 @@ const AdCreating = () => {
                         setAnimation(false)
                     } , 310 )
 
-                } , 100 )
+                } , 50 )
             }
             else{
                 setAnimation(true)
