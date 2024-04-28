@@ -16,7 +16,7 @@ const variants = {
     transition : {duration : 0.4}
 }
 
-
+let spet = 0;
 const AdCreating = () => {
 
     const [taskInformation , setTaskInformation]  =  useState (useSelector(state => state.information.taskInformation) )
@@ -38,14 +38,27 @@ const AdCreating = () => {
 
     const [stop , setStop] = useState(false)
 
+    function animte(){
+
+        setAnimation(true)
+        setStationNow ( (spet)*(-100) - 10)
+        setTimeout( () => {
+            
+            setStationNow((spet) * (-100))
+            setAnimation(false)
+        } , 200 )
+    }
+
     function goForward(){
 
         if (stationNow !== -200){
             if ( (stationNow - 100) === -200){
                 MainButton.setText('ЗАКОЛДИРОВАТЬ')
             }
-            setSpet(step + 1)
-            setStationNow( (step + 1)*(-100) )    
+            
+                spet += 1
+                animte()
+            
         }
         else{
             dispatch(changeTaskInformation (taskInformation) )
@@ -61,7 +74,26 @@ const AdCreating = () => {
         else{
             setSpet(step - 1)
             let localStep = step - 1
-            setStationNow(localStep*(-100))
+            if (isAnimation) {
+                setTimeout( () => {
+
+                    setAnimation(true)
+                    setStationNow(localStep*(-100) + 10)
+                    setTimeout( () => {
+                        setStationNow(localStep*(-100))
+                        setAnimation(false)
+                    } , 210 )
+
+                } , 100 )
+            }
+            else{
+                setAnimation(true)
+                setStationNow(localStep*(-100) + 10)
+                setTimeout( () => {
+                    setStationNow(localStep*(-100))
+                    setAnimation(false)
+                } ,210 )
+            }
             if (stationNow === -100){
 
             }
