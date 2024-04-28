@@ -79,12 +79,11 @@ const AdCreating = () => {
             navigate(-1)
         }
         else{
-            if (stationNow % 100 !== 0){
-                setStationNow=( Number(stationNow.toString().slice(0 , stationNow.toString().length - 1 ) + '0')  )
-            }
-            setStationNow(stationNow + 105)
+            setSpet(step + 1)
+            let localStep = step + 1
+            setStationNow(localStep*(-100) + 5)
             setTimeout( () => {
-                setStationNow(stationNow + 100)
+                setStationNow(localStep*(-100))
             } , 310 )
             if (stationNow === -100){
 
