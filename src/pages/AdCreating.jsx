@@ -34,6 +34,7 @@ const AdCreating = () => {
 
     const [step , setSpet] = useState(0)
 
+    const [timeOfAn , setTime] = useState(new Date())
 
 
     function goForward(){
@@ -46,8 +47,9 @@ const AdCreating = () => {
             setSpet(step + 1)
             let localStep = step + 1
             if (isAnimation === true){
+                let now = new Date()
                 setTimeout(  () => {
-
+                    setTime(new Date())
                     setAnimation(true)
                     setStationNow(localStep*(-100) - 5)
                     setTimeout( () => {
@@ -55,10 +57,11 @@ const AdCreating = () => {
                         setStationNow(localStep * (-100))
                         setAnimation(false)
                     } , 310 )
-                } , 50 )
+                } , now - timeOfAn )
             }
             else{
                 setAnimation(true)
+                setTime(new Date())
                 setStationNow(localStep*(-100) - 5)
                 setTimeout( () => {
                     
