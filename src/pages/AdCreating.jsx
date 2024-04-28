@@ -34,11 +34,12 @@ const AdCreating = () => {
 
     function animte(){
 
-
+        let localSpet = spet
         setStationNow ( (spet)*(-100) - 6)
         setTimeout( () => {
-            
-            setStationNow((spet) * (-100))
+            if (localSpet === spet){
+                setStationNow((spet) * (-100))
+            }
         } , 200 )
     }
 
