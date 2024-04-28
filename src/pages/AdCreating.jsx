@@ -35,7 +35,7 @@ const AdCreating = () => {
     function animte(){
 
         let localSpet = spet
-        setStationNow ( (spet)*(-100) - 6)
+        setStationNow ( (spet)*(-100) - 5)
         setTimeout( () => {
             if (localSpet === spet){
                 setStationNow((spet) * (-100))
@@ -63,13 +63,13 @@ const AdCreating = () => {
         }
     }
     function goBack(){
-        if (stationNow === 0){
+        if (spet === 0){
             navigate(-1)
         }
         else{
             spet -= 1
             let localSpet = spet
-                setStationNow(spet*(-100) + 6)
+                setStationNow(spet*(-100) + 5)
                 setTimeout( () => {
                     if (localSpet === spet){
                         setStationNow(spet*(-100))
