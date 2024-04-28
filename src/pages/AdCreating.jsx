@@ -41,10 +41,10 @@ const AdCreating = () => {
     function animte(){
         setSpet(step + 1)
         setAnimation(true)
-        setStationNow( (step + 1)*(-100) - 10)
+        setStationNow( (step)*(-100) - 10)
         setTimeout( () => {
             
-            setStationNow((step + 1) * (-100))
+            setStationNow((step ) * (-100))
             setAnimation(false)
         } , 200 )
     }
