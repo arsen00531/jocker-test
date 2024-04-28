@@ -67,10 +67,12 @@ const AdCreating = () => {
         }
         else{
             spet -= 1
-
+            let localSpet = spet
                 setStationNow(spet*(-100) + 6)
                 setTimeout( () => {
-                    setStationNow(spet*(-100))
+                    if (localSpet === spet){
+                        setStationNow(spet*(-100))
+                    }
                 } ,210 )
 
             if (stationNow === -100){
