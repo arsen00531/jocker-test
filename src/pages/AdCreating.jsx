@@ -94,7 +94,7 @@ const AdCreating = () => {
                         setAnimation(false)
                     } , 310 )
 
-                } , 75 )
+                } , 100 )
             }
             else{
                 setAnimation(true)
