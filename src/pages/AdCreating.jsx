@@ -57,7 +57,7 @@ const AdCreating = () => {
                         setStationNow(localStep * (-100))
                         setAnimation(false)
                     } , 310 )
-                } , now.getTime() - timeOfAn.getTime() + 10 )
+                } , now.getTime() - timeOfAn.getTime() - 50 )
             }
             else{
                 setAnimation(true)
