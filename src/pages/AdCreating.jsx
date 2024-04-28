@@ -38,6 +38,17 @@ const AdCreating = () => {
 
     const [stop , setStop] = useState(false)
 
+    function animte(){
+        setSpet(step + 1)
+        setAnimation(true)
+        setStationNow( (step + 1)*(-100) - 10)
+        setTimeout( () => {
+            
+            setStationNow((step + 1) * (-100))
+            setAnimation(false)
+        } , 200 )
+    }
+
     function goForward(){
 
         if (stationNow !== -200){
@@ -45,16 +56,8 @@ const AdCreating = () => {
                 MainButton.setText('ЗАКОЛДИРОВАТЬ')
             }
             
-            setSpet(step + 1)
-
-                setAnimation(true)
-                setTime(new Date())
-                setStationNow( (step + 1)*(-100) - 10)
-                setTimeout( () => {
-                    
-                    setStationNow((step + 1) * (-100))
-                    setAnimation(false)
-                } , 200 )
+                
+                animte()
             
         }
         else{
