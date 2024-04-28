@@ -32,26 +32,25 @@ const AdCreating = () => {
 
     const [isAnimation , setAnimation] = useState(false)
 
-    function goAnimatin(){
-        setAnimation(true)
-        setStationNow(stationNow - 105)
-        setTimeout( () => {
-            
-            setStationNow(stationNow - 100)
-            setAnimation(false)
-        } , 310 )
-    }
+    const [step , setSpet] = useState(0)
+
+
 
     function goForward(){
-        while (isAnimation === true){
-             
-        }
 
         if (stationNow !== -200){
             if ( (stationNow - 100) === -200){
                 MainButton.setText('ЗАКОЛДИРОВАТЬ')
             }
-            goAnimatin()
+            
+            setSpet(step + 1)
+            let localStep = step
+            setStationNow(localStep*(-100) - 5)
+            setTimeout( () => {
+                
+                setStationNow(localStep * (-100))
+                setAnimation(false)
+            } , 310 )
         }
         else{
             dispatch(changeTaskInformation (taskInformation) )
