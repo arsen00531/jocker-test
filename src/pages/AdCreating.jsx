@@ -46,30 +46,16 @@ const AdCreating = () => {
             }
             
             setSpet(step + 1)
-            let localStep = step + 1
-            if (isAnimation === true){
-                let now = new Date()
-                setTimeout(  () => {
-                    setTime(new Date())
-                    setAnimation(true)
-                    setStationNow(localStep*(-100) - 10)
-                    setTimeout( () => {
-                        
-                        setStationNow(localStep * (-100))
-                        setAnimation(false)
-                    } , 210 )
-                } , 100 )
-            }
-            else{
+
                 setAnimation(true)
                 setTime(new Date())
-                setStationNow(localStep*(-100) - 10)
+                setStationNow( (step + 1)*(-100) - 10)
                 setTimeout( () => {
                     
-                    setStationNow(localStep * (-100))
+                    setStationNow((step + 1) * (-100))
                     setAnimation(false)
                 } , 200 )
-            }
+            
         }
         else{
             dispatch(changeTaskInformation (taskInformation) )
