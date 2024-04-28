@@ -36,6 +36,7 @@ const AdCreating = () => {
 
     const [timeOfAn , setTime] = useState(new Date())
 
+    const [stop , setStop] = useState(false)
 
     function goForward(){
 
@@ -57,7 +58,7 @@ const AdCreating = () => {
                         setStationNow(localStep * (-100))
                         setAnimation(false)
                     } , 310 )
-                } , 80 )
+                } , 200 )
             }
             else{
                 setAnimation(true)
@@ -67,7 +68,7 @@ const AdCreating = () => {
                     
                     setStationNow(localStep * (-100))
                     setAnimation(false)
-                } , 310 )
+                } , 200 )
             }
         }
         else{
@@ -92,9 +93,9 @@ const AdCreating = () => {
                     setTimeout( () => {
                         setStationNow(localStep*(-100))
                         setAnimation(false)
-                    } , 310 )
+                    } , 210 )
 
-                } , 100 )
+                } , 200 )
             }
             else{
                 setAnimation(true)
@@ -142,7 +143,7 @@ const AdCreating = () => {
         <motion.div
          className="AdCreating__container"
          
-        style={{transform : 'translateX(' + stationNow.toString() + '%)', transition : '0.3s'}}
+        style={{transform : 'translateX(' + stationNow.toString() + '%)', transition : '0.2s'}}
         >
             <button style={{position : 'absolute'}} onClick={() => {goForward()}} >Выфвфывфы</button>
             <AdCreatingOne setTaskInformation = {setTaskInformation}  taskInformation = {taskInformation} />
