@@ -30,22 +30,15 @@ const AdCreating = () => {
     
     const dispatch = useDispatch()
 
-    const [isAnimation , setAnimation] = useState(false)
 
-    const [step , setSpet] = useState(0)
-
-    const [timeOfAn , setTime] = useState(new Date())
-
-    const [stop , setStop] = useState(false)
 
     function animte(){
 
-        setAnimation(true)
-        setStationNow ( (spet)*(-100) - 10)
+
+        setStationNow ( (spet)*(-100) - 6)
         setTimeout( () => {
             
             setStationNow((spet) * (-100))
-            setAnimation(false)
         } , 200 )
     }
 
@@ -74,7 +67,7 @@ const AdCreating = () => {
         else{
             spet -= 1
 
-                setStationNow(spet*(-100) + 10)
+                setStationNow(spet*(-100) + 6)
                 setTimeout( () => {
                     setStationNow(spet*(-100))
                 } ,210 )
