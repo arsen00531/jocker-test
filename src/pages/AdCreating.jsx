@@ -45,12 +45,13 @@ const AdCreating = () => {
 
     function goForward(){
 
-        if (stationNow >= -200){
-            if ( (stationNow - 100) === -200){
-                MainButton.setText('ЗАКОЛДИРОВАТЬ')
-            }
+        if (spet !== 2){
+
             
                 spet += 1
+                if (spet == 2){
+                    MainButton.setText('ЗАКОЛДИРОВАТЬ')
+                }
                 animte()
             
         }
