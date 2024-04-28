@@ -79,12 +79,28 @@ const AdCreating = () => {
             navigate(-1)
         }
         else{
-            setSpet(step + 1)
-            let localStep = step + 1
-            setStationNow(localStep*(-100) + 5)
-            setTimeout( () => {
-                setStationNow(localStep*(-100))
-            } , 310 )
+            setSpet(step - 1)
+            let localStep = step - 1
+            if (isAnimation) {
+                setTimeout( () => {
+
+                    setAnimation(true)
+                    setStationNow(localStep*(-100) + 5)
+                    setTimeout( () => {
+                        setStationNow(localStep*(-100))
+                        setAnimation(false)
+                    } , 310 )
+
+                } , 100 )
+            }
+            else{
+                setAnimation(true)
+                setStationNow(localStep*(-100) + 5)
+                setTimeout( () => {
+                    setStationNow(localStep*(-100))
+                    setAnimation(false)
+                } , 310 )
+            }
             if (stationNow === -100){
 
             }
