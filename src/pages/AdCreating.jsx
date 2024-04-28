@@ -44,7 +44,7 @@ const AdCreating = () => {
             }
             
             setSpet(step + 1)
-            let localStep = step
+            let localStep = step + 1
             setStationNow(localStep*(-100) - 5)
             setTimeout( () => {
                 
