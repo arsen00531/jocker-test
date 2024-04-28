@@ -45,12 +45,27 @@ const AdCreating = () => {
             
             setSpet(step + 1)
             let localStep = step + 1
-            setStationNow(localStep*(-100) - 5)
-            setTimeout( () => {
-                
-                setStationNow(localStep * (-100))
-                setAnimation(false)
-            } , 310 )
+            if (isAnimation === true){
+                setTimeout(  () => {
+
+                    setAnimation(true)
+                    setStationNow(localStep*(-100) - 5)
+                    setTimeout( () => {
+                        
+                        setStationNow(localStep * (-100))
+                        setAnimation(false)
+                    } , 310 )
+                } , 300 )
+            }
+            else{
+                setAnimation(true)
+                setStationNow(localStep*(-100) - 5)
+                setTimeout( () => {
+                    
+                    setStationNow(localStep * (-100))
+                    setAnimation(false)
+                } , 310 )
+            }
         }
         else{
             dispatch(changeTaskInformation (taskInformation) )
