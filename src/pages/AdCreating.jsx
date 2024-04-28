@@ -52,7 +52,7 @@ const AdCreating = () => {
                 setTimeout(  () => {
                     setTime(new Date())
                     setAnimation(true)
-                    setStationNow(localStep*(-100) - 5)
+                    setStationNow(localStep*(-100) - 10)
                     setTimeout( () => {
                         
                         setStationNow(localStep * (-100))
@@ -63,7 +63,7 @@ const AdCreating = () => {
             else{
                 setAnimation(true)
                 setTime(new Date())
-                setStationNow(localStep*(-100) - 5)
+                setStationNow(localStep*(-100) - 10)
                 setTimeout( () => {
                     
                     setStationNow(localStep * (-100))
@@ -89,7 +89,7 @@ const AdCreating = () => {
                 setTimeout( () => {
 
                     setAnimation(true)
-                    setStationNow(localStep*(-100) + 5)
+                    setStationNow(localStep*(-100) + 10)
                     setTimeout( () => {
                         setStationNow(localStep*(-100))
                         setAnimation(false)
@@ -99,7 +99,7 @@ const AdCreating = () => {
             }
             else{
                 setAnimation(true)
-                setStationNow(localStep*(-100) + 5)
+                setStationNow(localStep*(-100) + 10)
                 setTimeout( () => {
                     setStationNow(localStep*(-100))
                     setAnimation(false)
