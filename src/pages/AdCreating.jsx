@@ -35,7 +35,7 @@ const AdCreating = () => {
     function animte(){
 
         let localSpet = spet
-        setStationNow ( (spet)*(-100) - 5)
+        setStationNow ( (spet)*(-100) - 3)
         setTimeout( () => {
             if (localSpet === spet){
                 setStationNow((spet) * (-100))
@@ -69,7 +69,7 @@ const AdCreating = () => {
         else{
             spet -= 1
             let localSpet = spet
-                setStationNow(spet*(-100) + 5)
+                setStationNow(spet*(-100) + 3)
                 setTimeout( () => {
                     if (localSpet === spet){
                         setStationNow(spet*(-100))
