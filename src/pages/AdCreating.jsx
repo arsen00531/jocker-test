@@ -57,7 +57,7 @@ const AdCreating = () => {
                         
                         setStationNow(localStep * (-100))
                         setAnimation(false)
-                    } , 310 )
+                    } , 210 )
                 } , 200 )
             }
             else{
@@ -103,7 +103,7 @@ const AdCreating = () => {
                 setTimeout( () => {
                     setStationNow(localStep*(-100))
                     setAnimation(false)
-                } , 310 )
+                } ,210 )
             }
             if (stationNow === -100){
 
