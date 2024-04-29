@@ -25,6 +25,8 @@ import photo from '../../images/nonUsed/photo_2024-03-02 03.14.svg'
 import icon from '../../images/icons/icon.svg'
 
 
+
+
 const MyAds = () => {
   const values = ["Я испольнитель", "Я заказчик"];
   const keys = ["freelancer", "customer"];
@@ -102,33 +104,73 @@ const MyAds = () => {
     isDetailsActive,
   });
 
-  const [isThis, setThis] = useState({ ind: -1, top: undefined });
+  const [isThis, setThis] = useState({ ind: -1, top: undefined , height : 0 });
+
+
+  const [traper , setTraper] = useState('unset')
+  const [tran , setTran] = useState('0.2s')
 
   function animation(i) {
     if (isThis.ind === i) {
+      setTimeout(  () => {
+        setThis({...isThis , top : 53})
+        setTran('0s')
+      } , 1000 )
+
+
       return {
-        transform: "translateY(" + (-1 * isThis.top + 16).toString() + "px)",
+        transform: "translateY(" + (-1 * isThis.top + 75).toString() + "px)",
+        transition : tran
       };
     }
     if (isThis.ind !== -1) {
-      return { opacity: "0" };
+      setTimeout(  () => {
+        setTraper('0px')
+    } , 1000 )
+      return { opacity: "0" , maxHeight : traper };
     }
     return {};
   }
 
+  function animateHandler(){
+    if (isThis.ind !== -1){
+      if (isThis.top === 53){
+        return { opacity: 0 , display : 'none' }
+      }
+      else{
+        return {opacity: 0 , maxHeight : 'unset'}
+      }
+    }
+    else{
+      return {}
+    }
+  }
+
+  function reactAnimate(){
+    if (isThis.ind === -1){
+      return {}
+    }
+    else{
+      return {top : (isThis.height + 99).toString() + 'px',
+      transform : 'translateX(0px)'
+    }
+    }
+  }
+
   return (
+    <>
+      <Burger
+        onClick={(e) => {
+          setMenuActive(true);
+        }}
+      />
     <div className="MyAdsContainer">
+      <p  className="MyAds">Мои задания</p>
+
       <div
-        style={isThis.ind !== -1 ? { opacity: 0 } : {}}
         className="MyAdsBlock"
       >
-        <Burger
-          onClick={(e) => {
-            setMenuActive(true);
-          }}
-        />
-        <p className="MyAds">Мои задания</p>
-        <div className="counter__block">
+        <div style = {animateHandler()} className="counter__block">
           <div className="number-of-transactions">
             <p>1</p>
             <p>Количество сделок</p>
@@ -138,26 +180,29 @@ const MyAds = () => {
             <p>Завершенные сделки</p>
           </div>
         </div>
-        <div className="YourAds">
+        <div style = {animateHandler()} className="YourAds">
           <p>Ваши объявления</p>
           <div className="sortBy">
             <p className="sortByPar">Активный</p>
             <img className="upDown" src={upDown} alt="" />
           </div>
         </div>
-        <FullPicker
-          className={"MyAds__FullPicker"}
-          values={values}
-          nowKey={nowValue}
-          setNowKey={setNowKey}
-          keys={keys}
-        />
+        <div className="pick"
+        style = {animateHandler()}>
+            <FullPicker
+              className={"MyAds__FullPicker"}
+              values={values}
+              nowKey={nowValue}
+              setNowKey={setNowKey}
+              keys={keys}
+            />
+        </div>
       </div>
       <div className="PickerContent">
         <div className="picler__block">
           <Link
             to="/AdCreating"
-            style={isThis.ind !== -1 ? { opacity: 0 } : {}}
+            style = {animateHandler()}
             className="AdCreactingFunction"
           >
             <img src={plus} alt="" />
@@ -173,6 +218,7 @@ const MyAds = () => {
                       ind: i,
                       top: e.target.closest(".block").getBoundingClientRect()
                         .top,
+                      height : e.target.closest('.block').offsetHeight
                     });
                     // console.log(e.target.closest('.block').getBoundingClientRect())
                   }}
@@ -206,7 +252,11 @@ const MyAds = () => {
    
 
 
-        <div className="reactions__block">
+       
+    </div>
+    <div className="reactions__block"
+      style={reactAnimate()}
+    >
                 <div className="reactions__top">
                     <p className="sortBy">сортировка</p>
                     <div className="reaction__choice">
@@ -227,11 +277,14 @@ const MyAds = () => {
                             <p className="reaction__userName">Александр П.</p>
                             <div className="reaction__rates">
                                 <img   src={star} alt="" />
-                                <p><span>4</span></p>
-                                <p>◦</p>
-                                <p>158 отзывов</p>
-                                <p>◦</p>
-                                <p>Стаж 8 лет</p>
+                                <div className="rates__text">
+                                  <p><span>4</span></p>
+                                  <p>◦</p>
+                                  <p>158 отзывов</p>
+                                  <p>◦</p>
+                                  <p>Стаж 8 лет</p>
+
+                                </div>
 
                             </div>
                         </div>
@@ -250,7 +303,9 @@ const MyAds = () => {
 
 
         </div>
-    </div>
+
+
+</>
   );
 };
 

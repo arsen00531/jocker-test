@@ -10,7 +10,7 @@ const FirstBlock = ({taskName, executionPlace, time, tonValue , setDetailsActive
     const tonConstant = useSelector(state => state.ton.value)
     return (
              <div className="First__block">
-                {photos ? (<div className='first__photos'> 
+                {photos.length ? (<div className='first__photos'> 
                     {photos.map( (e) => {
                         return <img src={URL.createObjectURL(e)} className='first__photo' alt="" />
                     } )}

@@ -95,15 +95,18 @@ function App() {
 //   console.log(tonConstant)
 
   return (
-    <div className="MainContainer" >
       <BrowserRouter>
+        <div className="UperContainer">
 
-        <FirstMenu/>
+          <FirstMenu/>
 
-        <AnimatedSwitch />
+          <div className="MainContainer" >
+              <AnimatedSwitch />
+          </div>
 
+
+        </div>
       </BrowserRouter>
-    </div>
   );
 }
 

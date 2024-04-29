@@ -1,16 +1,16 @@
 .block{
-    transition: 0.5s;
+    transition: 0.2s;
 }
 .MyAdsBlock{
-    transition: 0.5s;
+    transition: 0.2s;
 }
 .AdCreactingFunction{
-    transition: 0.5s;
+    transition: 0.2s;
 }
 .reactions__block{
     display: flex;
     flex-direction: column;
-    gap: 11.33px;
+    gap: 8px;
 }
 .reaction__block .reaction__top{
     display: flex;
@@ -61,7 +61,7 @@
 .reaction .reactions__images{
     display: flex;
     gap: 4.33px;
-    padding: 4px 4px 0px 4px;
+    margin: 4px 4px 0px 4px;
     max-width: 100%;
     overflow-x: scroll;
     border-radius: 6.67px;
@@ -82,10 +82,20 @@
 .reaction .circle .shareImage{
     width: 13.11px;
     height: 11.65px;
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+    transform: translateX(-50%) translateY(50%);
+    margin-left: auto;
 }
 .reaction .reaction__middle img{
+    transform: translateY(-1px);
     width: 9px;
     height: 9px;
+}
+.rates__text{
+    display: flex;
+    gap: 5px;
 }
 .reaction .reaction__middle .icon{
     width: 32px;
@@ -136,15 +146,7 @@
     height: 28px;
     margin-left: auto
 }
-.circle img {
-    width: 13.11px;
-    height: 11.65px;
-    position: absolute;
-    left: 50%;
-    bottom: 50%;
-    transform: translateX(-50%) translateY(50%);
-    margin-left: auto;
-}
+
 .reactions__top{
     display: flex;
     justify-content: space-between;
@@ -166,6 +168,7 @@
     height: 27.67px;
     padding: 6px 12.67px;
     display: flex;
+    align-items: center;
     justify-content: center;
     border: 2px solid rgb(46, 165, 255);
     border-radius: 14px;
@@ -175,7 +178,6 @@
     font-family: "SF Pro Display";
     font-size: 15px;
     font-weight: 500;
-    line-height: 15.64px;
     letter-spacing: 4%;
     text-align: right;
     text-transform: uppercase;
@@ -187,7 +189,7 @@
     width: 123px;
     height: 28px;
     display: flex;
-
+    align-items: center;
     justify-content: center;
     border-radius: 14px;
     background: rgb(46, 165, 255);
@@ -198,7 +200,7 @@
     font-family: "SF Pro Display";
     font-size: 15px;
     font-weight: 500;
-    line-height: 15.64px;
+
     letter-spacing: 4%;
     text-align: right;
     text-transform: uppercase;
@@ -209,4 +211,11 @@
     width: 25.67px;
     height: 25.67px;
     margin-left: auto;
+}
+.reactions__block{
+    position: absolute;
+    left: 16px;
+    transform: translateX(120%);
+    transition: transform 0.2s;
+    width: calc(100% - 32px);
 }
