@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { CSSTransition } from "react-transition-group";
 
 import Burger from "../../components/UI/Burger/Burger";
@@ -17,15 +17,7 @@ import { changeMenuActive } from "../../store/menuSlice";
 import useListner from "../../hooks/useListner";
 import { transform } from "framer-motion";
 import "./MyAds.css";
-import tie from '../../images/icons/Tie.svg'
-import share from '../../images/icons/Share.svg'
-import star from '../../images/icons/Star.svg'
-
-import photo from '../../images/nonUsed/photo_2024-03-02 03.14.svg'
-import icon from '../../images/icons/icon.svg'
-
-
-
+import Reaction from "./Reaction";
 
 const MyAds = () => {
   const values = ["Я испольнитель", "Я заказчик"];
@@ -69,6 +61,8 @@ const MyAds = () => {
 
   const dispatch = useDispatch();
 
+ 
+
   function setMenuActive(arg) {
     dispatch(changeMenuActive(arg));
   }
@@ -97,6 +91,7 @@ const MyAds = () => {
     };
   });
 
+
   useListner({
     isMenuActive,
     setMenuActive,
@@ -104,60 +99,89 @@ const MyAds = () => {
     isDetailsActive,
   });
 
-  const [isThis, setThis] = useState({ ind: -1, top: undefined , height : 0 });
+  const [isThis, setThis] = useState({ ind: -1, top: undefined, height: 0 });
 
-
-  const [traper , setTraper] = useState('unset')
-  const [tran , setTran] = useState('0.4s')
-  const [tDisplay , setDisplay] = useState('block')
+  const [traper, setTraper] = useState("unset");
+  const [tran, setTran] = useState("0.4s");
+  const [tDisplay, setDisplay] = useState("block");
 
   function animation(i) {
     if (isThis.ind === i) {
-      setTimeout(  () => {
-        setThis({...isThis , top : 53})
-        setTran('0s')
-      } , 550 )
-
+      if(tran != '0s')
+      {
+        setTimeout(() => {
+          setThis({ ...isThis, top: 53 });
+          setTran("0s");
+        }, 550);
+      }
 
       return {
         transform: "translateY(" + (-1 * isThis.top + 75).toString() + "px)",
-        transition : tran
+        transition: tran,
       };
     }
     if (isThis.ind !== -1) {
-      setTimeout(  () => {
-        setTraper('0px')
-        setDisplay('none')
-    } , 550)
-      return { opacity: "0" , maxHeight : traper , display : tDisplay };
+      if (tDisplay != 'none'){
+        setTimeout(() => {
+          setTraper("0px");
+          setDisplay("none");
+        }, 550);
+      }
+      return { opacity: "0", maxHeight: traper, display: tDisplay };
     }
     return {};
   }
+  
 
-  function animateHandler(){
-    if (isThis.ind !== -1){
-      if (isThis.top === 53){
-        return { opacity: 0 , display : 'none' }
+  const animateHandler = useMemo(  () => {
+    if (isThis.ind !== -1) {
+      if (isThis.top === 53) {
+        return { opacity: 0, display: "none" };
+      } else {
+        return { opacity: 0, maxHeight: "unset" };
       }
-      else{
-        return {opacity: 0 , maxHeight : 'unset'}
-      }
+    } else {
+      return {};
     }
-    else{
-      return {}
-    }
-  }
+  } , [isThis] )
 
-  function reactAnimate(){
-    if (isThis.ind === -1){
-      return {}
+  const reactAnimate = useMemo( () => {
+    if (isThis.ind === -1) {
+      return {};
     }
-    else{
-      return {top : (isThis.height + 99).toString() + 'px',
-      transform : 'translateX(16px)'
+    else {
+      if (isThis.top === 53) {
+        return {
+          top: (isThis.height + 99).toString() + "px",
+          transform: "translateX(16px)",
+          position : 'absolute'
+        };
+      }
+
+      return {
+        top: (isThis.height + 99).toString() + "px",
+        transform: "translateX(16px)",
+      };
     }
+
+  } , [isThis]  )
+
+  useEffect( () => {
+    if (isThis.top === 53){
+      console.log('Go')
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
     }
-  }
+  } , [reactAnimate] )
+  window.scrollTo({
+    top: '73px',
+    behavior: "smooth"
+  });
+
+
+  console.log(isThis)
 
   return (
     <>
@@ -166,31 +190,34 @@ const MyAds = () => {
           setMenuActive(true);
         }}
       />
-    <div className="MyAdsContainer">
-      <p  className="MyAds">Мои задания</p>
+      <div className="MyAdsContainer">
+        <button onClick={() => {
+          setThis({ ind: -1, top: undefined, height: 0 })
+          setTraper('unset')
+          setTran('0.4s')
+          setDisplay('block')
+        }}>пвыаыфвыа</button>
+        <p className="MyAds">Мои задания</p>
 
-      <div
-        className="MyAdsBlock"
-      >
-        <div style = {animateHandler()} className="counter__block">
-          <div className="number-of-transactions">
-            <p>1</p>
-            <p>Количество сделок</p>
+        <div className="MyAdsBlock">
+          <div style={animateHandler} className="counter__block">
+            <div className="number-of-transactions">
+              <p>1</p>
+              <p>Количество сделок</p>
+            </div>
+            <div className="number-of-transactions">
+              <p>0%</p>
+              <p>Завершенные сделки</p>
+            </div>
           </div>
-          <div className="number-of-transactions">
-            <p>0%</p>
-            <p>Завершенные сделки</p>
+          <div style={animateHandler} className="YourAds">
+            <p>Ваши объявления</p>
+            <div className="sortBy">
+              <p className="sortByPar">Активный</p>
+              <img className="upDown" src={upDown} alt="" />
+            </div>
           </div>
-        </div>
-        <div style = {animateHandler()} className="YourAds">
-          <p>Ваши объявления</p>
-          <div className="sortBy">
-            <p className="sortByPar">Активный</p>
-            <img className="upDown" src={upDown} alt="" />
-          </div>
-        </div>
-        <div className="pick"
-        style = {animateHandler()}>
+          <div className="pick" style={animateHandler}>
             <FullPicker
               className={"MyAds__FullPicker"}
               values={values}
@@ -198,116 +225,75 @@ const MyAds = () => {
               setNowKey={setNowKey}
               keys={keys}
             />
-        </div>
-      </div>
-      <div className="PickerContent">
-        <div className="picler__block">
-          <Link
-            to="/AdCreating"
-            style = {animateHandler()}
-            className="AdCreactingFunction"
-          >
-            <img src={plus} alt="" />
-            <p>Создать объявление</p>
-          </Link>
-          <div className="AdsContainer">
-            {myAdsArray.map((e, i) => {
-              return (
-                <div
-                  className="block"
-                  onClick={(e) => {
-                    setThis({
-                      ind: i,
-                      top: e.target.closest(".block").getBoundingClientRect()
-                        .top,
-                      height : e.target.closest('.block').offsetHeight
-                    });
-                    // console.log(e.target.closest('.block').getBoundingClientRect())
-                  }}
-                  style={animation(i)}
-                >
-                  <FirstBlock
-                    key={i}
-                    isButton={true}
-                    setDetailsActive={() => {
-                      setDetailsActive(true);
-                      setIndex(i);
-                    }}
-                    {...e}
-                  />
-                </div>
-              );
-            })}
           </div>
         </div>
-      </div>
-
-      <CSSTransition classNames="details" in={isDetailsActive} timeout={0}>
-        <AdCreatingOne
-          className="AdCreatingMy"
-          taskInformation={myAdsArray[index]}
-          setTaskInformation={setMyArray}
-          MyInformation={true}
-        />
-      </CSSTransition>
-
-   
-
-
-       
-    </div>
-    <div className="reactions__block"
-      style={reactAnimate()}
-    >
-                <div className="reactions__top">
-                    <p className="sortBy">сортировка</p>
-                    <div className="reaction__choice">
-                        <p>по рейтингу</p>
-                        <img src={upDown} alt="" />
-                    </div>
-                </div>
-
-                
-                <div className="reaction">
-                    <div className="reactions__images">
-                        <img src={photo} alt="" />
-                        <img src={photo} alt="" />
-                    </div>
-                    <div className="reaction__middle">
-                        <img className="icon" src={icon} alt="" />
-                        <div className="reaction__middle-midle">
-                            <p className="reaction__userName">Александр П.</p>
-                            <div className="reaction__rates">
-                                <img   src={star} alt="" />
-                                <div className="rates__text">
-                                  <p><span>4</span></p>
-                                  <p>◦</p>
-                                  <p>158 отзывов</p>
-                                  <p>◦</p>
-                                  <p>Стаж 8 лет</p>
-
-                                </div>
-
-                            </div>
-                        </div>
-                        <div className="circle">
-                            <img className="shareImage" src={share} alt="" />
-                        </div>
-                    </div>
-                    <div className="reactions__bottom">
-                            <button className="bottom__one">подробнее</button>
-                            <button className="bottom__two">выбрать</button>
-                            <img className="tie" src={tie} alt="" />
-                    </div>
-                </div>
-
-
-
-
+        <div className="PickerContent">
+          <div className="picler__block">
+            <Link
+              to="/AdCreating"
+              style={animateHandler}
+              className="AdCreactingFunction"
+            >
+              <img src={plus} alt="" />
+              <p>Создать объявление</p>
+            </Link>
+            <div className="AdsContainer">
+              {myAdsArray.map((e, i) => {
+                return (
+                  <div
+                    className="block"
+                    onClick={(e) => {
+                      setThis({
+                        ind: i,
+                        top: e.target.closest(".block").getBoundingClientRect()
+                          .top,
+                        height: e.target.closest(".block").offsetHeight,
+                      });
+                      // console.log(e.target.closest('.block').getBoundingClientRect())
+                    }}
+                    style={animation(i)}
+                  >
+                    <FirstBlock
+                      key={i}
+                      isButton={true}
+                      setDetailsActive={() => {
+                        setDetailsActive(true);
+                        setIndex(i);
+                      }}
+                      {...e}
+                    />
+                  </div>
+                );
+              })}
+            </div>
+          </div>
         </div>
 
+        <CSSTransition classNames="details" in={isDetailsActive} timeout={0}>
+          <AdCreatingOne
+            className="AdCreatingMy"
+            taskInformation={myAdsArray[index]}
+            setTaskInformation={setMyArray}
+            MyInformation={true}
+          />
+        </CSSTransition>
+      </div>
 
-</>
+      <div className="reactions__block" style={reactAnimate}>
+
+        <div className="reactions__top">
+          <p className="sortBy">сортировка</p>
+          <div className="reaction__choice">
+            <p>по рейтингу</p>
+            <img src={upDown} alt="" />
+          </div>
+        </div>
+
+        <Reaction />
+        <Reaction />
+        <Reaction />
+      </div>
+    </>
   );
 };
 
