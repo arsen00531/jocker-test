@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import AdCreatingOne from './AdCreatingOne/AdCreatingOne/AdCreatingOne';
 import AdCreatingThree from './AdCreatingThree/AdCreatingThree';
 import AdCreatingTwo from './ADCreatingTwo/AdCreatingTwo/AddCreatingTwo'
@@ -82,7 +82,14 @@ const AdCreating = () => {
         }
     }
 
-
+    const GreyIntWidth = useMemo(   () => {
+        console.log('привет')
+        return (document.documentElement.clientWidth  - 36) / 2
+    } , [] )
+    const  GreyWidth = useMemo( () => {
+        return  GreyIntWidth.toString() + 'px' 
+       
+    } , [] ) 
 
     
     if (stationNow === -200){
@@ -118,7 +125,7 @@ const AdCreating = () => {
         >
             <button style={{position : 'absolute'}} onClick={() => {goForward()}} >Выфвфывфы</button>
             <AdCreatingOne setTaskInformation = {setTaskInformation}  taskInformation = {taskInformation} />
-            <AdCreatingTwo setTaskInformation = {setTaskInformation} taskInformation = {taskInformation} tonConstant = {tonConstant} />
+            <AdCreatingTwo GreyIntWidth = {GreyIntWidth} GreyWidth={GreyWidth} setTaskInformation = {setTaskInformation} taskInformation = {taskInformation} tonConstant = {tonConstant} />
             <AdCreatingThree taskInformation = {taskInformation} />
         </motion.div>
     );

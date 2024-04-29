@@ -5,7 +5,7 @@ import CatchDate from "../CatchDate/CatchDate";
 import FullPicker from "../../../components/UI/FullPicker/FullPicker";
 
 
-const DatePicker = ({ className, taskInformation, setTaskInformation }) => {
+const DatePicker = ({ className, taskInformation, setTaskInformation, GreyIntWidth, GreyWidth }) => {
   const [whichOne, setWhichOne] = useState("startOnly");
   const keys = ["startOnly", "startAndEnd"];
 
@@ -32,6 +32,8 @@ const DatePicker = ({ className, taskInformation, setTaskInformation }) => {
         keys={keys}
         nowKey={whichOne}
         setNowKey={setWhichOne}
+        GreyIntWidth = {GreyIntWidth}
+        GreyWidth = {GreyWidth}
       />
       <CatchDate className={cl.CatchDate} whichOne={whichOne} />
     </div>

@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import cl from './FullPicker.module.css'
-const FullPicker = ({values , keys , nowKey , setNowKey, className}) => {
+const FullPicker = ({values , keys , nowKey , setNowKey, className , GreyIntWidth, GreyWidth }) => {
 
     const  MyValues = values.map((e, i) => (
         <p key = {i} className={cl.value} onClick={(e) => {
@@ -12,13 +12,13 @@ const FullPicker = ({values , keys , nowKey , setNowKey, className}) => {
          </p>
     ))
     // const trackRef = useRef(null)
-    const numb = keys.length
-    const GreyIntWidth = useMemo(   () => {
-        return (document.documentElement.clientWidth  - 36) / numb
-    } , [] )
-    const  GreyWidth = GreyIntWidth.toString() + 'px'
+    // const GreyIntWidth = useMemo(   () => {
+    //     console.log('привет')
+    //     return (document.documentElement.clientWidth  - 36) / numb
+    // } , [] )
+    // const  GreyWidth = GreyIntWidth.toString() + 'px'
 
-    console.log(GreyWidth)
+
     const myTransform = useMemo( () => {
         for (let i = 0; i < keys.length ; i++ ){
             if (nowKey === keys[0]){

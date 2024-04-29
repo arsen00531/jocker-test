@@ -17,7 +17,7 @@ import cl from './SecondAddCreating.module.css'
 let forwardTransition = [{x : '100%'} , { x : '0' } ]
 let backTransition = { x : '-100%'  }
 
-const SecondAddCreating = ({taskInformation , setTaskInformation, tonConstant}) => {
+const SecondAddCreating = ({taskInformation , setTaskInformation, tonConstant , GreyWidth , GreyIntWidth}) => {
 
 
 
@@ -28,7 +28,7 @@ const SecondAddCreating = ({taskInformation , setTaskInformation, tonConstant}) 
       >
             <Cap className={cl.Cap}  step={2} > <p className = {cl.CapText}> Создайте объявление </p> </Cap>
             <Budget taskInformation={taskInformation} setTaskInformation={setTaskInformation}  className={cl.Budget} tonConstant = {tonConstant} />
-            <DatePicker taskInformation={taskInformation} setTaskInformation={setTaskInformation} className={cl.DatePicker} />
+            <DatePicker GreyWidth = {GreyWidth} GreyIntWidth={GreyIntWidth} taskInformation={taskInformation} setTaskInformation={setTaskInformation} className={cl.DatePicker} />
       </div>
     );
 };
