@@ -214,8 +214,7 @@
 }
 .reactions__block{
     position: fixed;
-    left: 16px;
-    transform: translateX(180%);
-    transition:  0.4s;
-    width: calc(100% - 32px);
+    transform: translateX(100%);
+    transition:  0.5s;
+    width:  calc(100% - 32px);
 }
