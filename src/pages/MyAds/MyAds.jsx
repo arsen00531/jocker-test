@@ -109,13 +109,14 @@ const MyAds = () => {
 
   const [traper , setTraper] = useState('unset')
   const [tran , setTran] = useState('0.2s')
+  const [tDisplay , setDisplay] = useState('block')
 
   function animation(i) {
     if (isThis.ind === i) {
       setTimeout(  () => {
         setThis({...isThis , top : 53})
         setTran('0s')
-      } , 1000 )
+      } , 400 )
 
 
       return {
@@ -126,8 +127,9 @@ const MyAds = () => {
     if (isThis.ind !== -1) {
       setTimeout(  () => {
         setTraper('0px')
-    } , 1000 )
-      return { opacity: "0" , maxHeight : traper };
+        setDisplay('none')
+    } , 400 )
+      return { opacity: "0" , maxHeight : traper , display : tDisplay };
     }
     return {};
   }

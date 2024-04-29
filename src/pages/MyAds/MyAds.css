@@ -213,9 +213,9 @@
     margin-left: auto;
 }
 .reactions__block{
-    position: absolute;
+    position: fixed;
     left: 16px;
-    transform: translateX(120%);
-    transition: transform 0.2s;
+    transform: translateX(180%);
+    transition:  0.4s;
     width: calc(100% - 32px);
 }
