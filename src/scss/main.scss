@@ -10,24 +10,27 @@
     -webkit-tap-highlight-color: transparent;
     // overflow: hidden;
   }
-  html, body {
-    height: 100%;
-    overflow: auto;
-  }
-  body {
-    position: relative
-  }
+  // html { height: 100%; overflow:auto; }
+  // body { height: 100%; }
+  // body {
+  //   position: relative
+  // }
+
+
+html { position: absolute; left: 0; top: 0; right: 0; bottom: 0; overflow: auto; }
+body { width: 100%; height: auto; }
+#app { width: 100%; height: auto; }
 
 .UperContainer{
   position: relative;
-  height: 100vh;
+  height: auto;
   width: 100%;
 }
 .MainContainer{
     background: rgb(24, 34, 45);
     max-width: 430px;
     transition: 0.5s;
-    height: 100vh;
+    height: auto;
     overflow-y: scroll;
     overflow-x: hidden;
     position: relative;
@@ -84,87 +87,3 @@
   z-index: 20;
 }
 
-@import './Values/reset';
-@import './Values/Values.scss';
-@import './First/_FirstRem.scss';
-@import './First/_TaskDetails.scss';
-@import './AdCreating.scss';
-@import './Profile/Profile.scss';
-@import './Balance.scss';
-@import './_MyAds.scss';
-* {
-    -webkit-tap-highlight-color: transparent;
-    // overflow: hidden;
-  }
-  html, body {
-    overflow: auto;
-  }
-  body {
-    position: relative
-  }
-
-.UperContainer{
-  position: relative;
-  height: 100vh;
-  width: 100%;
-}
-.MainContainer{
-    background: rgb(24, 34, 45);
-    max-width: 430px;
-    transition: 0.5s;
-    height: 100vh;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    position: relative;
-
-}
-.left-right-enter{
-   transform: translateX(100%);
-   transition: 0.35s;
-}
-.left-right-enter-active{
-  transform: translateX(0%);
-  transition: 0.35s;
-}
-.left-right-enter-done{
-  transform: translateX(0%);
-  transition: 0.35s;
-}
-.left-right-exit{
-  transform: translateX(0%);
-  transition: 0.35s;
-}
-.left-right-exit-active{
-  transform: translateX(100%);
-  transition: 0.35s;
-}
-*::-webkit-scrollbar {display:none;}
-
-.page-enter {
-  opacity: 0;
-  transform: scale(1.1);
-}
-
-.page-enter-active {
-  opacity: 1;
-  transform: scale(1);
-  transition: opacity 300ms, transform 300ms;
-}
-
-.page-exit {
-  opacity: 1;
-  transform: scale(1);
-}
-
-.page-exit-active {
-  opacity: 0;
-  transform: scale(0.9);
-  transition: opacity 300ms, transform 300ms;
-}
-.aboutMe{
-  position: absolute;
-  background: rgb(24, 34, 45);
-  top: 0%;
-  width: calc(100% );
-  z-index: 20;
-}

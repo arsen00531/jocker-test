@@ -58,10 +58,7 @@ const Profile = () => {
       BackButton.offClick(goBack);
     };
   });
-  window.scrollTo( {
-    top : 0,
-    behavior : 'smooth'
-  } )
+  // setTimeout(window.scrollTo(0,0),100);
   const animateAboutMe = useMemo(() => {
     window.scrollTo( {
       top : 0,
