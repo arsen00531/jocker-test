@@ -70,7 +70,7 @@ const Profile = () => {
     if (aboutMeModal) {
       return { transform: "translateY(0px)" };
     } else {
-      return { transform: "translateY(120%)" };
+      return { transform: "translateY(140%)" };
     }
   });
 
