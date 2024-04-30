@@ -1,0 +1,413 @@
+.block{
+    transition: 0.2s;
+}
+.MyAdsBlock{
+    transition: 0.2s;
+}
+.AdCreactingFunction{
+    transition: 0.2s;
+}
+.reactions__block{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-bottom: 16px;
+}
+.reaction__block .reaction__top{
+    display: flex;
+    margin-left: 17.33px;
+    margin-right: 17.33px;
+    justify-content: space-between;
+    align-items: center;
+}
+.sortBy{
+    color: rgb(132, 137, 143);
+    font-family: "SF Pro Display 400";
+    font-size: 13.33px;
+    font-weight: 400;
+    line-height: 15.64px;
+    letter-spacing: 2%;
+    text-align: left;
+    text-transform: uppercase;
+}
+.reaction{
+    border-radius: 10px;
+
+/* Cards */
+    background: rgb(32, 48, 63);
+}
+.reaction__choice{
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+.reaction__choice p{
+    color: rgb(46, 165, 255);
+    font-family: "SF Pro Display 400";
+    font-size: 13.33px;
+    font-weight: 400;
+    line-height: 15.64px;
+    letter-spacing: 2%;
+    text-align: right;
+    text-transform: uppercase;
+}
+.reaction__choice img{
+    width: 10.74px;
+    height: 12.32px;
+}
+.reaction{
+    display: flex;
+    flex-direction: column;
+}
+.reaction .reactions__images{
+    display: flex;
+    gap: 4.33px;
+    margin: 4px 4px 0px 4px;
+    max-width: 100%;
+    overflow-x: scroll;
+    border-radius: 6.67px;
+}
+.reaction .reactions__images img{
+    width: 183.33px;
+    height: 133.67px;
+    border-radius: 6.67px;
+}
+.reaction .reaction__middle{
+    display: flex;
+    margin-top: 19.33px;
+    align-items: center;
+    padding-left: 17.33px;
+    padding-right: 19px;
+
+}
+.reaction .circle .shareImage{
+    width: 13.11px;
+    height: 11.65px;
+    position: absolute;
+    left: 50%;
+    bottom: 50%;
+    transform: translateX(-50%) translateY(50%);
+    margin-left: auto;
+}
+.reaction .reaction__middle img{
+    transform: translateY(-1px);
+    width: 9px;
+    height: 9px;
+}
+.rates__text{
+    display: flex;
+    gap: 5px;
+}
+.reaction .reaction__middle .icon{
+    width: 32px;
+    height: 32px;
+}
+.reaction .reaction__middle-midle{
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.67px;
+}
+.reaction__middle-midle .reaction__userName {
+    color: rgb(255, 255, 255);
+    font-family: "SF Pro Display";
+    font-size: 14.67px;
+    font-weight: 500;
+    line-height: 17.67px;
+    letter-spacing: 0%;
+    text-align: left;
+}
+.reaction__rates{
+    display: flex;
+    align-items: center;
+    gap: 3.34px;
+}
+.reaction__rates img{
+    width: 9px;
+    height: 8.67px;
+}
+.reaction__rates p {
+    color: rgb(149, 151, 158);
+    font-family: "SF Pro Display";
+    font-size: 11.67px;
+    font-weight: 500;
+    line-height: 12.54px;
+    letter-spacing: 0%;
+    text-align: left;
+}
+.reaction__rates p span{
+    color: rgb(255, 176, 58)
+}
+.circle{
+    /* TG-Semi */
+    background: rgb(34, 61, 82);
+    border-radius: 50%;
+    position: relative;
+    width: 28px;
+    height: 28px;
+    margin-left: auto
+}
+
+.reactions__top{
+    display: flex;
+    justify-content: space-between;
+    padding-left: 17.33px;
+    padding-right: 17.33px;
+    align-items: center;
+
+}
+.reactions__bottom{
+    display: flex;
+    align-items: center;
+    margin-bottom: 17px;
+    padding-left: 17.33px;
+    padding-right: 20.33px;
+    margin-top: 16.87px;
+}
+.bottom__one{
+    width: 155.33px;
+    height: 27.67px;
+    padding: 6px 12.67px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rgb(46, 165, 255);
+    border-radius: 14px;
+
+
+    color: rgb(46, 165, 255);
+    font-family: "SF Pro Display";
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 4%;
+    text-align: right;
+    text-transform: uppercase;
+    background-color: transparent;
+
+
+}
+.bottom__two{
+    width: 123px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+    background: rgb(46, 165, 255);
+    padding: 6px 12.67px;
+
+
+    color: rgb(255, 255, 255);
+    font-family: "SF Pro Display";
+    font-size: 15px;
+    font-weight: 500;
+
+    letter-spacing: 4%;
+    text-align: right;
+    text-transform: uppercase;
+    margin-left: 7.67px;
+    
+}
+.tie{
+    width: 25.67px;
+    height: 25.67px;
+    margin-left: auto;
+}
+.reactions__block{
+    position: fixed;
+    transform: translateX(130%);
+    transition:  0.55s;
+    width:  calc(100% - 32px);
+}
+
+
+
+
+.aboutReaction{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;   
+}
+.about__top{
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    gap: 40px;
+    align-items: center;
+}
+.top__one{
+    align-items: center;
+    max-width: 70px;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    text-align: center;
+
+}
+.top__three{
+    align-items: center;
+    max-width: 70px;
+    display: flex;
+    flex-direction: column;
+    gap: 1px; 
+    text-align: center;
+}
+.top__one p:nth-child(1) , .top__three p:nth-child(1){
+    color: rgb(218, 245, 254);
+    font-family: "SF Pro Display 400";
+    font-size: 16.67px;
+    font-weight: 400;
+    line-height: 18.31px;
+    letter-spacing: 1%;
+    text-align: left;
+}
+.top__one p:nth-child(2) , .top__three p:nth-child(2){
+    color: rgb(149, 151, 158);
+    font-family: "SF Pro Display";
+    font-size: 11.67px;
+    font-weight: 500;
+    line-height: 12.54px;
+    letter-spacing: 0%;
+    text-align: center;
+}
+.topMiddle{
+    width: 94px;
+    height: 94px;
+}
+.aboutInfo{
+    margin-top: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.aboutInfo .name{
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+.aboutInfo .name p{
+    color: rgb(255, 255, 255);
+    font-family: "SF Pro Display";
+    font-size: 17.33px;
+    font-weight: 500;
+    line-height: 18.31px;
+    letter-spacing: 0%;
+    text-align: left;
+}
+.aboutInfo .name img{
+    width: 17.33px;
+    height: 17.33px;
+}
+
+.aboutInfo .rates{
+    display: flex;
+}
+.rates__block{
+    gap: 2px;
+    display: flex;
+}
+.rates__block img{
+
+    width: 12px;
+    height: 12px;
+    transform: translateY(1px);
+}
+.rates{
+    gap: 6px;
+    margin-top: 4px;
+}
+.rates__block p {
+    color: rgb(255, 176, 58);
+    font-family: "SF Pro Display";
+    font-size: 14.67px;
+    font-weight: 500;
+    line-height: 17.67px;
+    letter-spacing: 0%;
+    text-align: left;
+}
+
+.rates p{
+    color: rgb(149, 151, 158);
+    font-family: "SF Pro Display";
+    font-size: 14.67px;
+    font-weight: 500;
+    line-height: 17.67px;
+    letter-spacing: 0%;
+    text-align: left;
+}
+.documentAccess{
+    display: flex;
+    padding: 5.5px 8.33px;
+    padding-top: 5.67px;
+    padding-bottom: 5px;
+    gap: 6.67px;
+    box-sizing: border-box;
+    border: 0.67px solid rgb(46, 165, 255);
+    border-radius: 21.67px;
+    margin-top: 8px;
+}
+.documentAccess p{
+    color: rgb(45, 158, 244);
+    font-family: "SF Pro Display";
+    font-size: 14.67px;
+    font-weight: 500;
+    line-height: 17.67px;
+    letter-spacing: 0%;
+    text-align: left;
+}
+.documentAccess img{
+    width: 17.33px;
+    height: 17.33px;
+    transform: translateY(-0.5px);
+}
+.aboutMain{
+    margin-top: 30px;
+    margin-right: auto;
+}
+.aboutMeBlock{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.aboutMeBlock p{
+    color: rgb(255, 255, 255);
+    font-family: "SF Pro Display 600";
+    font-size: 20.72px;
+    font-weight: 600;
+    line-height: 25px;
+    letter-spacing: 0%;
+    text-align: left;
+}
+.aboutMeText{
+    color: rgb(218, 245, 254);
+    font-family: "SF Pro Display 400";
+    font-size: 16.67px;
+    font-weight: 400;
+    line-height: 18.31px;
+    letter-spacing: 1%;
+    text-align: left;
+}
+.aboutMeText .text{
+    color: rgb(218, 245, 254);
+    font-family: "SF Pro Display 400";
+    font-size: 16.67px;
+    font-weight: 400;
+    line-height: 18.31px;
+    letter-spacing: 1%;
+    text-align: left;
+    min-height: 18.31px;
+}
+
+
+.aboutReaction__block{
+    position: absolute;
+    width: calc(100% - 32px);
+    left: 16px;
+    background: rgb(24, 34, 45);
+    z-index: 50;
+    top: 0;
+    height: 100%;
+    z-index: 20;
+}
