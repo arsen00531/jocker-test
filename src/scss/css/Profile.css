@@ -382,3 +382,16 @@ input {
   height: 11.2992px;
   margin-left: auto;
 }
+
+.aboutMe {
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: rgb(24, 34, 45);
+}
+
+.profile__container {
+  overflow-y: hidden;
+}
