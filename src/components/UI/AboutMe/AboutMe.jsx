@@ -137,10 +137,6 @@ const AboutMe = ({ setAboutMeModal, setAboutU, aboutU, aboutMeModal }) => {
           value={inf}
           spellCheck={false}
           className="textArea"
-          name=""
-          id=""
-          cols="30"
-          rows="10"
         />
       </div>
     </div>
