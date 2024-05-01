@@ -164,7 +164,7 @@ const Profile = () => {
                 if (window.scrollY >= 0 && window.scrollY <= 50){
                   scrollTo = window.scrollY
                   document.documentElement.style.overflow = 'clip'
-                  document.documentElement.style.marginTop = '200spx'
+                  document.documentElement.style.marginTop = '200px'
                   window.scrollTo({
                     top : 200 + scrollTo,
                     behavior : 'auto'
