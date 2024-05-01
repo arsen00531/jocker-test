@@ -123,7 +123,7 @@ const AboutMe = ({ setAboutMeModal, setAboutU, aboutU, aboutMeModal }) => {
       </div>
       <p>О себе</p>
       <div className="inputBlock">
-        <textarea
+        {/* <textarea
     
           readOnly={true}
           disabled={true}
@@ -137,7 +137,7 @@ const AboutMe = ({ setAboutMeModal, setAboutU, aboutU, aboutMeModal }) => {
           value={inf}
           spellCheck={false}
           className="textArea"
-        />
+        /> */}
       </div>
     </div>
     </div>
