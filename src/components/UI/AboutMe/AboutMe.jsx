@@ -66,12 +66,19 @@ const AboutMe = ({setAboutMeModal ,setAboutU , aboutU  , aboutMeModal}) => {
                 <div className="top">
                     <img onClick={() => {
                         setAboutMeModal(false)
+                        setPos(0)
+                        setTran('0.4s')
+                        animation = true
+                        document.documentElement.style.overflow = 'auto'
                     }} src={closeIcon} alt="" />
                     <p>О себе</p>
                     <p className="save" onClick={ () => {
-                        document.documentElement.style.overflow = 'auto'
-                        setAboutU(inf)
-                        setAboutMeModal(false)
+                            setAboutMeModal(false)
+                            setPos(0)
+                            setTran('0.4s')
+                            animation = true
+                            document.documentElement.style.overflow = 'auto'
+                            setAboutU(inf)
                     }}>✔</p>
                 </div>
                 <div className="about__reason">
