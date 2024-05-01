@@ -38,10 +38,13 @@ const AboutMe = ({ setAboutMeModal, setAboutU, aboutU, aboutMeModal }) => {
   const endTouchHandler = (e) => {
 
     document.documentElement.style.marginTop = '0px'
-
+    window.scrollTo({
+        top : 0,
+        behavior : 'auto'
+      })
     e.preventDefault()
     setTouching(false);
-    if (pos > 150) {
+    if (pos > 80) {
       setAboutMeModal(false);
       setPos(0);
       setTran("0.4s");
