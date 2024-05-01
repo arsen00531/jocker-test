@@ -36,7 +36,7 @@ const AboutMe = ({ setAboutMeModal, setAboutU, aboutU, aboutMeModal }) => {
     }
   };
   const endTouchHandler = (e) => {
-    alert()
+
     document.documentElement.style.paddingTop = '0px'
     window.scrollTo({
       top : 0,
@@ -67,7 +67,7 @@ const AboutMe = ({ setAboutMeModal, setAboutU, aboutU, aboutMeModal }) => {
     style={animateAboutMe}
     onTouchMove={handleTouch}
     onTouchCancel={() => {
-        alert()
+        alert('действие отменено!!!')
     }}
     onTouchStart={(e) => {
         e.preventDefault()
