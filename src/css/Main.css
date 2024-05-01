@@ -1548,6 +1548,8 @@ input {
           transform: translateX(-50%) translateY(50%);
   min-width: 22px;
   max-height: 22px;
+  width: unset;
+  height: unset;
 }
 .profile__container .greyArrow {
   width: 6.5024px;

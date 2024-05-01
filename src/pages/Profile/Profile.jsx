@@ -8,7 +8,7 @@ import ArrowRight from "../../images/icons/rightArrow.svg";
 import Pencel from "../../components/UI/Pencel/Pencel";
 import icon from "../../images/icons/icon.svg";
 import orangeWallet from "../../images/icons/OrangeWallet.svg";
-import Subtract from "../../images/icons/Subtract.svg";
+import Subtract from "../../images/icons/SubtractWhite.svg";
 import greyArrowRight from "../../images/icons/greyArrowRight.svg";
 import Burger from "../../components/UI/Burger/Burger";
 import { Link, useNavigate } from "react-router-dom";
@@ -62,8 +62,12 @@ const Profile = () => {
   });
   // setTimeout(window.scrollTo(0,0),100);
 
-
-
+  const zInd = useMemo(  () => {
+    return aboutMeModal ? '2' : '-1'
+  }, [aboutMeModal]  )
+  const opac = useMemo(  () => {
+    return aboutMeModal ? '0.8' : '0'
+  } ,[aboutMeModal] )
   return (
     <motion.div
       className="profile__container"
@@ -192,10 +196,26 @@ const Profile = () => {
           <img src={greyArrowRight} className="greyArrow" alt="" />
         </div>
       </div>
+          <div className="black"
+          style={{
+            position : 'absolute',
+            zIndex : zInd,
+            background : 'black',
+            width : '100%',
+            height : '100%',
+            left : '0',
+            top : '0',
+            opacity : opac
+            
 
+          }} 
+            >
+            
+          </div>
         <AboutMe aboutMeModal={aboutMeModal}  setAboutMeModal = {setAboutMeModal} aboutU={aboutU} setAboutU={setAboutU} />
 
     </motion.div>
+
   );
 };
 

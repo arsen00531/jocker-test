@@ -29,10 +29,10 @@ const AboutMe = ({ setAboutMeModal, setAboutU, aboutU, aboutMeModal }) => {
   const handleTouch = (e) => {
     e.preventDefault()
     let position = e.touches[0].pageY - startMove;
-    if (position < 80) {
+    if (position < 0) {
       setPos(80);
     } else {
-      setPos(position);
+      setPos(position + 80);
     }
   };
   const endTouchHandler = (e) => {
@@ -46,13 +46,13 @@ const AboutMe = ({ setAboutMeModal, setAboutU, aboutU, aboutMeModal }) => {
             behavior : 'auto'
           })
       setAboutMeModal(false);
-      setPos(0);
+      setPos(80);
       setTran("0.4s");
       animation = true;
       document.documentElement.style.overflow = "auto";
       setAboutU(inf);
     } else {
-      setPos(0);
+      setPos(80);
     }
   };
 
@@ -88,7 +88,7 @@ const AboutMe = ({ setAboutMeModal, setAboutU, aboutU, aboutMeModal }) => {
                   behavior : 'auto'
                 })
                 setAboutMeModal(false);
-                setPos(0);
+                setPos(80);
                 setTran("0.4s");
                 animation = true;
                 document.documentElement.style.overflow = "auto";
@@ -101,7 +101,7 @@ const AboutMe = ({ setAboutMeModal, setAboutU, aboutU, aboutMeModal }) => {
               behavior : 'auto'
             })
             setAboutMeModal(false);
-            setPos(0);
+            setPos(80);
             setTran("0.4s");
             animation = true;
             document.documentElement.style.overflow = "auto";
@@ -121,7 +121,7 @@ const AboutMe = ({ setAboutMeModal, setAboutU, aboutU, aboutMeModal }) => {
                   behavior : 'auto'
                 })
                 setAboutMeModal(false);
-                setPos(0);
+                setPos(80);
                 setTran("0.4s");
                 animation = true;
                 document.documentElement.style.overflow = "auto";
@@ -134,7 +134,7 @@ const AboutMe = ({ setAboutMeModal, setAboutU, aboutU, aboutMeModal }) => {
               behavior : 'auto'
             })
             setAboutMeModal(false);
-            setPos(0);
+            setPos(80);
             setTran("0.4s");
             animation = true;
             document.documentElement.style.overflow = "auto";
@@ -150,10 +150,8 @@ const AboutMe = ({ setAboutMeModal, setAboutU, aboutU, aboutMeModal }) => {
       </div>
       <p>О себе</p>
       <div className="inputBlock">
-        {/* <textarea
+        <textarea
     
-          readOnly={true}
-          disabled={true}
           onChange={(e) => {
             console.log(inf);
             setInf(e.target.value);
@@ -164,7 +162,7 @@ const AboutMe = ({ setAboutMeModal, setAboutU, aboutU, aboutMeModal }) => {
           value={inf}
           spellCheck={false}
           className="textArea"
-        /> */}
+        />
       </div>
     </div>
     </div>

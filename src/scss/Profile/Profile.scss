@@ -322,6 +322,8 @@ input {
         transform: translateX(-50%) translateY(50%) ;
         min-width: 22px;
         max-height: 22px;
+        width: unset;
+        height: unset;
     }
     .greyArrow{
         width: calc(20.32px * $width);
