@@ -27,6 +27,7 @@ const AboutMe = ({ setAboutMeModal, setAboutU, aboutU, aboutMeModal }) => {
   }, [aboutMeModal, pos, tran]);
 
   const handleTouch = (e) => {
+    e.preventDefault()
     let position = e.touches[0].pageY - startMove;
     if (position < 0) {
       setPos(0);
@@ -35,6 +36,13 @@ const AboutMe = ({ setAboutMeModal, setAboutU, aboutU, aboutMeModal }) => {
     }
   };
   const endTouchHandler = () => {
+    alert()
+    document.documentElement.style.paddingTop = '0px'
+    window.scrollTo({
+      top : 0,
+      behavior : 'auto'
+    })
+    e.preventDefault()
     setTouching(false);
     if (pos > 150) {
       setAboutMeModal(false);
@@ -58,7 +66,11 @@ const AboutMe = ({ setAboutMeModal, setAboutU, aboutU, aboutMeModal }) => {
 
     style={animateAboutMe}
     onTouchMove={handleTouch}
+    onTouchCancel={() => {
+        alert()
+    }}
     onTouchStart={(e) => {
+        e.preventDefault()
       setTouching(true);
       setStartMove(e.touches[0].pageY);
     }}
@@ -71,6 +83,11 @@ const AboutMe = ({ setAboutMeModal, setAboutU, aboutU, aboutMeModal }) => {
       <div className="top">
         <img
           onClick={() => {
+            document.documentElement.style.paddingTop = '0px'
+            window.scrollTo({
+              top : 0,
+              behavior : 'auto'
+            })
             setAboutMeModal(false);
             setPos(0);
             setTran("0.4s");
@@ -84,6 +101,11 @@ const AboutMe = ({ setAboutMeModal, setAboutU, aboutU, aboutMeModal }) => {
         <p
           className="save"
           onClick={() => {
+            document.documentElement.style.paddingTop = '0px'
+            window.scrollTo({
+              top : 0,
+              behavior : 'auto'
+            })
             setAboutMeModal(false);
             setPos(0);
             setTran("0.4s");
