@@ -159,13 +159,15 @@ const Profile = () => {
             <div
               className="pencel__wrapper"
               onClick={() => {
-                document.documentElement.style.overflow = 'clip'
                 setAboutMeModal(true);
-                document.documentElement.style.marginTop = '200px'
-                window.scrollTo({
-                  top : 200,
-                  behavior : 'auto'
-                })
+                if (window.scrollY === 0){
+                  document.documentElement.style.overflow = 'clip'
+                  document.documentElement.style.marginTop = '200px'
+                  window.scrollTo({
+                    top : 200,
+                    behavior : 'auto'
+                  })
+                }
               }}
             >
               <Pencel className="pencel"  />
