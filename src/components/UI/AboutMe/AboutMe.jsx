@@ -35,7 +35,7 @@ const AboutMe = ({ setAboutMeModal, setAboutU, aboutU, aboutMeModal }) => {
       setPos(position);
     }
   };
-  const endTouchHandler = () => {
+  const endTouchHandler = (e) => {
     alert()
     document.documentElement.style.paddingTop = '0px'
     window.scrollTo({
