@@ -6,7 +6,7 @@ let animation = true;
 const AboutMe = ({ setAboutMeModal, setAboutU, aboutU, aboutMeModal }) => {
   const [inf, setInf] = useState(aboutU);
   const aboutMeRef = useRef(null);
-  const [pos, setPos] = useState(0);
+  const [pos, setPos] = useState(80);
   const [startMove, setStartMove] = useState(0);
   const [tran, setTran] = useState("0.4s");
   const [touching, setTouching] = useState(false);
@@ -38,10 +38,7 @@ const AboutMe = ({ setAboutMeModal, setAboutU, aboutU, aboutMeModal }) => {
   const endTouchHandler = (e) => {
 
     document.documentElement.style.paddingTop = '0px'
-    window.scrollTo({
-      top : 0,
-      behavior : 'auto'
-    })
+
     e.preventDefault()
     setTouching(false);
     if (pos > 150) {
