@@ -29,22 +29,22 @@ const AboutMe = ({ setAboutMeModal, setAboutU, aboutU, aboutMeModal }) => {
   const handleTouch = (e) => {
     e.preventDefault()
     let position = e.touches[0].pageY - startMove;
-    if (position < 0) {
-      setPos(0);
+    if (position < 80) {
+      setPos(80);
     } else {
       setPos(position);
     }
   };
   const endTouchHandler = (e) => {
 
-    document.documentElement.style.marginTop = '0px'
-    window.scrollTo({
-        top : 0,
-        behavior : 'auto'
-      })
-    e.preventDefault()
+
     setTouching(false);
-    if (pos > 80) {
+    if (pos > 160) {
+        document.documentElement.style.marginTop = '0px'
+        window.scrollTo({
+            top : 0,
+            behavior : 'auto'
+          })
       setAboutMeModal(false);
       setPos(0);
       setTran("0.4s");
