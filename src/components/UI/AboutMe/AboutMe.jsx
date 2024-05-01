@@ -141,7 +141,7 @@ const AboutMe = ({ setAboutMeModal, setAboutU, aboutU, aboutMeModal }) => {
           id=""
           cols="30"
           rows="10"
-        ></textarea>
+        />
       </div>
     </div>
     </div>
