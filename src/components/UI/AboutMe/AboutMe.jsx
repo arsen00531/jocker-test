@@ -110,7 +110,7 @@ const AboutMe = ({ setAboutMeModal, setAboutU, aboutU, aboutMeModal }) => {
             setInf(e.target.value);
           }}
           style={{
-            pointerEvents : 'none'
+            pointerEvents : 'auto'
           }}
           value={inf}
           spellCheck={false}
