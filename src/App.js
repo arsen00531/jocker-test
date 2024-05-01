@@ -25,6 +25,10 @@ import AdCreating from "./pages/AdCreating";
 import { fetchUserInfo } from "./store/telegramUserInfo";
 
 
+const app = window.Telegram.WebApp;
+app.ready()
+app.isClosingConfirmationEnabled = true;
+
 
 const AnimatedSwitch = () =>{
       const location = useLocation()
@@ -48,7 +52,10 @@ function App() {
 
   
   window.Telegram.WebApp.expand();
-  
+  const app = window.Telegram.WebApp;
+  app.ready()
+  app.isClosingConfirmationEnabled = true;
+
   const dispatch = useDispatch()
   // alert(window.Telegram.WebApp.initDataUnsafe.user.photo_url)
   const orderInformations = useSelector(state => state.information.orderInformations)
