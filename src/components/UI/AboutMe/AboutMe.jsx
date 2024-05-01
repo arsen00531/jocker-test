@@ -59,27 +59,12 @@ const AboutMe = ({setAboutMeModal ,setAboutU , aboutU  , aboutMeModal}) => {
 
     return (
         <>
-        <div
-        onTouchMove={handleTouch}
-        onTouchStart = {(e) => {
-            setTouching(true)
-            setStartMove(e.touches[0].pageY)
-        }}
-        onTouchEnd={endTouchHandler}
-        style={{
-            width : '100%',
-            height : '100vh',
-            position : 'absolute',
-            left : '0',
-            top : '0',
-            zIndex : 200,
-            display : {disp}
-        }}></div>
-        <div ref={aboutMeRef} className="aboutMe" 
-        style={animateAboutMe}
-  
-        >
-            <div  className="aboutMeContainer">
+        <div  className="aboutMeContainer"         onTouchMove={handleTouch}
+            onTouchStart = {(e) => {
+                setTouching(true)
+                setStartMove(e.touches[0].pageY)
+            }}
+        onTouchEnd={endTouchHandler}>
                 <div className="top">
                     <img onClick={() => {
                         setAboutMeModal(false)
