@@ -87,8 +87,8 @@ const AboutMe = ({setAboutMeModal ,setAboutU , aboutU  , aboutMeModal}) => {
                 </div>
                 <p>О себе</p>
                 <div className="inputBlock">
-                    <textarea readOnly = {touching}
-                    disabled = {touching}
+                    <textarea readOnly = {true}
+                    disabled = {true}
                       onChange={ (e) => {
                         
                         console.log(inf)
