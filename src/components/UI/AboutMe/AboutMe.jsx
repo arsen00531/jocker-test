@@ -102,11 +102,15 @@ const AboutMe = ({ setAboutMeModal, setAboutU, aboutU, aboutMeModal }) => {
       <p>О себе</p>
       <div className="inputBlock">
         <textarea
+    
           readOnly={true}
           disabled={true}
           onChange={(e) => {
             console.log(inf);
             setInf(e.target.value);
+          }}
+          style={{
+            pointerEvents : 'none'
           }}
           value={inf}
           spellCheck={false}
