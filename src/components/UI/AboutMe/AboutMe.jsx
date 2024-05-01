@@ -9,6 +9,7 @@ const AboutMe = ({setAboutMeModal ,setAboutU , aboutU  , aboutMeModal}) => {
     const [pos , setPos] = useState(0)
     const [startMove , setStartMove ] = useState(0)
     const [tran , setTran] = useState('0.4s')
+    const [touching , setTouching] = useState(false)
     window.Telegram.WebApp.expand();
     const animateAboutMe = useMemo(() => {
         window.Telegram.WebApp.expand();
@@ -27,7 +28,6 @@ const AboutMe = ({setAboutMeModal ,setAboutU , aboutU  , aboutMeModal}) => {
     
     
     const handleTouch = (e) => {
-        window.Telegram.WebApp.expand();
         let position = (e.touches[0].pageY - startMove).toFixed(0)
         if (position < 0) {
             setPos(0)
@@ -37,7 +37,7 @@ const AboutMe = ({setAboutMeModal ,setAboutU , aboutU  , aboutMeModal}) => {
         }
     }
     const endTouchHandler = () => {
-        window.Telegram.WebApp.expand();
+        setTouching(false)
         if (pos > 150){
             setAboutMeModal(false)
             setPos(0)
@@ -57,7 +57,7 @@ const AboutMe = ({setAboutMeModal ,setAboutU , aboutU  , aboutMeModal}) => {
         <div ref={aboutMeRef} className="aboutMe"  onTouchMove={handleTouch}
         style={animateAboutMe}
         onTouchStart = {(e) => {
-            
+            setTouching(true)
             setStartMove(e.touches[0].pageY)
         }}
         onTouchEnd={endTouchHandler}  
@@ -87,7 +87,10 @@ const AboutMe = ({setAboutMeModal ,setAboutU , aboutU  , aboutMeModal}) => {
                 </div>
                 <p>О себе</p>
                 <div className="inputBlock">
-                    <textarea onChange={ (e) => {
+                    <textarea readOnly = {touching}
+                    disabled = {touching}
+                      onChange={ (e) => {
+                        
                         console.log(inf)
                         setInf(e.target.value)
                     }} value={inf} spellCheck = {false} className="textArea" name="" id="" cols="30" rows="10"></textarea>
