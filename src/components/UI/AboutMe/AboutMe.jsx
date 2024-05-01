@@ -26,10 +26,9 @@ const AboutMe = ({setAboutMeModal ,setAboutU , aboutU  , aboutMeModal}) => {
         }
       } , [aboutMeModal , pos , tran]);
     
-
     
     const handleTouch = (e) => {
-        let position = (e.touches[0].pageY - startMove).toFixed(0)
+        let position = (e.touches[0].pageY - startMove)
         if (position < 0) {
             setPos(0)
         }
@@ -51,10 +50,6 @@ const AboutMe = ({setAboutMeModal ,setAboutU , aboutU  , aboutMeModal}) => {
             setPos(0)
         }
     }
-    const handleStart = (e) => {
-        setTouching(true)
-        setStartMove(e.touches[0].pageY)
-    }
  
 
     const disp = useMemo(() => {
@@ -62,15 +57,24 @@ const AboutMe = ({setAboutMeModal ,setAboutU , aboutU  , aboutMeModal}) => {
     }, [aboutMeModal])
 
 
-    useEffect( () => {
-        window.addEventListener('touchmove' , handleTouch)
-        window.addEventListener('touchend' ,endTouchHandler )
-        window.addEventListener('touchstart' ,handleStart )
-    }, []  )
-
     return (
         <>
-    
+        <div
+        onTouchMove={handleTouch}
+        onTouchStart = {(e) => {
+            setTouching(true)
+            setStartMove(e.touches[0].pageY)
+        }}
+        onTouchEnd={endTouchHandler}
+        style={{
+            width : '100%',
+            height : '100vh',
+            position : 'absolute',
+            left : '0',
+            top : '0',
+            zIndex : 200,
+            display : {disp}
+        }}></div>
         <div ref={aboutMeRef} className="aboutMe" 
         style={animateAboutMe}
   
