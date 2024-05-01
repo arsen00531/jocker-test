@@ -161,10 +161,10 @@ const Profile = () => {
               onClick={() => {
                 setAboutMeModal(true);
                 document.documentElement.style.overflow = 'clip'
-                if (window.scrollY > 0 && window.scrollY < 50){
+                if (window.scrollY >= 0 && window.scrollY <= 50){
                   scrollTo = window.scrollY
                   document.documentElement.style.overflow = 'clip'
-                  document.documentElement.style.marginTop = '200px'
+                  document.documentElement.style.marginTop = '200spx'
                   window.scrollTo({
                     top : 200 + scrollTo,
                     behavior : 'auto'
