@@ -153,7 +153,7 @@ const Profile = () => {
             <div
               className="pencel__wrapper"
               onClick={() => {
-                document.documentElement.style.overflow = 'hidden'
+                document.documentElement.style.overflow = 'clip'
                 setAboutMeModal(true);
               }}
             >
