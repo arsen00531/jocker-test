@@ -2,50 +2,49 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 import './AboutMe.css'
 import Close from "../Close";
 import closeIcon from '../../../images/icons/close.svg'
+let animation = true
 const AboutMe = ({setAboutMeModal ,setAboutU , aboutU  , aboutMeModal}) => {
     const [inf , setInf] = useState(aboutU)
     const aboutMeRef = useRef(null)
     const [pos , setPos] = useState(0)
     const [startMove , setStartMove ] = useState(0)
+    const [tran , setTran] = useState('0.4s')
     const animateAboutMe = useMemo(() => {
         if (aboutMeModal) {
-          return { transform: `translateY(${pos}px)` , transition : '0s' };
+            if ( animation ){
+                animation = false
+                setTimeout(() => {
+                    setTran('0s')
+                } , 400)
+            }
+          return { transform: `translateY(${pos}px)` , transition : tran };
         } else {
           return { transform: "translateY(150%)" };
         }
-      } , [aboutMeModal , pos]);
+      } , [aboutMeModal , pos , tran]);
     
     
-    // useEffect( () => {
-    //     let start;
-    //     let end;
-    //     if(aboutMeRef.current ){
-    //         window.addEventListener('touchstart' , (e) => {
-    //             start = e.touches[0].pageY
-
-    //         })
-    //         window.addEventListener('touchmove', (e) => {
-
-    //             setPos(e.touches[0].pageY)
-                
-
-    //         })
-    //         window.addEventListener('touchend' , (e) => {
-    //             end = e.touches.screen
-    //         })
-    //         // aboutMeRef.addEventListener('touchmove' , () => {
-
-    //         // })
-    //     }
-    // } )
-
-
-
-
     const handleTouch = (e) => {
-        setPos( (e.touches[0].pageY - startMove).toFixed(0))
+        let position = (e.touches[0].pageY - startMove).toFixed(0)
+        if (position < 0) {
+            setPos(0)
+        }
+        else{
+            setPos(position)
+        }
     }
-
+    const endTouchHandler = () => {
+        if (pos > 150){
+            setAboutMeModal(false)
+            setPos(0)
+            setTran('0.4s')
+            animation = true
+        }
+        else{
+            setPos(0)
+        }
+    }
+ 
 
 
     return (
@@ -55,6 +54,7 @@ const AboutMe = ({setAboutMeModal ,setAboutU , aboutU  , aboutMeModal}) => {
             
             setStartMove(e.touches[0].pageY)
         }}
+        onTouchEnd={endTouchHandler}  
         >
             <div  className="aboutMeContainer">
                 <div className="top">
