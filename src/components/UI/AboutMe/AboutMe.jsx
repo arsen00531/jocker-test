@@ -9,7 +9,9 @@ const AboutMe = ({setAboutMeModal ,setAboutU , aboutU  , aboutMeModal}) => {
     const [pos , setPos] = useState(0)
     const [startMove , setStartMove ] = useState(0)
     const [tran , setTran] = useState('0.4s')
+    window.Telegram.WebApp.expand();
     const animateAboutMe = useMemo(() => {
+        window.Telegram.WebApp.expand();
         if (aboutMeModal) {
             if ( animation ){
                 animation = false
@@ -25,6 +27,7 @@ const AboutMe = ({setAboutMeModal ,setAboutU , aboutU  , aboutMeModal}) => {
     
     
     const handleTouch = (e) => {
+        window.Telegram.WebApp.expand();
         let position = (e.touches[0].pageY - startMove).toFixed(0)
         if (position < 0) {
             setPos(0)
@@ -34,6 +37,7 @@ const AboutMe = ({setAboutMeModal ,setAboutU , aboutU  , aboutMeModal}) => {
         }
     }
     const endTouchHandler = () => {
+        window.Telegram.WebApp.expand();
         if (pos > 150){
             setAboutMeModal(false)
             setPos(0)
