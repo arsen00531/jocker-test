@@ -47,7 +47,9 @@ const AboutMe = ({ setAboutMeModal, setAboutU, aboutU, aboutMeModal }) => {
         setPos(80);
         setTran("0.4s");
         animation = true;
-        document.documentElement.style.overflow = "auto";
+        setTimeout( () => {
+            document.documentElement.style.overflow = "auto";
+        } , 400 )
   }
 
   const endTouchHandler = (e) => {
