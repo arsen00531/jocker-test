@@ -37,7 +37,7 @@ const AboutMe = ({ setAboutMeModal, setAboutU, aboutU, aboutMeModal }) => {
   };
   const endTouchHandler = (e) => {
 
-    document.documentElement.style.paddingTop = '0px'
+    document.documentElement.style.marginTop = '0px'
 
     e.preventDefault()
     setTouching(false);
@@ -79,7 +79,7 @@ const AboutMe = ({ setAboutMeModal, setAboutU, aboutU, aboutMeModal }) => {
         <img
         onClick={ 
             () => {
-                document.documentElement.style.paddingTop = '0px'
+                document.documentElement.style.marginTop = '0px'
                 window.scrollTo({
                   top : 0,
                   behavior : 'auto'
@@ -92,7 +92,7 @@ const AboutMe = ({ setAboutMeModal, setAboutU, aboutU, aboutMeModal }) => {
               }
         }
           onTouchStart={() => {
-            document.documentElement.style.paddingTop = '0px'
+            document.documentElement.style.marginTop = '0px'
             window.scrollTo({
               top : 0,
               behavior : 'auto'
@@ -112,7 +112,7 @@ const AboutMe = ({ setAboutMeModal, setAboutU, aboutU, aboutMeModal }) => {
           className="save"
           onClick={ 
             () => {
-                document.documentElement.style.paddingTop = '0px'
+                document.documentElement.style.marginTop = '0px'
                 window.scrollTo({
                   top : 0,
                   behavior : 'auto'
@@ -125,7 +125,7 @@ const AboutMe = ({ setAboutMeModal, setAboutU, aboutU, aboutMeModal }) => {
               }
         }
           onTouchStart={() => {
-            document.documentElement.style.paddingTop = '0px'
+            document.documentElement.style.marginTop = '0px'
             window.scrollTo({
               top : 0,
               behavior : 'auto'
