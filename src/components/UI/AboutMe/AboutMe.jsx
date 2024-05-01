@@ -3,7 +3,7 @@ import "./AboutMe.css";
 import Close from "../Close";
 import closeIcon from "../../../images/icons/close.svg";
 let animation = true;
-const AboutMe = ({ setAboutMeModal, setAboutU, aboutU, aboutMeModal }) => {
+const AboutMe = ({ setAboutMeModal, setAboutU, aboutU, aboutMeModal , scrollTo }) => {
   const [inf, setInf] = useState(aboutU);
   const aboutMeRef = useRef(null);
   const [pos, setPos] = useState(80);
@@ -39,7 +39,7 @@ const AboutMe = ({ setAboutMeModal, setAboutU, aboutU, aboutMeModal }) => {
             if(document.documentElement.style.marginTop !== '0px'){
                 document.documentElement.style.marginTop = '0px'
                 window.scrollTo({
-                    top : 0,
+                    top : scrollTo,
                     behavior : 'auto'
                 })
             }

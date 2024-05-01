@@ -16,6 +16,7 @@ import BackButton from "../../constants/BackButton";
 import userInfo from "../../constants/Name";
 import AboutMe from "../../components/UI/AboutMe/AboutMe";
 
+let scrollTo = 0
 const variants = {
   initial: { opacity: 0 },
   animate: { opacity: 1 },
@@ -30,7 +31,6 @@ const Profile = () => {
     dispatch(changeMenuActive(arg));
   };
 
-  const [isReadOnly, setReadOnly] = useState(true);
 
   const [name, setName] = useState("Твое имя");
 
@@ -43,8 +43,7 @@ const Profile = () => {
   const inputRef = useRef(null);
 
   const [aboutMeModal, setAboutMeModal] = useState(false);
-  console.log(aboutMeModal)
-
+  
 
   // useEffect(  () => {
   //   if (inputRef.current){
@@ -162,11 +161,12 @@ const Profile = () => {
               onClick={() => {
                 setAboutMeModal(true);
                 document.documentElement.style.overflow = 'clip'
-                if (window.scrollY === 0){
+                if (window.scrollY > 0 && window.scrollY < 50){
+                  scrollTo = window.scrollY
                   document.documentElement.style.overflow = 'clip'
                   document.documentElement.style.marginTop = '200px'
                   window.scrollTo({
-                    top : 200,
+                    top : 200 + scrollTo,
                     behavior : 'auto'
                   })
                 }
@@ -216,7 +216,7 @@ const Profile = () => {
             >
             
           </div>
-        <AboutMe  aboutMeModal={aboutMeModal}  setAboutMeModal = {setAboutMeModal} aboutU={aboutU} setAboutU={setAboutU} />
+        <AboutMe scrollTo = {scrollTo}  aboutMeModal={aboutMeModal}  setAboutMeModal = {setAboutMeModal} aboutU={aboutU} setAboutU={setAboutU} />
 
     </motion.div>
 
