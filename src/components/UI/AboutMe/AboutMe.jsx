@@ -56,9 +56,7 @@ const AboutMe = ({ setAboutMeModal, setAboutU, aboutU, aboutMeModal }) => {
     }
   };
 
-  const disp = useMemo(() => {
-    return aboutMeModal === true ? "block" : "none";
-  }, [aboutMeModal]);
+  console.log(aboutMeModal)
 
   return (
     <div className="aboutMe"
@@ -83,16 +81,16 @@ const AboutMe = ({ setAboutMeModal, setAboutU, aboutU, aboutMeModal }) => {
       <div className="top">
         <img
           onClick={() => {
-            document.documentElement.style.paddingTop = '0px'
-            window.scrollTo({
-              top : 0,
-              behavior : 'auto'
-            })
+            // document.documentElement.style.paddingTop = '0px'
+            // window.scrollTo({
+            //   top : 0,
+            //   behavior : 'auto'
+            // })
             setAboutMeModal(false);
-            setPos(0);
-            setTran("0.4s");
-            animation = true;
-            document.documentElement.style.overflow = "auto";
+            // setPos(0);
+            // setTran("0.4s");
+            // animation = true;
+            // document.documentElement.style.overflow = "auto";
           }}
           src={closeIcon}
           alt=""

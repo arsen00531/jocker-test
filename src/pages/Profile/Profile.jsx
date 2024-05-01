@@ -155,9 +155,9 @@ const Profile = () => {
               onClick={() => {
                 document.documentElement.style.overflow = 'clip'
                 setAboutMeModal(true);
-                document.documentElement.style.paddingTop = '20px'
+                document.documentElement.style.marginTop = '200px'
                 window.scrollTo({
-                  top : 20,
+                  top : 200,
                   behavior : 'auto'
                 })
               }}
