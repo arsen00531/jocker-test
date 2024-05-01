@@ -39,6 +39,8 @@ const AboutMe = ({setAboutMeModal ,setAboutU , aboutU  , aboutMeModal}) => {
             setPos(0)
             setTran('0.4s')
             animation = true
+            document.documentElement.style.overflow = 'auto'
+            setAboutU(inf)
         }
         else{
             setPos(0)
@@ -63,6 +65,7 @@ const AboutMe = ({setAboutMeModal ,setAboutU , aboutU  , aboutMeModal}) => {
                     }} src={closeIcon} alt="" />
                     <p>О себе</p>
                     <p className="save" onClick={ () => {
+                        document.documentElement.style.overflow = 'auto'
                         setAboutU(inf)
                         setAboutMeModal(false)
                     }}>✔</p>
