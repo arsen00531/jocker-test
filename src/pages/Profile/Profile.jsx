@@ -155,6 +155,11 @@ const Profile = () => {
               onClick={() => {
                 document.documentElement.style.overflow = 'clip'
                 setAboutMeModal(true);
+                document.documentElement.style.paddingTop = '20px'
+                window.scrollTo({
+                  top : 20,
+                  behavior : 'auto'
+                })
               }}
             >
               <Pencel className="pencel"  />
