@@ -23,6 +23,7 @@ const variants = {
 };
 
 const Profile = () => {
+
   const dispatch = useDispatch();
 
   const setMenuActive = (arg) => {
@@ -42,6 +43,7 @@ const Profile = () => {
   const inputRef = useRef(null);
 
   const [aboutMeModal, setAboutMeModal] = useState(false);
+  console.log(aboutMeModal)
 
   // useEffect(  () => {
   //   if (inputRef.current){

@@ -56,7 +56,7 @@ const AboutMe = ({ setAboutMeModal, setAboutU, aboutU, aboutMeModal }) => {
     }
   };
 
-  console.log(aboutMeModal)
+
 
   return (
     <div className="aboutMe"
@@ -80,25 +80,54 @@ const AboutMe = ({ setAboutMeModal, setAboutU, aboutU, aboutMeModal }) => {
     >
       <div className="top">
         <img
-          onClick={() => {
-            // document.documentElement.style.paddingTop = '0px'
-            // window.scrollTo({
-            //   top : 0,
-            //   behavior : 'auto'
-            // })
+        onClick={ 
+            () => {
+                document.documentElement.style.paddingTop = '0px'
+                window.scrollTo({
+                  top : 0,
+                  behavior : 'auto'
+                })
+                setAboutMeModal(false);
+                setPos(0);
+                setTran("0.4s");
+                animation = true;
+                document.documentElement.style.overflow = "auto";
+              }
+        }
+          onTouchStart={() => {
+            document.documentElement.style.paddingTop = '0px'
+            window.scrollTo({
+              top : 0,
+              behavior : 'auto'
+            })
             setAboutMeModal(false);
-            // setPos(0);
-            // setTran("0.4s");
-            // animation = true;
-            // document.documentElement.style.overflow = "auto";
+            setPos(0);
+            setTran("0.4s");
+            animation = true;
+            document.documentElement.style.overflow = "auto";
           }}
+          style={ {zIndex : 20}}
           src={closeIcon}
           alt=""
         />
         <p>О себе</p>
         <p
           className="save"
-          onClick={() => {
+          onClick={ 
+            () => {
+                document.documentElement.style.paddingTop = '0px'
+                window.scrollTo({
+                  top : 0,
+                  behavior : 'auto'
+                })
+                setAboutMeModal(false);
+                setPos(0);
+                setTran("0.4s");
+                animation = true;
+                document.documentElement.style.overflow = "auto";
+              }
+        }
+          onTouchStart={() => {
             document.documentElement.style.paddingTop = '0px'
             window.scrollTo({
               top : 0,
