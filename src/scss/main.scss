@@ -17,8 +17,8 @@
   // }
 
 
-html { position: absolute; left: 0; top: 0; right: 0; bottom: 0; overflow: auto; }
-body { width: 100%; height: auto; }
+html { position: absolute; left: 0; top: 0; right: 0; bottom: 0;  }
+body { width: 100%; height: auto; background: rgb(24, 34, 45); }
 #app { width: 100%; height: auto; }
 
 .UperContainer{
@@ -80,7 +80,7 @@ body { width: 100%; height: auto; }
   transition: opacity 300ms, transform 300ms;
 }
 .aboutMe{
-  position: absolute;
+  position: fixed;
   background: rgb(24, 34, 45);
   top: 0%;
   width: calc(100% );

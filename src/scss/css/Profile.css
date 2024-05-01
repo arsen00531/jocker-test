@@ -235,7 +235,7 @@ input {
   letter-spacing: 1%;
   text-align: left;
   outline: none;
-  width: 77px;
+  background-color: transparent;
 }
 .profile__container .profile__about-me .ur__town .about__u-text:hover, .profile__container .profile__about-me .ur__town .about__u-text:focus {
   outline: none;
@@ -384,6 +384,7 @@ input {
 }
 
 .aboutMe {
+  position: fixed;
   height: 100vh;
   width: 100%;
   position: absolute;

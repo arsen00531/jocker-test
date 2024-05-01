@@ -1407,7 +1407,7 @@ input {
   letter-spacing: 1%;
   text-align: left;
   outline: none;
-  width: 77px;
+  background-color: transparent;
 }
 .profile__container .profile__about-me .ur__town .about__u-text:hover, .profile__container .profile__about-me .ur__town .about__u-text:focus {
   outline: none;
@@ -1556,6 +1556,7 @@ input {
 }
 
 .aboutMe {
+  position: fixed;
   height: 100vh;
   width: 100%;
   position: absolute;
@@ -2261,12 +2262,12 @@ html {
   top: 0;
   right: 0;
   bottom: 0;
-  overflow: auto;
 }
 
 body {
   width: 100%;
   height: auto;
+  background: rgb(24, 34, 45);
 }
 
 #app {
@@ -2372,7 +2373,7 @@ body {
 }
 
 .aboutMe {
-  position: absolute;
+  position: fixed;
   background: rgb(24, 34, 45);
   top: 0%;
   width: 100%;

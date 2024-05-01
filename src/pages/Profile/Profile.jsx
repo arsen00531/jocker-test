@@ -59,17 +59,6 @@ const Profile = () => {
     };
   });
   // setTimeout(window.scrollTo(0,0),100);
-  const animateAboutMe = useMemo(() => {
-    window.scrollTo( {
-      top : 0,
-      behavior : 'smooth'
-    } )
-    if (aboutMeModal) {
-      return { transform: "translateY(0px)" };
-    } else {
-      return { transform: "translateY(150%)" };
-    }
-  });
 
 
 
@@ -159,15 +148,16 @@ const Profile = () => {
             {aboutU}
           </p>
 
-          <p className="about__u-text">{aboutU}</p>
+          <textarea readOnly = {true} spellCheck = {false} value={aboutU} className="about__u-text" />
           <label htmlFor="aboutYou">
             <div
               className="pencel__wrapper"
               onClick={() => {
+                document.documentElement.style.overflow = 'hidden'
                 setAboutMeModal(true);
               }}
             >
-              <Pencel className="pencel" />
+              <Pencel className="pencel"  />
             </div>
           </label>
         </div>
@@ -196,9 +186,8 @@ const Profile = () => {
         </div>
       </div>
 
-      <div className="aboutMe" style={animateAboutMe}>
-        <AboutMe setAboutMeModal = {setAboutMeModal} />
-      </div>
+        <AboutMe aboutMeModal={aboutMeModal}  setAboutMeModal = {setAboutMeModal} aboutU={aboutU} setAboutU={setAboutU} />
+
     </motion.div>
   );
 };
