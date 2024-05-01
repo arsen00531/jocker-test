@@ -35,24 +35,28 @@ const AboutMe = ({ setAboutMeModal, setAboutU, aboutU, aboutMeModal }) => {
       setPos(position + 80);
     }
   };
+  function exitFunction(){
+            if(document.documentElement.style.marginTop !== '0px'){
+                document.documentElement.style.marginTop = '0px'
+                window.scrollTo({
+                    top : 0,
+                    behavior : 'auto'
+                })
+            }
+        setAboutMeModal(false);
+        setPos(80);
+        setTran("0.4s");
+        animation = true;
+        document.documentElement.style.overflow = "auto";
+  }
+
   const endTouchHandler = (e) => {
-
-
     setTouching(false);
     if (pos > 160) {
-        document.documentElement.style.marginTop = '0px'
-        window.scrollTo({
-            top : 0,
-            behavior : 'auto'
-          })
-      setAboutMeModal(false);
-      setPos(80);
-      setTran("0.4s");
-      animation = true;
-      document.documentElement.style.overflow = "auto";
-      setAboutU(inf);
+    exitFunction()
+    setAboutU(inf);
     } else {
-      setPos(80);
+    setPos(80);
     }
   };
 
@@ -82,31 +86,12 @@ const AboutMe = ({ setAboutMeModal, setAboutU, aboutU, aboutMeModal }) => {
         <img
         onClick={ 
             () => {
-                document.documentElement.style.marginTop = '0px'
-                window.scrollTo({
-                  top : 0,
-                  behavior : 'auto'
-                })
-                setAboutMeModal(false);
-                setPos(80);
-                setTran("0.4s");
-                animation = true;
-                document.documentElement.style.overflow = "auto";
+                exitFunction()
               }
         }
           onTouchStart={() => {
-            document.documentElement.style.marginTop = '0px'
-            window.scrollTo({
-              top : 0,
-              behavior : 'auto'
-            })
-            setAboutMeModal(false);
-            setPos(80);
-            setTran("0.4s");
-            animation = true;
-            document.documentElement.style.overflow = "auto";
+            exitFunction()
           }}
-          style={ {zIndex : 20}}
           src={closeIcon}
           alt=""
         />
@@ -115,30 +100,13 @@ const AboutMe = ({ setAboutMeModal, setAboutU, aboutU, aboutMeModal }) => {
           className="save"
           onClick={ 
             () => {
-                document.documentElement.style.marginTop = '0px'
-                window.scrollTo({
-                  top : 0,
-                  behavior : 'auto'
-                })
-                setAboutMeModal(false);
-                setPos(80);
-                setTran("0.4s");
-                animation = true;
-                document.documentElement.style.overflow = "auto";
+                setAboutU(inf)
+                exitFunction()
               }
         }
           onTouchStart={() => {
-            document.documentElement.style.marginTop = '0px'
-            window.scrollTo({
-              top : 0,
-              behavior : 'auto'
-            })
-            setAboutMeModal(false);
-            setPos(80);
-            setTran("0.4s");
-            animation = true;
-            document.documentElement.style.overflow = "auto";
-            setAboutU(inf);
+            setAboutU(inf)
+            exitFunction()
           }}
         >
           ✔

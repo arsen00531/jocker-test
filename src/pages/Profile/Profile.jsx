@@ -45,6 +45,7 @@ const Profile = () => {
   const [aboutMeModal, setAboutMeModal] = useState(false);
   console.log(aboutMeModal)
 
+
   // useEffect(  () => {
   //   if (inputRef.current){
   //     inputRef.current.setSelectionRange(inputRef.current.value.length, inputRef.current.value.length);
@@ -160,6 +161,7 @@ const Profile = () => {
               className="pencel__wrapper"
               onClick={() => {
                 setAboutMeModal(true);
+                document.documentElement.style.overflow = 'clip'
                 if (window.scrollY === 0){
                   document.documentElement.style.overflow = 'clip'
                   document.documentElement.style.marginTop = '200px'
@@ -214,7 +216,7 @@ const Profile = () => {
             >
             
           </div>
-        <AboutMe aboutMeModal={aboutMeModal}  setAboutMeModal = {setAboutMeModal} aboutU={aboutU} setAboutU={setAboutU} />
+        <AboutMe  aboutMeModal={aboutMeModal}  setAboutMeModal = {setAboutMeModal} aboutU={aboutU} setAboutU={setAboutU} />
 
     </motion.div>
 
