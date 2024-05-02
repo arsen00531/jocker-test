@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { CSSTransition } from "react-transition-group";
 
 import Burger from "../../components/UI/Burger/Burger";
@@ -113,18 +113,18 @@ const MyAds = () => {
 
   function animation(i) {
     if (isThis.ind === i) {
+      if (scrollPlace == 0){
+        scrollPlace = window.scrollY
+        console.log(scrollPlace)
+      }
       if(tran != '0s')
       {
         setTimeout(() => {
           setThis({ ...isThis, top: 53 });
           setTran("0s");
-        }, 350);
+        }, 250);
       }
-      if (scrollPlace == 0){
-        scrollPlace = window.scrollY
-        console.log('Установил!!!!')
-        console.log(scrollPlace)
-      }
+
 
       return {
         transform: "translateY(" + (-1 * isThis.top + 75).toString() + "px)",
@@ -136,7 +136,7 @@ const MyAds = () => {
         setTimeout(() => {
           setTraper("0px");
           setDisplay("none");
-        }, 350);
+        }, 250);
       }
       return { opacity: "0", maxHeight: traper, display: tDisplay };
     }
@@ -183,19 +183,24 @@ const MyAds = () => {
     }
 
   } , [isThis]  )
-
+  
   // useEffect( () => {
-  //   if (isThis.top === 53){
-  //     window.scrollTo({
-  //       top: 80,
+    //   if (isThis.top === 53){
+      //     window.scrollTo({
+        //       top: 80,
   //       behavior: 'smooth'
   //   });
   //   }
   // } , [reactAnimate] )
 
-
-
-
+  
+  const myAdsRef = useRef()
+  
+  useEffect(() => {
+    if (myAdsRef.current){
+      myAdsRef.current.scrollTo(0 , 400)
+    }
+  }) 
   return (
     <>
       <Burger
@@ -203,7 +208,9 @@ const MyAds = () => {
           setMenuActive(true);
         }}
       />
-      <div className="MyAdsContainer">
+      <div style={{
+        overflow : 'auto'
+      }} className="MyAdsContainer" ref={myAdsRef}  >
 
         <button
         style={{
@@ -217,13 +224,8 @@ const MyAds = () => {
           setTran('0.2s')
           setDisplay('block')
           setTimeout( () => {
-
-            window.scrollTo({
-              top : scrollPlace,
-              behavior : 'auto'
-            })
-              scrollPlace = 0
-          }, 20 )
+            myAdsRef.current.scrollTo(0 , 200)
+          }, 10 )
 
         }}>пвыаыфвыа</button>
         <p className="MyAds">Мои задания</p>
