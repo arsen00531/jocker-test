@@ -5,14 +5,12 @@ import closeIcon from "../../../images/icons/close.svg";
 let animation = true;
 const AboutMe = ({ setAboutMeModal, setAboutU, aboutU, aboutMeModal , scrollTo }) => {
   const [inf, setInf] = useState(aboutU);
-  const aboutMeRef = useRef(null);
+  console.log(inf , inf.length , inf.split(/\r\n|\r|\n/).length - 1)
   const [pos, setPos] = useState(80);
   const [startMove, setStartMove] = useState(0);
   const [tran, setTran] = useState("0.4s");
-  const [touching, setTouching] = useState(false);
-  window.Telegram.WebApp.expand();
+
   const animateAboutMe = useMemo(() => {
-    window.Telegram.WebApp.expand();
     if (aboutMeModal) {
       if (animation) {
         animation = false;
@@ -53,7 +51,7 @@ const AboutMe = ({ setAboutMeModal, setAboutU, aboutU, aboutMeModal , scrollTo }
   }
 
   const endTouchHandler = (e) => {
-    setTouching(false);
+
     if (pos > 160) {
     exitFunction()
     setAboutU(inf);
@@ -75,7 +73,6 @@ const AboutMe = ({ setAboutMeModal, setAboutU, aboutU, aboutMeModal , scrollTo }
     }}
     onTouchStart={(e) => {
         e.preventDefault()
-      setTouching(true);
       setStartMove(e.touches[0].pageY);
     }}
     onTouchEnd={endTouchHandler}>
@@ -84,7 +81,11 @@ const AboutMe = ({ setAboutMeModal, setAboutU, aboutU, aboutMeModal , scrollTo }
     <div
     className="aboutMeContainer"
     >
-      <div className="top">
+
+        <div className="whiteRec">
+            
+        </div>
+      {/* <div className="top">
         <img
         onClick={ 
             () => {
@@ -113,7 +114,7 @@ const AboutMe = ({ setAboutMeModal, setAboutU, aboutU, aboutMeModal , scrollTo }
         >
           ✔
         </p>
-      </div>
+      </div> */}
       <div className="about__reason">
         <p>Опишите свой опыт, подход к работе.</p>
         <p>Почему заказ нужно доверить именно вам?</p>
@@ -123,7 +124,6 @@ const AboutMe = ({ setAboutMeModal, setAboutU, aboutU, aboutMeModal , scrollTo }
         <textarea
     
           onChange={(e) => {
-            console.log(inf);
             setInf(e.target.value);
           }}
           style={{

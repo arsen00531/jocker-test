@@ -46,12 +46,14 @@ input {
           align-items: center;
 }
 .profile__container .pencel {
-  -webkit-transform: translateY(2.4px);
-      -ms-transform: translateY(2.4px);
-          transform: translateY(2.4px);
-  width: 12.8px;
+  -webkit-transform: translateY(5px);
+      -ms-transform: translateY(5px);
+          transform: translateY(5px);
+  width: 18.8px;
+  height: auto;
 }
-.profile__container .change {
+
+.change {
   color: rgb(218, 245, 254);
   font-family: "SF Pro Display";
   font-size: 14.67px;
@@ -62,7 +64,8 @@ input {
   margin-left: auto;
   margin-right: auto;
 }
-.profile__container .profile__options {
+
+.profile__options {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -76,7 +79,8 @@ input {
   /* Cards */
   background: rgb(32, 48, 63);
 }
-.profile__container .option__balance {
+
+.option__balance {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -90,7 +94,8 @@ input {
           align-items: center;
   border-bottom: 0.5px solid rgb(60, 61, 63);
 }
-.profile__container .option__left {
+
+.option__left {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -99,7 +104,7 @@ input {
       -ms-flex-align: center;
           align-items: center;
 }
-.profile__container .option__left p {
+.option__left p {
   color: rgb(255, 255, 255);
   font-family: "SF Pro Display 400";
   font-size: 16.67px;
@@ -108,7 +113,8 @@ input {
   letter-spacing: 1%;
   text-align: left;
 }
-.profile__container .option__balance-block {
+
+.option__balance-block {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -119,7 +125,8 @@ input {
           align-items: center;
   gap: 3px;
 }
-.profile__container .tonPrice {
+
+.tonPrice {
   font-family: "SF Compact Rounded";
   font-size: 16.67px;
   font-weight: 500;
@@ -127,12 +134,14 @@ input {
   letter-spacing: 1%;
   text-align: right;
 }
-.profile__container .Dymond {
+
+.Dymond {
   width: 16px;
   height: 16px;
   margin-right: 3px;
 }
-.profile__container .option__money {
+
+.option__money {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -141,7 +150,7 @@ input {
       -ms-flex-align: self-start;
           align-items: self-start;
 }
-.profile__container .option__money p {
+.option__money p {
   font-family: "SF Compact Rounded";
   color: rgb(218, 245, 254);
   font-size: 16.67px;
@@ -150,11 +159,13 @@ input {
   letter-spacing: 1%;
   text-align: right;
 }
-.profile__container .arrowRight {
+
+.arrowRight {
   width: 6.4px;
   height: 11.2px;
 }
-.profile__container .option {
+
+.option {
   padding-top: 6.5px;
   padding-bottom: 6.5px;
   -webkit-box-align: center;
@@ -171,12 +182,13 @@ input {
   padding-left: 2px;
   padding-right: 16px;
 }
-.profile__container .option:last-child {
+.option:last-child {
   border-bottom: none;
   border-bottom-left-radius: 9.6px;
   border-bottom-right-radius: 9.6px;
 }
-.profile__container .profile__about-me {
+
+.profile__about-me {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -188,7 +200,7 @@ input {
   margin-top: 29px;
   margin-left: 16px;
 }
-.profile__container .profile__about-me p {
+.profile__about-me p {
   color: rgb(255, 255, 255);
   font-family: "SF Pro Display 600";
   font-size: 20.72px;
@@ -197,13 +209,16 @@ input {
   letter-spacing: 0%;
   text-align: left;
 }
-.profile__container .profile__about-me .ur__town {
+.profile__about-me .ur__town {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  gap: 8px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
-.profile__container .profile__about-me .hiddenP {
+.profile__about-me .hiddenP {
   color: rgb(218, 245, 254);
   font-family: "SF Pro Display 400";
   font-size: 16.67px;
@@ -217,7 +232,7 @@ input {
   bottom: 41%;
   visibility: hidden;
 }
-.profile__container .profile__about-me .ur__town {
+.profile__about-me .ur__town {
   color: rgb(218, 245, 254);
   font-family: "SF Pro Display 400";
   font-size: 16.67px;
@@ -226,7 +241,7 @@ input {
   letter-spacing: 1%;
   text-align: left;
 }
-.profile__container .profile__about-me .ur__town .about__u-text {
+.profile__about-me .ur__town .about__u-text {
   color: rgb(218, 245, 254);
   font-family: "SF Pro Display 400";
   font-size: 16.67px;
@@ -237,11 +252,12 @@ input {
   outline: none;
   background-color: transparent;
 }
-.profile__container .profile__about-me .ur__town .about__u-text:hover, .profile__container .profile__about-me .ur__town .about__u-text:focus {
+.profile__about-me .ur__town .about__u-text:hover, .profile__about-me .ur__town .about__u-text:focus {
   outline: none;
   border: none;
 }
-.profile__container .profile__works {
+
+.profile__works {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -252,7 +268,7 @@ input {
   margin-top: 25px;
   margin-left: 16px;
 }
-.profile__container .profile__works p:nth-child(1) {
+.profile__works p:nth-child(1) {
   color: rgb(255, 255, 255);
   font-family: "SF Pro Display 600";
   font-size: 20.72px;
@@ -262,7 +278,7 @@ input {
   text-align: left;
   margin-bottom: 6px;
 }
-.profile__container .profile__works p:nth-child(2) {
+.profile__works p:nth-child(2) {
   color: rgb(218, 245, 254);
   font-family: "SF Pro Display 400";
   font-size: 16.67px;
@@ -272,7 +288,7 @@ input {
   text-align: left;
   margin-bottom: 1px;
 }
-.profile__container .profile__works p:nth-child(3) {
+.profile__works p:nth-child(3) {
   color: rgb(149, 151, 158);
   font-family: "SF Pro Display";
   font-size: 14.67px;
@@ -281,7 +297,8 @@ input {
   letter-spacing: 0%;
   text-align: left;
 }
-.profile__container .profile__veryfication {
+
+.profile__veryfication {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -293,7 +310,7 @@ input {
       -ms-flex-direction: column;
           flex-direction: column;
 }
-.profile__container .profile__veryfication .veryfication {
+.profile__veryfication .veryfication {
   color: rgb(255, 255, 255);
   font-family: "SF Pro Display 600";
   font-size: 20.72px;
@@ -303,7 +320,7 @@ input {
   text-align: left;
   margin-left: 16px;
 }
-.profile__container .profile__veryfication .veryfication__block {
+.profile__veryfication .veryfication__block {
   margin-left: 4px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -318,11 +335,11 @@ input {
   border-radius: 11.2px;
   padding: 16px;
 }
-.profile__container .profile__veryfication .veryfication__image {
+.profile__veryfication .veryfication__image {
   border-radius: 19.2px;
   background: rgb(61, 168, 248);
 }
-.profile__container .profile__veryfication .veryfication__block-text {
+.profile__veryfication .veryfication__block-text {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -332,7 +349,7 @@ input {
           flex-direction: column;
   gap: 3px;
 }
-.profile__container .profile__veryfication .veryfication__block-text p:nth-child(1) {
+.profile__veryfication .veryfication__block-text p:nth-child(1) {
   color: rgb(255, 255, 255);
   font-family: "SF Pro Display";
   font-size: 17.67px;
@@ -341,7 +358,7 @@ input {
   letter-spacing: 0%;
   text-align: left;
 }
-.profile__container .profile__veryfication .veryfication__block-text p:nth-child(2) {
+.profile__veryfication .veryfication__block-text p:nth-child(2) {
   color: rgb(218, 245, 254);
   font-family: "SF Pro Display";
   font-size: 14.67px;
@@ -350,24 +367,28 @@ input {
   letter-spacing: 0%;
   text-align: left;
 }
-.profile__container .profile__icon {
+
+.profile__icon {
   width: 90.24px;
   height: 90.24px;
   margin-left: auto;
   margin-right: auto;
 }
-.profile__container .orangeWallet {
+
+.orangeWallet {
   width: 30px;
   height: 30px;
 }
-.profile__container .Okey {
+
+.Okey {
   border-radius: 50%;
   background: rgb(61, 168, 248);
   min-width: 40px;
   height: 40px;
   position: relative;
 }
-.profile__container .Subtract {
+
+.Subtract {
   position: absolute;
   left: 50%;
   bottom: 50%;
@@ -379,7 +400,8 @@ input {
   width: unset;
   height: unset;
 }
-.profile__container .greyArrow {
+
+.greyArrow {
   width: 6.5024px;
   height: 11.2992px;
   margin-left: auto;
@@ -397,4 +419,43 @@ input {
 
 .profile__container {
   overflow-y: hidden;
+}
+
+.aboutMeTitle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 5px;
+}
+
+.also {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 5px 12px;
+  border: 1px solid black;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 2px;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: 0.67px solid rgb(181, 206, 217);
+  border-radius: 21.67px;
+  margin-top: 6px;
+}
+
+.also p {
+  color: rgb(218, 245, 254);
+  font-family: "SF Pro Display";
+  font-size: 14.67px;
+  font-weight: 500;
+  line-height: 17.67px;
+  letter-spacing: 0%;
+  text-align: left;
 }

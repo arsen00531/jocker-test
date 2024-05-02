@@ -16,7 +16,7 @@ import BackButton from "../../constants/BackButton";
 import userInfo from "../../constants/Name";
 import AboutMe from "../../components/UI/AboutMe/AboutMe";
 
-let scrollTo = 0
+let scrollTo = 0;
 const variants = {
   initial: { opacity: 0 },
   animate: { opacity: 1 },
@@ -24,13 +24,11 @@ const variants = {
 };
 
 const Profile = () => {
-
   const dispatch = useDispatch();
 
   const setMenuActive = (arg) => {
     dispatch(changeMenuActive(arg));
   };
-
 
   const [name, setName] = useState("Твое имя");
 
@@ -43,7 +41,8 @@ const Profile = () => {
   const inputRef = useRef(null);
 
   const [aboutMeModal, setAboutMeModal] = useState(false);
-  
+
+  const [hideAboutMe, setHideAboutMe] = useState(true)
 
   // useEffect(  () => {
   //   if (inputRef.current){
@@ -62,12 +61,32 @@ const Profile = () => {
   });
   // setTimeout(window.scrollTo(0,0),100);
 
-  const zInd = useMemo(  () => {
-    return aboutMeModal ? '2' : '-1'
-  }, [aboutMeModal]  )
-  const opac = useMemo(  () => {
-    return aboutMeModal ? '0.8' : '0'
-  } ,[aboutMeModal] )
+  const areaRef = useRef(null)
+
+  useEffect( () => {
+     if (areaRef.current){
+        if ((aboutU.split(/\r\n|\r|\n/).length) === 1){
+          areaRef.current.style.height = '18.3px'
+        }
+        else{
+          if (hideAboutMe){
+            areaRef.current.style.height = '41px'
+          }
+          else{
+            areaRef.current.style.height = 'auto'
+            console.log('вызов')
+            areaRef.current.style.height = areaRef.current.scrollHeight  + 'px'
+          }
+        }
+     }
+  } , [aboutU, hideAboutMe] )
+
+  const zInd = useMemo(() => {
+    return aboutMeModal ? "2" : "-1";
+  }, [aboutMeModal]);
+  const opac = useMemo(() => {
+    return aboutMeModal ? "0.8" : "0";
+  }, [aboutMeModal]);
   return (
     <motion.div
       className="profile__container"
@@ -148,33 +167,58 @@ const Profile = () => {
       </div>
 
       <div className="profile__about-me">
-        <p>О себе</p>
-        <div className="ur__town">
-          <p ref={hiddenP} className="hiddenP">
-            {aboutU}
-          </p>
+        <div className="aboutMeTitle">
+          <p>О себе</p>
 
-          <textarea readOnly = {true} spellCheck = {false} value={aboutU} className="about__u-text" />
           <label htmlFor="aboutYou">
             <div
               className="pencel__wrapper"
               onClick={() => {
                 setAboutMeModal(true);
-                document.documentElement.style.overflow = 'clip'
-                if (window.scrollY >= 0 && window.scrollY <= 50){
-                  scrollTo = window.scrollY
-                  document.documentElement.style.overflow = 'clip'
-                  document.documentElement.style.marginTop = '200px'
+                document.documentElement.style.overflow = "clip";
+                if (window.scrollY >= 0 && window.scrollY <= 50) {
+                  scrollTo = window.scrollY;
+                  document.documentElement.style.overflow = "clip";
+                  document.documentElement.style.marginTop = "200px";
                   window.scrollTo({
-                    top : 200 + scrollTo,
-                    behavior : 'auto'
-                  })
+                    top: 200 + scrollTo,
+                    behavior: "auto",
+                  });
                 }
               }}
             >
-              <Pencel className="pencel"  />
+
+              <Pencel className="pencel" />
+              
             </div>
           </label>
+        </div>
+        <div className="ur__town">
+          <p ref={hiddenP} className="hiddenP">
+            {aboutU}
+          </p>
+
+          <textarea
+            ref={areaRef}
+
+            readOnly={true}
+            spellCheck={false}
+            value={aboutU}
+            className="about__u-text"
+          />
+
+          <div style={(aboutU.split(/\r\n|\r|\n/).length) > 2 
+        ? {display : 'flex'}
+        : {display : 'none'}} 
+          className="also" 
+          onClick={() => {  
+
+            setHideAboutMe(!hideAboutMe)
+          }}>
+            <p>
+              {hideAboutMe ? 'Читать далее' : 'Скрыть'}
+            </p>
+          </div>
         </div>
       </div>
 
@@ -200,26 +244,27 @@ const Profile = () => {
           <img src={greyArrowRight} className="greyArrow" alt="" />
         </div>
       </div>
-          <div className="black"
-          style={{
-            position : 'absolute',
-            zIndex : zInd,
-            background : 'black',
-            width : '100%',
-            height : '100%',
-            left : '0',
-            top : '0',
-            opacity : opac
-            
-
-          }} 
-            >
-            
-          </div>
-        <AboutMe scrollTo = {scrollTo}  aboutMeModal={aboutMeModal}  setAboutMeModal = {setAboutMeModal} aboutU={aboutU} setAboutU={setAboutU} />
-
+      <div
+        className="black"
+        style={{
+          position: "absolute",
+          zIndex: zInd,
+          background: "black",
+          width: "100%",
+          height: "100%",
+          left: "0",
+          top: "0",
+          opacity: opac,
+        }}
+      ></div>
+      <AboutMe
+        scrollTo={scrollTo}
+        aboutMeModal={aboutMeModal}
+        setAboutMeModal={setAboutMeModal}
+        aboutU={aboutU}
+        setAboutU={setAboutU}
+      />
     </motion.div>
-
   );
 };
 

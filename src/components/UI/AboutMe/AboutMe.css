@@ -132,3 +132,11 @@
 .save{
     transform: translateY(-3px);
 }
+.whiteRec{
+    width: 35.33px;
+    height: 4.33px;
+    border-radius: 19.33px;
+    background: rgb(255, 255, 255);
+    margin-left: auto;
+    margin-right: auto;
+}

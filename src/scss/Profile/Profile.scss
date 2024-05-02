@@ -39,8 +39,10 @@ input {
 
     }
     .pencel{
-        transform: translateY(2.4px);
-        width: calc(40px* 0.32)
+        transform: translateY(5px);
+        width: 18.8px;
+        height: auto;
+    }
     }
     .change{
         color: rgb(218, 245, 254);
@@ -160,7 +162,7 @@ input {
         }
         .ur__town{
             display: flex;
-            gap: 8px;
+            flex-direction: column;
 
         }
         .hiddenP{
@@ -330,9 +332,9 @@ input {
         height: calc(35.31px * $width);
         margin-left: auto;
     }
-}
+
 .aboutMe{
-    position: fixed;
+    position: fixed;    
     height: 100vh;
     width: 100%;
     position: absolute;
@@ -342,4 +344,30 @@ input {
 }
 .profile__container{
     overflow-y: hidden;
+}
+.aboutMeTitle{
+    display: flex;  
+    gap: 5px;
+}
+.also{
+    display: flex;
+    padding: 5px 12px;
+    border:  1px solid black;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+    align-self: flex-start;
+    box-sizing: border-box;
+    border: 0.67px solid rgb(181, 206, 217);
+    border-radius: 21.67px;
+    margin-top: 6px;
+}
+.also p{
+    color: rgb(218, 245, 254);
+    font-family: "SF Pro Display";
+    font-size: 14.67px;
+    font-weight: 500;
+    line-height: 17.67px;
+    letter-spacing: 0%;
+    text-align: left;
 }
