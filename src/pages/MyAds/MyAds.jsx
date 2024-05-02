@@ -165,7 +165,7 @@ const MyAds = () => {
 
         window.scrollTo({
           top : 0,
-          behavior : 'smooth'
+          behavior : 'auto'
         })
         return {
           transform: "translateX(16px)",
@@ -220,7 +220,7 @@ const MyAds = () => {
 
             window.scrollTo({
               top : scrollPlace,
-              behavior : 'smooth'
+              behavior : 'auto'
             })
               scrollPlace = 0
           }, 20 )
