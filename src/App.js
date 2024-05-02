@@ -53,9 +53,6 @@ function App() {
   
   window.Telegram.WebApp.expand();
   const app = window.Telegram.WebApp;
-  app.ready()
-  app.isClosingConfirmationEnabled = true;
-
   const dispatch = useDispatch()
   // alert(window.Telegram.WebApp.initDataUnsafe.user.photo_url)
   const orderInformations = useSelector(state => state.information.orderInformations)
