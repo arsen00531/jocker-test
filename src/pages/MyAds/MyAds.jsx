@@ -21,9 +21,9 @@ import Reaction from "./Reaction";
 import AboutReaction from "./AboutReaction";
 
 
-let scrollPlace = 0
 
 const MyAds = () => {
+  const [scrollPlace, setScrollPlace] = useState(0)
   const values = ["Я испольнитель", "Я заказчик"];
   const keys = ["freelancer", "customer"];
   const [nowValue, setNowKey] = useState("freelancer");
@@ -108,13 +108,13 @@ const MyAds = () => {
   const [isThis, setThis] = useState({ ind: -1, top: undefined, height: 0 });
 
   const [traper, setTraper] = useState("unset");
-  const [tran, setTran] = useState("0.2s");
+  const [tran, setTran] = useState("0.3s");
   const [tDisplay, setDisplay] = useState("block");
 
   function animation(i) {
     if (isThis.ind === i) {
       if (scrollPlace == 0){
-        scrollPlace = window.scrollY
+        setScrollPlace(window.scrollY)
         console.log(scrollPlace)
       }
       if(tran != '0s')
@@ -122,7 +122,7 @@ const MyAds = () => {
         setTimeout(() => {
           setThis({ ...isThis, top: 53 });
           setTran("0s");
-        }, 250);
+        }, 310);
       }
 
 
@@ -136,7 +136,7 @@ const MyAds = () => {
         setTimeout(() => {
           setTraper("0px");
           setDisplay("none");
-        }, 250);
+        }, 310);
       }
       return { opacity: "0", maxHeight: traper, display: tDisplay };
     }
@@ -195,22 +195,17 @@ const MyAds = () => {
 
   
   const myAdsRef = useRef()
-  
-  useEffect(() => {
-    if (myAdsRef.current){
-      myAdsRef.current.scrollTo(0 , 400)
-    }
-  }) 
   return (
-    <>
+    <div scr ref={myAdsRef} style={{
+      height : 'auto'
+    }}>
       <Burger
         onClick={(e) => {
           setMenuActive(true);
         }}
       />
       <div style={{
-        overflow : 'auto'
-      }} className="MyAdsContainer" ref={myAdsRef}  >
+      }} className="MyAdsContainer"   >
 
         <button
         style={{
@@ -224,8 +219,9 @@ const MyAds = () => {
           setTran('0.2s')
           setDisplay('block')
           setTimeout( () => {
-            myAdsRef.current.scrollTo(0 , 200)
+            window.scrollTo(scrollPlace , 200)
           }, 10 )
+          setScrollPlace(0)
 
         }}>пвыаыфвыа</button>
         <p className="MyAds">Мои задания</p>
@@ -336,7 +332,7 @@ const MyAds = () => {
 
 
 
-    </>
+    </div>
   );
 };
 

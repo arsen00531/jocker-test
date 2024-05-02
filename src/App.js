@@ -42,7 +42,7 @@ const AnimatedSwitch = () =>{
                 <Route path="/AdCreating" element = {<AdCreating/>} />
                 <Route path="/Profile" element = {<Profile />}  /> 
                 <Route path="/Balance" element = { <Balance /> }  />
-                {/* <Route path="/MyAds" element = { <MyAds/> } /> */}
+                <Route path="/MyAds" element = { <MyAds/> } />
             </Routes>
           </AnimatePresence>
         </div>
