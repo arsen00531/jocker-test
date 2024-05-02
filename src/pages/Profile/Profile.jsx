@@ -15,6 +15,7 @@ import { Link, useNavigate } from "react-router-dom";
 import BackButton from "../../constants/BackButton";
 import userInfo from "../../constants/Name";
 import AboutMe from "../../components/UI/AboutMe/AboutMe";
+import TextAboutMe from "../../components/UI/AboutMeText/TextAboutMe";
 
 let scrollTo = 0;
 const variants = {
@@ -34,15 +35,13 @@ const Profile = () => {
 
   const [aboutU, setAboutU] = useState("18,Москва");
 
-  const hiddenP = useRef(null);
-
   const navigate = useNavigate();
 
   const inputRef = useRef(null);
 
   const [aboutMeModal, setAboutMeModal] = useState(false);
 
-  const [hideAboutMe, setHideAboutMe] = useState(true)
+
 
   // useEffect(  () => {
   //   if (inputRef.current){
@@ -63,23 +62,7 @@ const Profile = () => {
 
   const areaRef = useRef(null)
 
-  useEffect( () => {
-     if (areaRef.current){
-        if ((aboutU.split(/\r\n|\r|\n/).length) === 1){
-          areaRef.current.style.height = '18.3px'
-        }
-        else{
-          if (hideAboutMe){
-            areaRef.current.style.height = '41px'
-          }
-          else{
-            areaRef.current.style.height = 'auto'
-            console.log('вызов')
-            areaRef.current.style.height = areaRef.current.scrollHeight  + 'px'
-          }
-        }
-     }
-  } , [aboutU, hideAboutMe] )
+
 
   const zInd = useMemo(() => {
     return aboutMeModal ? "2" : "-1";
@@ -102,7 +85,6 @@ const Profile = () => {
 
       <p
         ref={inputRef}
-        value={"dsada"}
         onChange={(e) => setName(e.target.value)}
         className="urName"
         id="Name"
@@ -193,33 +175,7 @@ const Profile = () => {
             </div>
           </label>
         </div>
-        <div className="ur__town">
-          <p ref={hiddenP} className="hiddenP">
-            {aboutU}
-          </p>
-
-          <textarea
-            ref={areaRef}
-
-            readOnly={true}
-            spellCheck={false}
-            value={aboutU}
-            className="about__u-text"
-          />
-
-          <div style={(aboutU.split(/\r\n|\r|\n/).length) > 2 
-        ? {display : 'flex'}
-        : {display : 'none'}} 
-          className="also" 
-          onClick={() => {  
-
-            setHideAboutMe(!hideAboutMe)
-          }}>
-            <p>
-              {hideAboutMe ? 'Читать далее' : 'Скрыть'}
-            </p>
-          </div>
-        </div>
+        <TextAboutMe aboutU={aboutU} />
       </div>
 
       <div className="profile__works">

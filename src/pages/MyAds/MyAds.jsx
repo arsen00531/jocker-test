@@ -20,6 +20,9 @@ import "./MyAds.css";
 import Reaction from "./Reaction";
 import AboutReaction from "./AboutReaction";
 
+
+let scrollPlace = 0
+
 const MyAds = () => {
   const values = ["Я испольнитель", "Я заказчик"];
   const keys = ["freelancer", "customer"];
@@ -44,6 +47,8 @@ const MyAds = () => {
   );
 
   const [index, setIndex] = useState(0);
+
+
 
   function setMyArray(par) {
     console.log(par);
@@ -103,7 +108,7 @@ const MyAds = () => {
   const [isThis, setThis] = useState({ ind: -1, top: undefined, height: 0 });
 
   const [traper, setTraper] = useState("unset");
-  const [tran, setTran] = useState("0.4s");
+  const [tran, setTran] = useState("0.2s");
   const [tDisplay, setDisplay] = useState("block");
 
   function animation(i) {
@@ -113,7 +118,12 @@ const MyAds = () => {
         setTimeout(() => {
           setThis({ ...isThis, top: 53 });
           setTran("0s");
-        }, 550);
+        }, 350);
+      }
+      if (scrollPlace == 0){
+        scrollPlace = window.scrollY
+        console.log('Установил!!!!')
+        console.log(scrollPlace)
       }
 
       return {
@@ -126,7 +136,7 @@ const MyAds = () => {
         setTimeout(() => {
           setTraper("0px");
           setDisplay("none");
-        }, 550);
+        }, 350);
       }
       return { opacity: "0", maxHeight: traper, display: tDisplay };
     }
@@ -152,43 +162,39 @@ const MyAds = () => {
     }
     else {
       if (isThis.top === 53) {
+
+        window.scrollTo({
+          top : 0,
+          behavior : 'smooth'
+        })
         return {
-          top: (isThis.height + 99).toString() + "px",
           transform: "translateX(16px)",
-          position : 'absolute'
+          position : 'unset',
+          marginTop : '46px',
+          transition : '0s'
         };
       }
 
       return {
         top: (isThis.height + 99).toString() + "px",
         transform: "translateX(16px)",
+        
       };
     }
 
   } , [isThis]  )
 
-  useEffect( () => {
-    if (isThis.top === 53){
-      console.log('Go')
-      window.scrollTo({
-        top: 80,
-        behavior: 'smooth'
-    });
-    }
-  } , [reactAnimate] )
+  // useEffect( () => {
+  //   if (isThis.top === 53){
+  //     window.scrollTo({
+  //       top: 80,
+  //       behavior: 'smooth'
+  //   });
+  //   }
+  // } , [reactAnimate] )
 
 
-  function scrollEs(){
-    console.log('scroll')
-    setTimeout( ()=> {
-      window.scrollTo({
-        top: 500,
-        behavior: 'smooth'
-    })
-    } , 2000 )
-  }
 
-  console.log(isThis)
 
   return (
     <>
@@ -198,14 +204,27 @@ const MyAds = () => {
         }}
       />
       <div className="MyAdsContainer">
-      <button onClick={() => {
-        scrollEs()
-      }}>scrollYes </button>
-        <button onClick={() => {
+
+        <button
+        style={{
+          position : 'fixed',
+          left : '20px',
+          top : '20px'
+        }}
+        onClick={() => {
           setThis({ ind: -1, top: undefined, height: 0 })
           setTraper('unset')
-          setTran('0.4s')
+          setTran('0.2s')
           setDisplay('block')
+          setTimeout( () => {
+
+            window.scrollTo({
+              top : scrollPlace,
+              behavior : 'smooth'
+            })
+              scrollPlace = 0
+          }, 20 )
+
         }}>пвыаыфвыа</button>
         <p className="MyAds">Мои задания</p>
 
@@ -305,11 +324,11 @@ const MyAds = () => {
       </div>  
 
 
-
+{/* 
        <div className="aboutReaction__block" >
               <AboutReaction />
         
-        </div>       
+        </div>        */}
 
 
 

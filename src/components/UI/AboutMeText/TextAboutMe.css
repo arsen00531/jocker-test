@@ -1,0 +1,21 @@
+.about__u-text{
+    color: rgb(218, 245, 254);
+    font-family: "SF Pro Display 400";
+    font-size: 16.67px;
+    font-weight: 400;
+    line-height: 18.31px;
+    letter-spacing: 1%;
+    text-align: left;
+    outline: none;
+    background-color: transparent;
+    overflow-y: hidden;
+
+}
+.also{
+    align-self: flex-start;
+}
+.ur__town{
+    display: flex;
+    flex-direction: column;
+}
+

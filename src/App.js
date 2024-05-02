@@ -34,7 +34,7 @@ const AnimatedSwitch = () =>{
       const location = useLocation()
       const isMenuActive = useSelector(state => state.menu.value)
       return (
-        <div className="container">
+        <div className="container" >
           <div style={ isMenuActive ? {   opacity : '0.6' }  : { maxWidth : '0px' } } className="black" ></div>
           <AnimatePresence>
             <Routes location={location} key={location.pathname}>
@@ -42,7 +42,7 @@ const AnimatedSwitch = () =>{
                 <Route path="/AdCreating" element = {<AdCreating/>} />
                 <Route path="/Profile" element = {<Profile />}  /> 
                 <Route path="/Balance" element = { <Balance /> }  />
-                {/* <Route path="/MyAds" element = { <MyAds/> } /> */}
+                <Route path="/MyAds" element = { <MyAds/> } />
             </Routes>
           </AnimatePresence>
         </div>
