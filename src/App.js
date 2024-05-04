@@ -71,18 +71,14 @@ function App() {
   console.log(userInfo)
 
 
-  // async function catchMe(){
-  //   let io = await axios.get( 'http://localhost:5000/user/findOne' ,  {
-  //     params : {
-  //       id : 858931156
-  //     }
-  //   })
-  //   console.log(io)
-  //   return io
-  // }
-  // useEffect (  () => {
-  //   catchMe()
-  // }  )
+  async function catchMe(){
+    let io = await axios.get( 'http://localhost:5000/user/findAll' )
+    console.log(io)
+    return io
+  }
+  useEffect (  () => {
+    catchMe()
+  }  )
 
 
   // async function addOne(){
