@@ -73,7 +73,7 @@ function App() {
 
 
   async function catchMe(){
-    let io = await axios.get( 'http://localhost:5000/user/findAll' )
+    let io = await axios.get( 'http://10.0.0.5:5000/user/findAll' )
     console.log(io)
     return io
   }
