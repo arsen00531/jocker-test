@@ -23,6 +23,7 @@ import MyAds from './pages/MyAds/MyAds'
 import { fetchTon } from "./store/ton";
 import AdCreating from "./pages/AdCreating";
 import { fetchUserInfo } from "./store/telegramUserInfo";
+import axios from "axios";
 
 
 const app = window.Telegram.WebApp;
